@@ -300,6 +300,40 @@ if (dashboardSection) {
     dashboardObserver.observe(dashboardSection);
 }
 
+// ダッシュボード画像の右クリックとコピーを無効化
+document.addEventListener('DOMContentLoaded', () => {
+    const dashboardImages = document.querySelectorAll('.dashboard-image, .dashboard-preview-image');
+    
+    dashboardImages.forEach(img => {
+        // 右クリックメニューを無効化
+        img.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // ドラッグを無効化
+        img.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // 画像の選択を無効化
+        img.style.userSelect = 'none';
+        img.style.webkitUserSelect = 'none';
+        img.style.mozUserSelect = 'none';
+        img.style.msUserSelect = 'none';
+    });
+    
+    // 画像を含むコンテナでも右クリックを無効化
+    const dashboardContainers = document.querySelectorAll('.dashboard-mockup, .pc-screen');
+    dashboardContainers.forEach(container => {
+        container.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+    });
+});
+
 // FAQアコーディオン機能
 document.addEventListener('DOMContentLoaded', () => {
     const faqQuestions = document.querySelectorAll('.faq-question');

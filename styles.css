@@ -210,6 +210,34 @@ body {
     position: relative;
 }
 
+.pc-screen::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35%;
+    height: 12%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    );
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
 .pc-screen::before {
     content: '';
     position: absolute;
@@ -228,6 +256,14 @@ body {
     height: auto;
     display: block;
     border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 .pc-base {
@@ -346,7 +382,6 @@ body {
     padding: 50px 40px 60px 40px;
     border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
     border: none;
     width: 100%;
     display: flex;
@@ -355,11 +390,12 @@ body {
     text-align: left;
     position: relative;
     height: 100%;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
 }
 
 .challenge-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .challenge-number-step {
@@ -370,6 +406,7 @@ body {
     align-items: stretch;
     z-index: 1;
     height: 25px;
+    pointer-events: none;
 }
 
 .challenge-number-step .number-tag {
@@ -524,6 +561,8 @@ body {
 
 .shape-right {
     right: -10%;
+    left: -25%;
+    width: auto;
     background: radial-gradient(ellipse 90% 120% at 75% 50%, 
         rgba(74, 144, 226, 0.2) 0%, 
         rgba(54, 158, 255, 0.15) 30%,
@@ -534,7 +573,7 @@ body {
 
 .shape-left {
     left: -10%;
-    background: radial-gradient(ellipse 90% 120% at 25% 50%, 
+    background: radial-gradient(ellipse 90% 120% at 25% 50%,
         rgba(74, 144, 226, 0.2) 0%, 
         rgba(54, 158, 255, 0.15) 30%,
         rgba(0, 195, 255, 0.1) 50%,
@@ -555,6 +594,34 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.dashboard-mockup::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35%;
+    height: 12%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    );
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 2;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
 .dashboard-mockup:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.12);
@@ -565,6 +632,14 @@ body {
     height: auto;
     display: block;
     border-radius: 8px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 /* 定量データセクション */
@@ -1496,7 +1571,6 @@ html {
     }
 }
 
-.challenge-box,
 .metric-card,
 .onboarding-step,
 .solution-block {
