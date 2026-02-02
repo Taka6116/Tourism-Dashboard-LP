@@ -135,6 +135,10 @@ body {
     align-items: center;
 }
 
+.hero-text {
+    margin-top: -76px;
+}
+
 .hero-title {
     font-size: 96px;
     font-weight: bold;
@@ -150,6 +154,35 @@ body {
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 70px;
+    background-color: #fff;
+    border: 2px solid #4A90E2;
+    border-radius: 50px;
+    color: #4A90E2;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-cta:hover {
+    background-color: #4A90E2;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.cta-icon {
+    font-size: 14px;
+    display: inline-block;
 }
 
 .hero-image {
@@ -157,13 +190,14 @@ body {
     justify-content: flex-end;
     align-items: center;
     padding-left: 0;
+    margin-top: -76px;
 }
 
 .pc-frame {
     position: relative;
     max-width: 100%;
     width: 100%;
-    transform: scale(1.15);
+    transform: scale(1.0);
     transform-origin: center;
 }
 
@@ -1153,6 +1187,11 @@ body {
     .hero-description {
         font-size: 20px;
     }
+
+    .hero-cta {
+        font-size: 16px;
+        padding: 14px 28px;
+    }
     
     .pc-frame {
         max-width: 100%;
@@ -1272,6 +1311,11 @@ body {
     
     .hero-description {
         font-size: 18px;
+    }
+
+    .hero-cta {
+        font-size: 14px;
+        padding: 12px 24px;
     }
     
     .challenges-grid {
