@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>観光データ分析プラットフォーム - 観光客の本音を可視化</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー/ナビゲーションバー -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#dashboard" class="nav-link nav-link-left">観光レポートダッシュボード</a>
+            <div class="nav-links-right">
+                <a href="#challenges" class="nav-link">課題</a>
+                <a href="#quantitative" class="nav-link">定量データ</a>
+                <a href="#qualitative" class="nav-link">定性データ</a>
+                <a href="#insights" class="nav-link">インサイト</a>
+                <a href="#solutions" class="nav-link">施策</a>
+                <a href="#contact" class="nav-link">お問い合わせ</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">観光客の本音を施策へ</h1>
+                    <p class="hero-description">
+                        Alexa Hospitaliaに寄せられた観光客の質問から、データでは見えない本当のニーズを可視化。定量・定性データと外部ニュースを統合し、実行可能な施策まで導き出す観光データ分析プラットフォーム
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <div class="pc-frame">
+                        <div class="pc-screen">
+                            <img src="assets/dashboard-hero.png" alt="観光データ分析ダッシュボード" class="dashboard-image">
+                        </div>
+                        <div class="pc-base"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課題セクション -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <h2 class="section-title">施策に繋がらないデータを購入、見たりしていませんか？</h2>
+            <div class="challenges-grid">
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">01</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    </div>
+                    <h3 class="challenge-title">満足度調査だけでは、観光客の本音が見えない</h3>
+                    <p class="challenge-description">旅ナカ、観光中のユーザーの「生の声」というものが集められていない。定型的なアンケート調査や満足度調査、観光庁のデータのみを参考にしたりしてしまい現場で何が起こって何が必要とされているのかが分からない。</p>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">02</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                    </div>
+                    <h3 class="challenge-title">リアルな声を集められない</h3>
+                    <p class="challenge-description">旅ナカ、観光中のユーザーの「生の声」というものが集められえず、定型的なアンケート調査や観光庁のデータのみを参考にしたりしてしまい現場で何が起こって何が必要とされているのかが分からない</p>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">03</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><path d="M0 0h24v24H0z" fill="none"/><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13v7H4V6h5.02c.05-.71.22-1.38.48-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5l-2-2zm-1.5 5h-11l2.75-3.53 1.96 2.36 2.75-3.54zm2.8-9.11c.44-.7.7-1.51.7-2.39C20 4.01 17.99 2 15.5 2S11 4.01 11 6.5s2.01 4.5 4.49 4.5c.88 0 1.7-.26 2.39-.7L21 13.42 22.42 12 19.3 8.89zM15.5 9C14.12 9 13 7.88 13 6.5S14.12 4 15.5 4 18 5.12 18 6.5 16.88 9 15.5 9z"/></svg>
+                    </div>
+                    <h3 class="challenge-title">外部データや生の声を束ねて分析ができない</h3>
+                    <p class="challenge-description">いくつかのデータが手元にはあるものの、それら単体での分析等行ってしまい施策に繋がるようなインサイトというものが導き出されずに、「何とかしないと」とは思うが、手元にあるデータを完全に活かしきれていない状態が続いていしまっている。</p>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">04</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M9,21c0,0.55,0.45,1,1,1h4c0.55,0,1-0.45,1-1v-1H9V21z M12,2C8.14,2,5,5.14,5,9c0,2.38,1.19,4.47,3,5.74V17 c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-2.26c1.81-1.27,3-3.36,3-5.74C19,5.14,15.86,2,12,2z M14,13.7V16h-4v-2.3 C8.48,12.63,7,11.53,7,9c0-2.76,2.24-5,5-5s5,2.24,5,5C17,11.49,15.49,12.65,14,13.7z"/></g></g></g></svg>
+                    </div>
+                    <h3 class="challenge-title">結果として具体的な施策案が出ない</h3>
+                    <p class="challenge-description">これらが要因として、結果として有効な施策案が思い浮かばない。思い浮かんだとしてもよくあるような、毎年実施されているような似通った施策を毎年続けてしまっているがどうすればいいか分からない。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ソリューション概要セクション -->
+    <section class="solution-overview">
+        <div class="container">
+            <h2 class="section-title">観光客の本音から、実行可能な施策を一つのプラットフォームで。</h2>
+            <div class="solution-categories">
+                <div class="category-item">
+                    <h3>定量データ</h3>
+                    <div class="category-box"></div>
+                </div>
+                <div class="category-item">
+                    <h3>定性データ</h3>
+                    <div class="category-box"></div>
+                </div>
+                <div class="category-item">
+                    <h3>インサイト</h3>
+                    <div class="category-box"></div>
+                </div>
+                <div class="category-item">
+                    <h3>施策</h3>
+                    <div class="category-box"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定量データセクション -->
+    <section id="quantitative" class="quantitative-data">
+        <div class="container">
+            <h2 class="section-title">定量データ</h2>
+            <div class="dashboard-preview">
+                <div class="dashboard-header">
+                    <div class="dashboard-tabs">
+                        <span class="tab active">総合サマリー</span>
+                        <span class="tab">カテゴリー別滞在データ</span>
+                        <span class="tab">集客誘客データ</span>
+                        <span class="tab">定性データサマリー</span>
+                        <span class="tab">課題解決データ</span>
+                    </div>
+                </div>
+                <div class="dashboard-metrics">
+                    <div class="metric-card">
+                        <div class="metric-label">観光データ数</div>
+                        <div class="metric-value">100</div>
+                        <div class="metric-change positive">+20.0%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">訪問数</div>
+                        <div class="metric-value">24,624</div>
+                        <div class="metric-change negative">-4.2%</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">課題件数</div>
+                        <div class="metric-value">3件</div>
+                        <div class="metric-change positive">+100.0%</div>
+                    </div>
+                </div>
+                <div class="dashboard-charts">
+                    <div class="chart-container">
+                        <h4>滞在期間</h4>
+                        <div class="chart-visual">
+                            <div class="chart-bar" style="height: 40%; background: #4A90E2;">
+                                <span>1日未満 40%</span>
+                            </div>
+                            <div class="chart-bar" style="height: 30%; background: #50C878;">
+                                <span>1泊2日 30%</span>
+                            </div>
+                            <div class="chart-bar" style="height: 20%; background: #F5A623;">
+                                <span>2泊3日 20%</span>
+                            </div>
+                            <div class="chart-bar" style="height: 10%; background: #D0021B;">
+                                <span>3泊以上 10%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <h4>訪問回数</h4>
+                        <div class="chart-visual">
+                            <div class="chart-bar" style="height: 50%; background: #4A90E2;">
+                                <span>初めて 50%</span>
+                            </div>
+                            <div class="chart-bar" style="height: 30%; background: #50C878;">
+                                <span>2回目 30%</span>
+                            </div>
+                            <div class="chart-bar" style="height: 20%; background: #F5A623;">
+                                <span>3回以上 20%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 定性データセクション -->
+    <section id="qualitative" class="qualitative-data">
+        <div class="container">
+            <div class="qualitative-header">
+                <h2 class="section-title">定性データ</h2>
+                <h3 class="section-subtitle">"声"でニーズを捉える</h3>
+            </div>
+            <div class="qualitative-content">
+                <div class="qualitative-text">
+                    <p>言語別でユーザーが何を発し</p>
+                    <p>ているのか</p>
+                    <p>何を求めているかが分かる</p>
+                </div>
+                <div class="qualitative-visual">
+                    <div class="bubble-chart">
+                        <div class="bubble large orange" style="top: 10%; left: 20%;"></div>
+                        <div class="bubble large orange" style="top: 30%; left: 20%;"></div>
+                        <div class="bubble large orange" style="top: 50%; left: 20%;"></div>
+                        <div class="bubble small blue" style="top: 60%; left: 15%;"></div>
+                        <div class="bubble small blue" style="top: 70%; left: 25%;"></div>
+                        <div class="bubble small blue" style="top: 65%; left: 10%;"></div>
+                        <div class="bubble medium blue" style="top: 20%; left: 60%;"></div>
+                        <div class="bubble small blue" style="top: 10%; left: 70%;"></div>
+                        <div class="bubble small blue" style="top: 30%; left: 75%;"></div>
+                        <div class="bubble small blue" style="top: 50%; left: 80%;"></div>
+                        <div class="bubble small blue" style="top: 40%; left: 65%;"></div>
+                        <div class="bubble small blue" style="top: 60%; left: 70%;"></div>
+                        <div class="bubble small blue" style="top: 70%; left: 75%;"></div>
+                        <div class="bubble small blue" style="top: 80%; left: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- インサイトセクション -->
+    <section id="insights" class="insights">
+        <div class="container">
+            <h2 class="section-title">インサイト</h2>
+        </div>
+    </section>
+
+    <!-- 施策セクション -->
+    <section id="solutions" class="solutions">
+        <div class="container">
+            <h2 class="section-title">施策は外部ニュースや事例を束ねて</h2>
+            <div class="solution-example">
+                <div class="example-content">
+                    <h3>「前橋グルメナビ」デジタルプラットフォーム構築プロジェクト</h3>
+                    <div class="example-section">
+                        <h4>ロードマップ</h4>
+                        <ul>
+                            <li>1ヶ月後:</li>
+                            <li>2ヶ月後:</li>
+                            <li>3ヶ月後:</li>
+                        </ul>
+                    </div>
+                    <div class="example-section">
+                        <h4>テーマ</h4>
+                    </div>
+                    <div class="example-section">
+                        <h4>キーワード</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- システム概要セクション -->
+    <section class="system-overview">
+        <div class="container">
+            <h2 class="section-title">システム概要</h2>
+            <div class="system-flow">
+                <div class="system-device">
+                    <div class="device-mockup-small">
+                        <div class="device-screen-small">
+                            <div class="screen-graph"></div>
+                        </div>
+                    </div>
+                    <p class="device-label">Alexa Hospitalia がデータ収集</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="system-steps">
+                    <div class="step-item">
+                        <strong>データ収集</strong> Alexa Hospitalia → 音声質問を自動テキスト化
+                    </div>
+                    <div class="step-item">
+                        <strong>データ統合</strong> 定量データ+定性データ+外部ニュース
+                    </div>
+                    <div class="step-item">
+                        <strong>AI分析</strong> パターン認識、トレンド分析、インサイト抽出
+                    </div>
+                    <div class="step-item">
+                        <strong>可視化&提案</strong> 直感的なダッシュボード+施策案の自動生成
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 導入の流れセクション -->
+    <section class="onboarding-flow">
+        <div class="container">
+            <h2 class="section-title">導入の流れ</h2>
+            <div class="flow-banner">
+                <h3>サービス導入の流れ</h3>
+                <p>お問い合わせから最短5日でサービス開始が可能</p>
+            </div>
+            <div class="onboarding-steps">
+                <div class="onboarding-step">
+                    <div class="step-icon">📧</div>
+                    <h4>1. 問い合わせ</h4>
+                    <p>ご要望・疑問点・お見積りなど、お気軽にお問い合わせください。</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="step-icon">💬</div>
+                    <h4>2. 打ち合わせ</h4>
+                    <p>抱えているお悩みをヒアリングし、解決するための最適なご提案を行います。</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="step-icon">📅</div>
+                    <h4>3. 開始日とプランの確定</h4>
+                    <p>最適な導入日とサービスプランを確定し、ご契約となります。</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="step-icon">✍️</div>
+                    <h4>4. 申し込み手続き</h4>
+                    <p>契約書類を締結し、コミュニケーションやキックオフミーティングの調整を行います。</p>
+                </div>
+                <div class="onboarding-step">
+                    <div class="step-icon">🚀</div>
+                    <h4>5. サービス開始</h4>
+                    <p>フロント担当者とキックオフミーティングにて、運用の説明とオンボーディングを行います。</p>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-label">最短1営業日</span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-label">最短4営業日</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある質問セクション -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <!-- FAQコンテンツは後で追加可能 -->
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">必須</span></label>
+                    <input type="text" id="name" name="name" placeholder="田中 太郎" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">会社名 <span class="required">必須</span></label>
+                    <input type="text" id="company" name="company" placeholder="株式会社Sample" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">必須</span></label>
+                    <input type="email" id="email" name="email" placeholder="sample@abc.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">電話番号 <span class="required">必須</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">ご相談内容 <span class="required">必須</span></label>
+                    <textarea id="message" name="message" rows="6" placeholder="フィットネスジムを運営。広告運用を自社でしているが、ノウハウがなく正しく運用できていないので依頼したい。現状の媒体はMeta広告のみ、インスタグラムの運用も自社でしています。入会を増やしたい。" required></textarea>
+                    <p class="form-hint">可能な範囲で、事業概要・対象サイト・目標などを記載いただけますとご案内がスムーズになります。</p>
+                </div>
+                <button type="submit" class="submit-btn">送信する <span>→</span></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon"></div>
+                    <span class="logo-text">TRADFIT</span>
+                </div>
+                <div class="footer-info">
+                    <p>東京都千代田区丸の内 ○○ビル 24F</p>
+                    <p>TRADFIT株式会社</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
