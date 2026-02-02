@@ -13,9 +13,9 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 /* ヘッダー */
@@ -202,11 +202,11 @@ body {
 }
 
 .pc-screen {
-    background: #1a1a1a;
+    background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a8a8a8 100%);
     border-radius: 8px 8px 0 0;
     padding: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-    border: 2px solid #2c2c2c;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 2px solid #d0d0d0;
     position: relative;
 }
 
@@ -218,8 +218,9 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: #333;
+    background: linear-gradient(90deg, #b0b0b0 0%, #d0d0d0 50%, #b0b0b0 100%);
     border-radius: 2px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .dashboard-image {
@@ -232,10 +233,37 @@ body {
 .pc-base {
     width: 100%;
     height: 20px;
-    background: linear-gradient(to bottom, #2c2c2c 0%, #1a1a1a 100%);
+    background: linear-gradient(to bottom, 
+        #d0d0d0 0%, 
+        #e0e0e0 20%, 
+        #f0f0f0 40%, 
+        #e8e8e8 50%, 
+        #d8d8d8 60%, 
+        #c0c0c0 80%, 
+        #a0a0a0 100%);
     border-radius: 0 0 8px 8px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     position: relative;
+}
+
+.pc-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.6) 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 70%,
+        transparent 100%);
+    border-radius: 0 0 8px 8px;
+    pointer-events: none;
 }
 
 .pc-base::after {
@@ -246,8 +274,14 @@ body {
     transform: translateX(-50%);
     width: 200px;
     height: 8px;
-    background: #0a0a0a;
+    background: linear-gradient(to bottom, 
+        #c0c0c0 0%, 
+        #d0d0d0 30%, 
+        #b0b0b0 50%, 
+        #909090 100%);
     border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* 課題セクション */
@@ -264,6 +298,9 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     padding-top: 0;
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .challenges .section-title {
@@ -392,6 +429,12 @@ body {
 .solution-overview {
     background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
     padding: 100px 0;
+}
+
+.solution-overview .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .solution-overview .section-title {
@@ -642,6 +685,12 @@ body {
     padding: 80px 0;
 }
 
+.qualitative-data .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .qualitative-header {
     text-align: center;
     margin-bottom: 60px;
@@ -720,6 +769,12 @@ body {
 .insights {
     background-color: #f5f5f5;
     padding: 80px 0;
+}
+
+.insights .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 /* 施策セクション */
@@ -850,95 +905,160 @@ body {
     padding: 80px 0;
 }
 
+.onboarding-flow .container {
+    max-width: 1600px;
+    padding: 0 10px;
+}
+
 .flow-banner {
     background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
     color: #fff;
-    padding: 40px;
-    border-radius: 12px;
+    padding: 20px 40px;
+    border-radius: 25px;
     text-align: center;
-    margin-bottom: 50px;
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 40px auto 50px;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
 }
 
-.flow-banner h3 {
-    font-size: 28px;
-    margin-bottom: 10px;
+.flow-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #357ABD;
 }
 
 .flow-banner p {
-    font-size: 16px;
-    opacity: 0.9;
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+}
+
+.highlight-days {
+    color: #FFA500;
+    font-weight: bold;
 }
 
 .onboarding-steps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
+    gap: 20px;
     margin-bottom: 40px;
-    max-width: 1200px;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 10px;
+    align-items: stretch;
 }
 
-.onboarding-step {
-    text-align: center;
-    padding: 20px;
+.onboarding-step.challenge-box-style {
+    background-color: #fff;
+    padding: 50px 30px 60px 30px;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
     position: relative;
+    height: 100%;
+    min-height: 320px;
 }
 
-.step-number {
+.onboarding-step.challenge-box-style:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.onboarding-step .step-number {
     background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
     color: #fff;
     font-weight: bold;
     font-size: 18px;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 20px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
 }
 
-.onboarding-step h4 {
+.onboarding-step.challenge-box-style h4 {
     font-size: 18px;
     margin-bottom: 15px;
     color: #333;
     font-weight: bold;
+    white-space: nowrap;
 }
 
-.onboarding-step p {
+.onboarding-step.challenge-box-style p {
     font-size: 14px;
     color: #666;
     line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
 }
 
 .timeline {
     display: flex;
-    justify-content: space-around;
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
-    padding-top: 30px;
-    border-top: 2px solid #e0e0e0;
+    padding: 0 20px;
+    border-top: none;
 }
 
 .timeline-item {
+    flex: 1;
+    padding: 15px 20px;
     text-align: center;
+}
+
+.timeline-left {
+    background-color: #E8F4F8;
+    border-radius: 8px 0 0 8px;
+}
+
+.timeline-right {
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+    color: #fff;
+    border-radius: 0 8px 8px 0;
 }
 
 .timeline-label {
     font-size: 14px;
-    color: #666;
     font-weight: 500;
+}
+
+.timeline-left .timeline-label {
+    color: #4A90E2;
+}
+
+.timeline-right .timeline-label {
+    color: #fff;
 }
 
 /* よくある質問セクション */
 .faq {
     background-color: #fff;
     padding: 100px 0;
+}
+
+.faq .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .faq-list {
@@ -1013,6 +1133,12 @@ body {
 .contact {
     background-color: #fff;
     padding: 80px 0;
+}
+
+.contact .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .contact-form {
