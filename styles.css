@@ -43,11 +43,20 @@ body {
 .nav-link-left {
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 24px;
     font-weight: bold;
     transition: color 0.3s;
     padding: 5px 10px;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-logo-icon {
+    height: 24px;
+    width: auto;
+    display: block;
 }
 
 .nav-links-right {
@@ -341,41 +350,138 @@ body {
 
 /* ソリューション概要 */
 .solution-overview {
-    background-color: #fff;
-    padding: 80px 0;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+    padding: 100px 0;
 }
 
 .solution-overview .section-title {
     max-width: 900px;
-    margin: 0 auto 50px;
+    margin: 0 auto 80px;
 }
 
-.solution-categories {
+.solution-block {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 120px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
 }
 
-.category-item h3 {
-    font-size: 20px;
+.solution-block:last-child {
+    margin-bottom: 0;
+}
+
+/* ブロック1と3: テキスト左、ビジュアル右 */
+.solution-block-1,
+.solution-block-3 {
+    grid-template-columns: 1fr 1.2fr;
+}
+
+/* ブロック2と4: ビジュアル左、テキスト右 */
+.solution-block-2,
+.solution-block-4 {
+    grid-template-columns: 1.2fr 1fr;
+}
+
+.solution-block-2 .solution-visual,
+.solution-block-4 .solution-visual {
+    order: -1;
+}
+
+/* テキスト領域 */
+.solution-text {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.solution-category {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #4A90E2;
+    text-transform: uppercase;
+}
+
+.solution-heading {
+    font-size: 36px;
     font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
+    color: #1a1a1a;
+    line-height: 1.3;
+    margin: 0;
 }
 
-.category-box {
-    background-color: #fff;
-    border: 1px solid #e0e0e0;
+.solution-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+}
+
+/* ビジュアル領域 */
+.solution-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.visual-background-shape {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.shape-right {
+    right: -10%;
+    background: radial-gradient(ellipse 90% 120% at 75% 50%, 
+        rgba(74, 144, 226, 0.2) 0%, 
+        rgba(54, 158, 255, 0.15) 30%,
+        rgba(0, 195, 255, 0.1) 50%,
+        transparent 75%);
+    border-radius: 50% 0 0 50%;
+}
+
+.shape-left {
+    left: -10%;
+    background: radial-gradient(ellipse 90% 120% at 25% 50%, 
+        rgba(74, 144, 226, 0.2) 0%, 
+        rgba(54, 158, 255, 0.15) 30%,
+        rgba(0, 195, 255, 0.1) 50%,
+        transparent 75%);
+    border-radius: 0 50% 50% 0;
+}
+
+.dashboard-mockup {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-mockup:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-preview-image {
+    width: 100%;
+    height: auto;
+    display: block;
     border-radius: 8px;
-    height: 200px;
-    transition: box-shadow 0.3s;
-}
-
-.category-box:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* 定量データセクション */
@@ -965,8 +1071,35 @@ body {
         font-size: 14px;
     }
 
-    .solution-categories {
-        grid-template-columns: repeat(2, 1fr);
+    .solution-block {
+        grid-template-columns: 1fr !important;
+        gap: 50px;
+        margin-bottom: 80px;
+    }
+
+    .solution-block-2 .solution-visual,
+    .solution-block-4 .solution-visual {
+        order: 0;
+    }
+
+    .solution-heading {
+        font-size: 28px;
+    }
+
+    .solution-description {
+        font-size: 15px;
+    }
+
+    .visual-background-shape {
+        width: 100%;
+        height: 80%;
+    }
+
+    .shape-right,
+    .shape-left {
+        left: 0;
+        right: 0;
+        border-radius: 50%;
     }
 
     .dashboard-metrics {
@@ -1034,8 +1167,21 @@ body {
         font-size: 28px;
     }
 
-    .solution-categories {
-        grid-template-columns: 1fr;
+    .solution-block {
+        gap: 40px;
+        margin-bottom: 60px;
+    }
+
+    .solution-heading {
+        font-size: 24px;
+    }
+
+    .solution-description {
+        font-size: 14px;
+    }
+
+    .solution-visual {
+        min-height: 300px;
     }
 
     .pc-frame {
@@ -1066,8 +1212,8 @@ html {
 }
 
 .challenge-box,
-.category-box,
 .metric-card,
-.onboarding-step {
+.onboarding-step,
+.solution-block {
     animation: fadeInUp 0.6s ease-out;
 }

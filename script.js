@@ -198,7 +198,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // アニメーション対象要素を監視
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.challenge-box, .category-box, .metric-card, .onboarding-step, .step-item');
+    const animateElements = document.querySelectorAll('.challenge-box, .solution-block, .metric-card, .onboarding-step, .step-item');
     
     animateElements.forEach(el => {
         el.style.opacity = '0';
