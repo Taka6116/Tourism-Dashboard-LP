@@ -118,10 +118,8 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Web3Formsレスポンス:', data);
             
             if (response.ok && data.success) {
-                // 送信成功メッセージ
-                showSuccessMessage();
-                // フォームリセット
-                contactForm.reset();
+                // お礼ページにリダイレクト
+                window.location.href = 'thank-you.html';
             } else {
                 throw new Error(data.message || '送信に失敗しました');
             }

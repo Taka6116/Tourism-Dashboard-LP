@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせありがとうございます - 観光データ分析プラットフォーム</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .thank-you-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .thank-you-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .thank-you-icon {
+            font-size: 80px;
+            margin-bottom: 30px;
+            color: #50C878;
+        }
+        
+        .thank-you-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .thank-you-message {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+        
+        .back-to-top-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        }
+        
+        .back-to-top-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .thank-you-title {
+                font-size: 28px;
+            }
+            
+            .thank-you-message {
+                font-size: 16px;
+            }
+            
+            .thank-you-icon {
+                font-size: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ヘッダー/ナビゲーションバー -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-link nav-link-left">
+                <img src="assets/logo-icon.png" alt="Logo" class="nav-logo-icon">
+                観光レポートダッシュボード
+            </a>
+            <div class="nav-links-right">
+                <a href="index.html#challenges" class="nav-link">課題</a>
+                <a href="index.html#services" class="nav-link">提供内容</a>
+                <a href="index.html#onboarding" class="nav-link">導入の流れ</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+                <a href="index.html#contact" class="nav-link">お問い合わせ</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- お礼セクション -->
+    <section class="thank-you-section">
+        <div class="container">
+            <div class="thank-you-content">
+                <div class="thank-you-icon">✓</div>
+                <h1 class="thank-you-title">お問い合わせありがとうございます</h1>
+                <p class="thank-you-message">
+                    担当者からのご連絡をお待ちください。<br>
+                    通常、1営業日以内にご連絡いたします。
+                </p>
+                <a href="index.html" class="back-to-top-btn">トップページに戻る</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-company">
+                    <p>TradFit株式会社(トラッドフィット)</p>
+                    <p>TradFit Co., Ltd.</p>
+                </div>
+                <div class="footer-info">
+                    <p>東京都千代田区丸の内一丁目6番5号</p>
+                    <p>丸の内北口ビルディング9階</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
