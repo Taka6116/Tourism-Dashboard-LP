@@ -1,7 +1,7 @@
 {
   "name": "tourism-lp",
   "version": "1.0.0",
-  "description": "観光データ分析プラットフォーム",
+  "description": "観光データ分析プラットフォーム - UTF-8設定テスト",
   "scripts": {
     "dev": "live-server --port=3000 --open=/index.html",
     "start": "live-server --port=3000 --open=/index.html"
