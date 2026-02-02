@@ -269,7 +269,10 @@
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">お問い合わせ</h2>
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="c60da01b-6916-477e-82f0-eece83c2d9c0">
+                <input type="hidden" name="to" value="goto_takashi@cellmuller.com">
+                <input type="hidden" name="subject" value="【観光データ分析プラットフォーム】お問い合わせ">
                 <div class="form-group">
                     <label for="name">お名前 <span class="required">必須</span></label>
                     <input type="text" id="name" name="name" placeholder="田中 太郎" required>
