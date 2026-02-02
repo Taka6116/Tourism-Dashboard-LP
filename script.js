@@ -40,89 +40,95 @@ if (contactForm) {
         e.preventDefault();
         
         // フォームデータの取得
-        const formData = {
-            name: document.getElementById('name').value.trim(),
-            company: document.getElementById('company').value.trim(),
-            email: document.getElementById('email').value.trim(),
-            phone: document.getElementById('phone').value.trim(),
-            message: document.getElementById('message').value.trim()
-        };
+        const name = document.getElementById('name').value.trim();
+        const company = document.getElementById('company').value.trim();
+        const email = document.getElementById('email').value.trim();
         
-        // バリデーション
-        if (!validateForm(formData)) {
-            return;
+        // from_nameフィールドにnameの値を設定（Web3Forms用）
+        const fromNameField = document.getElementById('from_name');
+        if (fromNameField) {
+            fromNameField.value = name;
         }
         
-        // 送信処理（実際の実装では、サーバーに送信）
-        console.log('フォーム送信:', formData);
+        // バリデーション
+        if (!name) {
+            showError('name', 'お名前を入力してください');
+            return;
+        } else {
+            clearError('name');
+        }
         
-        // 送信成功メッセージ
-        showSuccessMessage();
+        if (!company) {
+            showError('company', '会社名を入力してください');
+            return;
+        } else {
+            clearError('company');
+        }
         
-        // フォームリセット
-        contactForm.reset();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) {
+            showError('email', 'メールアドレスを入力してください');
+            return;
+        } else if (!emailRegex.test(email)) {
+            showError('email', '正しいメールアドレスを入力してください');
+            return;
+        } else {
+            clearError('email');
+        }
+        
+        // 送信ボタンを無効化してローディング状態に
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const originalButtonText = submitButton.innerHTML;
+        submitButton.disabled = true;
+        submitButton.innerHTML = '送信中...';
+        
+        // Web3Formsを使用してメール送信（UIの世界観を保つ）
+        fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(async response => {
+            let data;
+            try {
+                data = await response.json();
+            } catch (e) {
+                // JSONパースエラーの場合
+                throw new Error('サーバーからの応答を処理できませんでした');
+            }
+            
+            console.log('Web3Formsレスポンス:', data);
+            
+            if (response.ok && data.success) {
+                // 送信成功メッセージ
+                showSuccessMessage();
+                // フォームリセット
+                contactForm.reset();
+            } else {
+                throw new Error(data.message || '送信に失敗しました');
+            }
+        })
+        .catch(error => {
+            console.error('送信失敗:', error);
+            showErrorMessage(error.message || 'メールの送信に失敗しました。しばらくしてから再度お試しください。');
+        })
+        .finally(() => {
+            // 送信ボタンを元に戻す
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
+        });
     });
-}
-
-// フォームバリデーション関数
-function validateForm(data) {
-    let isValid = true;
-    
-    // 名前のバリデーション
-    if (!data.name) {
-        showError('name', 'お名前を入力してください');
-        isValid = false;
-    } else {
-        clearError('name');
-    }
-    
-    // 会社名のバリデーション
-    if (!data.company) {
-        showError('company', '会社名を入力してください');
-        isValid = false;
-    } else {
-        clearError('company');
-    }
-    
-    // メールアドレスのバリデーション
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!data.email) {
-        showError('email', 'メールアドレスを入力してください');
-        isValid = false;
-    } else if (!emailRegex.test(data.email)) {
-        showError('email', '正しいメールアドレスを入力してください');
-        isValid = false;
-    } else {
-        clearError('email');
-    }
-    
-    // 電話番号のバリデーション
-    const phoneRegex = /^[\d-]+$/;
-    if (!data.phone) {
-        showError('phone', '電話番号を入力してください');
-        isValid = false;
-    } else if (!phoneRegex.test(data.phone)) {
-        showError('phone', '正しい電話番号を入力してください');
-        isValid = false;
-    } else {
-        clearError('phone');
-    }
-    
-    // メッセージのバリデーション
-    if (!data.message) {
-        showError('message', 'ご相談内容を入力してください');
-        isValid = false;
-    } else {
-        clearError('message');
-    }
-    
-    return isValid;
 }
 
 // エラー表示関数
 function showError(fieldId, message) {
     const field = document.getElementById(fieldId);
+    if (!field) return;
+    
     const formGroup = field.closest('.form-group');
+    if (!formGroup) return;
     
     // 既存のエラーメッセージを削除
     const existingError = formGroup.querySelector('.error-message');
@@ -146,7 +152,10 @@ function showError(fieldId, message) {
 // エラークリア関数
 function clearError(fieldId) {
     const field = document.getElementById(fieldId);
+    if (!field) return;
+    
     const formGroup = field.closest('.form-group');
+    if (!formGroup) return;
     
     field.style.borderColor = '#e0e0e0';
     
@@ -159,6 +168,14 @@ function clearError(fieldId) {
 // 成功メッセージ表示関数
 function showSuccessMessage() {
     const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    // 既存のメッセージを削除
+    const existingMessage = form.querySelector('.success-message, .error-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
     const successDiv = document.createElement('div');
     successDiv.className = 'success-message';
     successDiv.style.cssText = `
@@ -175,9 +192,42 @@ function showSuccessMessage() {
     
     form.insertBefore(successDiv, form.firstChild);
     
-    // 3秒後にメッセージを削除
+    // 5秒後にメッセージを削除
     setTimeout(() => {
         successDiv.remove();
+    }, 5000);
+}
+
+// エラーメッセージ表示関数
+function showErrorMessage(message) {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    
+    // 既存のメッセージを削除
+    const existingMessage = form.querySelector('.success-message, .error-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+    
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.style.cssText = `
+        background-color: #D0021B;
+        color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-weight: bold;
+        animation: fadeInUp 0.5s ease-out;
+    `;
+    errorDiv.textContent = message;
+    
+    form.insertBefore(errorDiv, form.firstChild);
+    
+    // 5秒後にメッセージを削除
+    setTimeout(() => {
+        errorDiv.remove();
     }, 5000);
 }
 
@@ -299,40 +349,6 @@ const dashboardSection = document.querySelector('.quantitative-data');
 if (dashboardSection) {
     dashboardObserver.observe(dashboardSection);
 }
-
-// ダッシュボード画像の右クリックとコピーを無効化
-document.addEventListener('DOMContentLoaded', () => {
-    const dashboardImages = document.querySelectorAll('.dashboard-image, .dashboard-preview-image');
-    
-    dashboardImages.forEach(img => {
-        // 右クリックメニューを無効化
-        img.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // ドラッグを無効化
-        img.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // 画像の選択を無効化
-        img.style.userSelect = 'none';
-        img.style.webkitUserSelect = 'none';
-        img.style.mozUserSelect = 'none';
-        img.style.msUserSelect = 'none';
-    });
-    
-    // 画像を含むコンテナでも右クリックを無効化
-    const dashboardContainers = document.querySelectorAll('.dashboard-mockup, .pc-screen');
-    dashboardContainers.forEach(container => {
-        container.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-    });
-});
 
 // FAQアコーディオン機能
 document.addEventListener('DOMContentLoaded', () => {
