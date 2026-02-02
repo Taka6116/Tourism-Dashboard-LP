@@ -39,10 +39,21 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // フォーム要素の取得（存在チェック付き）
+        const nameField = document.getElementById('name');
+        const companyField = document.getElementById('company');
+        const emailField = document.getElementById('email');
+        
+        if (!nameField || !companyField || !emailField) {
+            console.error('フォーム要素が見つかりません');
+            showErrorMessage('フォームの読み込みに失敗しました。ページを再読み込みしてください。');
+            return;
+        }
+        
         // フォームデータの取得
-        const name = document.getElementById('name').value.trim();
-        const company = document.getElementById('company').value.trim();
-        const email = document.getElementById('email').value.trim();
+        const name = nameField.value.trim();
+        const company = companyField.value.trim();
+        const email = emailField.value.trim();
         
         // from_nameフィールドにnameの値を設定（Web3Forms用）
         const fromNameField = document.getElementById('from_name');
