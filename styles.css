@@ -44,6 +44,7 @@ body {
     color: #333;
     text-decoration: none;
     font-size: 14px;
+    font-weight: bold;
     transition: color 0.3s;
     padding: 5px 10px;
     white-space: nowrap;
@@ -59,6 +60,7 @@ body {
     color: #333;
     text-decoration: none;
     font-size: 14px;
+    font-weight: bold;
     transition: color 0.3s;
     padding: 5px 10px;
     white-space: nowrap;
@@ -234,7 +236,7 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 60px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .challenge-box:nth-child(1) {
@@ -266,7 +268,7 @@ body {
     align-items: flex-start;
     text-align: left;
     position: relative;
-    min-height: 400px;
+    height: 100%;
 }
 
 .challenge-box:hover {
