@@ -33,9 +33,14 @@ window.addEventListener('scroll', () => {
 });
 
 // フォームバリデーションと送信処理
-const contactForm = document.getElementById('contactForm');
-
-if (contactForm) {
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!contactForm) {
+        console.warn('お問い合わせフォームが見つかりません');
+        return;
+    }
+    
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -131,7 +136,7 @@ if (contactForm) {
             submitButton.innerHTML = originalButtonText;
         });
     });
-}
+});
 
 // エラー表示関数
 function showError(fieldId, message) {
