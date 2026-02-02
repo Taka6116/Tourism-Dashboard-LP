@@ -89,7 +89,7 @@ body {
         radial-gradient(ellipse 120% 100% at 0% 100%, rgba(0, 191, 255, 0.6) 0%, rgba(0, 127, 255, 0.3) 30%, transparent 60%),
         linear-gradient(135deg, #00BFFF 0%, #0099FF 20%, #007FFF 40%, #0055FF 60%, #0033CC 80%, #0000AA 100%);
     padding: 120px 0;
-    min-height: 80vh;
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -124,17 +124,19 @@ body {
 .hero .container {
     position: relative;
     z-index: 1;
+    padding: 0 40px;
+    max-width: 1600px;
 }
 
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 80px;
+    gap: 60px;
     align-items: center;
 }
 
 .hero-title {
-    font-size: 80px;
+    font-size: 96px;
     font-weight: bold;
     margin-bottom: 40px;
     line-height: 1.2;
@@ -144,7 +146,7 @@ body {
 }
 
 .hero-description {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -154,12 +156,12 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-left: 80px;
+    padding-left: 0;
 }
 
 .pc-frame {
     position: relative;
-    max-width: 1400px;
+    max-width: 100%;
     width: 100%;
     transform: scale(1.15);
     transform-origin: center;
@@ -230,6 +232,10 @@ body {
     padding-top: 0;
 }
 
+.challenges .section-title {
+    margin-top: 41px;
+}
+
 .section-title {
     font-size: 36px;
     font-weight: bold;
@@ -244,7 +250,7 @@ body {
     gap: 30px;
     max-width: 1400px;
     margin: 0 auto;
-    padding-top: 60px;
+    padding-top: 22px;
     align-items: stretch;
 }
 
@@ -1129,6 +1135,11 @@ body {
         padding: 100px 0;
     }
     
+    .hero .container {
+        padding: 0 20px;
+        max-width: 1200px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1136,16 +1147,16 @@ body {
     }
 
     .hero-title {
-        font-size: 48px;
+        font-size: 56px;
     }
     
     .hero-description {
-        font-size: 18px;
+        font-size: 20px;
     }
     
     .pc-frame {
         max-width: 100%;
-        transform: scale(1);
+        transform: scale(1.1);
     }
 
     .challenges-grid {
@@ -1251,12 +1262,16 @@ body {
         width: 100%;
     }
 
+    .hero .container {
+        padding: 0 20px;
+    }
+
     .hero-title {
-        font-size: 36px;
+        font-size: 40px;
     }
     
     .hero-description {
-        font-size: 16px;
+        font-size: 18px;
     }
     
     .challenges-grid {
