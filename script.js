@@ -299,3 +299,25 @@ const dashboardSection = document.querySelector('.quantitative-data');
 if (dashboardSection) {
     dashboardObserver.observe(dashboardSection);
 }
+
+// FAQアコーディオン機能
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            const faqItem = this.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // 他のFAQアイテムを閉じる
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // クリックされたアイテムを開く/閉じる
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        });
+    });
+});
