@@ -322,7 +322,7 @@ body {
 
 /* Hospitaliaセクション */
 .hospitalia-section {
-    background-color: #fff;
+    background: linear-gradient(to bottom, #E8F4F8 0%, #ffffff 100%);
     padding: 100px 0;
 }
 
