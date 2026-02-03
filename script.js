@@ -385,3 +385,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// ハンバーガーメニューのトグル機能
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links-right');
+    const mobileCta = document.querySelector('.mobile-cta');
+    
+    if (hamburgerMenu && navLinks) {
+        hamburgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            
+            // モバイルCTAボタンの表示/非表示
+            if (mobileCta) {
+                if (navLinks.classList.contains('active')) {
+                    mobileCta.style.display = 'flex';
+                } else {
+                    mobileCta.style.display = 'none';
+                }
+            }
+        });
+
+        // メニューリンクをクリックしたらメニューを閉じる
+        const navLinksItems = navLinks.querySelectorAll('.nav-link');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                if (mobileCta) {
+                    mobileCta.style.display = 'none';
+                }
+            });
+        });
+
+        // モバイルCTAボタンをクリックしたらメニューを閉じる
+        if (mobileCta) {
+            mobileCta.addEventListener('click', () => {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        }
+
+        // メニュー外をクリックしたらメニューを閉じる
+        document.addEventListener('click', (e) => {
+            if (!hamburgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+});
