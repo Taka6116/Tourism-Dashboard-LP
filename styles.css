@@ -322,23 +322,36 @@ body {
 
 /* Hospitaliaセクション */
 .hospitalia-section {
-    background: linear-gradient(to bottom, #E8F4F8 0%, #ffffff 100%);
-    padding: 100px 0;
+    background-color: #f5f7f8;
+    padding: 30px 0 195px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-start;
 }
 
 .hospitalia-section .container {
     max-width: 1600px;
     padding-left: 10px;
     padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0;
+}
+
+.hospitalia-section .section-title {
+    margin-top: 41px;
+    margin-bottom: 60px;
 }
 
 .hospitalia-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 80px;
     align-items: center;
     max-width: 1400px;
     margin: 0 auto;
+    padding-top: 22px;
 }
 
 .hospitalia-text {
@@ -350,36 +363,25 @@ body {
 
 .hospitalia-visual {
     order: 2;
-}
-
-.hospitalia-title {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    line-height: 1.4;
-    margin-bottom: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .hospitalia-description {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.8;
     color: #666;
     margin: 0;
 }
 
-.hospitalia-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
 
 .hospitalia-image-wrapper {
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
+    align-items: flex-start;
 }
 
 .hospitalia-device-image {
@@ -392,7 +394,7 @@ body {
 
 /* 課題セクション */
 .challenges {
-    background: linear-gradient(to bottom, #E8F4F8 0%, #ffffff 100%);
+    background-color: #f5f7f8;
     padding: 30px 0 195px 0;
     min-height: 80vh;
     display: flex;
@@ -523,7 +525,7 @@ body {
 }
 
 .challenge-description {
-    font-size: 16px;
+    font-size: 15px;
     color: #333;
     line-height: 1.8;
     margin: 0;
@@ -534,7 +536,7 @@ body {
 
 /* ソリューション概要 */
 .solution-overview {
-    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+    background-color: #f5f7f8;
     padding: 100px 0;
 }
 
@@ -606,7 +608,7 @@ body {
 }
 
 .solution-description {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.8;
     color: #555;
     margin: 0;
@@ -859,7 +861,7 @@ body {
 }
 
 .qualitative-text {
-    font-size: 24px;
+    font-size: 15px;
     line-height: 1.8;
     color: #333;
 }
@@ -1034,7 +1036,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     border-left: 4px solid #4A90E2;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
     color: #333;
 }
@@ -1046,7 +1048,7 @@ body {
 
 /* 導入の流れセクション */
 .onboarding-flow {
-    background-color: #fff;
+    background-color: #f5f7f8;
     padding: 80px 0;
 }
 
@@ -1149,7 +1151,7 @@ body {
 }
 
 .onboarding-step.challenge-box-style p {
-    font-size: 14px;
+    font-size: 15px;
     color: #666;
     line-height: 1.6;
     margin: 0;
@@ -1196,7 +1198,7 @@ body {
 
 /* よくある質問セクション */
 .faq {
-    background-color: #fff;
+    background-color: #f5f7f8;
     padding: 100px 0;
 }
 
@@ -1263,7 +1265,7 @@ body {
 }
 
 .faq-answer p {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.8;
     color: #666;
     margin: 0;
@@ -1276,8 +1278,8 @@ body {
 
 /* お問い合わせセクション */
 .contact {
-    background-color: #fff;
-    padding: 80px 0;
+    background-color: #f5f7f8;
+    padding: calc(80px - 1.5cm) 0 120px 0;
 }
 
 .contact .container {
@@ -1913,7 +1915,7 @@ body {
     }
 
     .contact {
-        padding: 60px 0;
+        padding: calc(60px - 1.5cm) 0 100px 0;
     }
 
     .contact-form {
