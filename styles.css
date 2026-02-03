@@ -585,7 +585,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    align-items: start;
+    align-items: stretch;
 }
 
 .comparison-bad,
@@ -596,6 +596,7 @@ body {
     border-radius: 12px;
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    height: 100%;
 }
 
 .comparison-content {
@@ -1850,6 +1851,38 @@ body {
 }
 
 @media (max-width: 640px) {
+    .appeal-section {
+        padding: 60px 0;
+    }
+
+    .appeal-section .section-title {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .appeal-comparison {
+        gap: 25px;
+    }
+
+    .comparison-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .comparison-bad,
+    .comparison-good {
+        padding: 20px;
+    }
+
+    .comparison-title {
+        font-size: 17px;
+        margin-bottom: 10px;
+    }
+
+    .comparison-description {
+        font-size: 15px;
+    }
+
     .nav {
         flex-direction: column;
         gap: 15px;
@@ -2081,6 +2114,33 @@ body {
 }
 
 @media (max-width: 480px) {
+    .appeal-section {
+        padding: 50px 0;
+    }
+
+    .appeal-section .section-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .appeal-comparison {
+        gap: 20px;
+    }
+
+    .comparison-bad,
+    .comparison-good {
+        padding: 15px;
+    }
+
+    .comparison-title {
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    .comparison-description {
+        font-size: 14px;
+    }
+
     .hero-title {
         font-size: 28px;
     }
