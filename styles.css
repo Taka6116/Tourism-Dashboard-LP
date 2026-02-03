@@ -320,6 +320,71 @@ body {
         inset 0 -1px 0 rgba(255, 255, 255, 0.2);
 }
 
+/* Hospitaliaセクション */
+.hospitalia-section {
+    background-color: #fff;
+    padding: 100px 0;
+}
+
+.hospitalia-section .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.hospitalia-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hospitalia-text {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.hospitalia-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+.hospitalia-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666;
+    margin: 0;
+}
+
+.hospitalia-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hospitalia-image-wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hospitalia-device-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
 /* 課題セクション */
 .challenges {
     background: linear-gradient(to bottom, #E8F4F8 0%, #ffffff 100%);
@@ -1417,6 +1482,27 @@ body {
         font-size: 14px;
     }
 
+    .hospitalia-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hospitalia-visual {
+        order: 0;
+    }
+
+    .hospitalia-text {
+        order: 1;
+    }
+
+    .hospitalia-title {
+        font-size: 28px;
+    }
+
+    .hospitalia-description {
+        font-size: 15px;
+    }
+
     .solution-block {
         grid-template-columns: 1fr !important;
         gap: 50px;
@@ -1713,6 +1799,27 @@ body {
         padding: 0 10px;
     }
 
+    .hospitalia-section {
+        padding: 60px 0;
+    }
+
+    .hospitalia-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hospitalia-title {
+        font-size: 24px;
+    }
+
+    .hospitalia-description {
+        font-size: 14px;
+    }
+
+    .hospitalia-image-wrapper {
+        max-width: 100%;
+    }
+
     .solution-block {
         gap: 30px;
         margin-bottom: 50px;
@@ -1851,6 +1958,18 @@ body {
 
     .challenge-title {
         font-size: 16px;
+    }
+
+    .hospitalia-section {
+        padding: 50px 0;
+    }
+
+    .hospitalia-title {
+        font-size: 22px;
+    }
+
+    .hospitalia-description {
+        font-size: 13px;
     }
 
     .solution-heading {
