@@ -30,11 +30,11 @@ body {
 
 .nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     gap: 30px;
     padding-left: 65px;
-    padding-right: 250px;
+    padding-right: 65px;
     max-width: 1920px;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -43,7 +43,7 @@ body {
 .nav-link-left {
     color: #333;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     transition: color 0.3s;
     padding: 5px 10px;
@@ -68,7 +68,7 @@ body {
 .nav-link {
     color: #333;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     transition: color 0.3s;
     padding: 5px 10px;
@@ -81,6 +81,34 @@ body {
 
 .nav-link-left:hover {
     color: #4A90E2;
+}
+
+.nav-cta-button {
+    background-color: #4A90E2;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    margin-left: auto;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+}
+
+.nav-cta-button:hover {
+    background-color: #357ABD;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.nav-cta-button span {
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* ヒーローセクション */
@@ -160,24 +188,29 @@ body {
 .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 16px 70px;
+    gap: 12px;
+    padding: 18px 36px;
     background-color: #fff;
-    border: 2px solid #4A90E2;
+    border: none;
     border-radius: 50px;
     color: #4A90E2;
-    font-size: 18px;
+    font-size: 21px;
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
 }
 
 .hero-cta:hover {
     background-color: #4A90E2;
     color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.hero-cta span {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .cta-icon {
@@ -1436,6 +1469,12 @@ body {
     .nav-links-right {
         gap: 20px;
     }
+
+    .nav-cta-button {
+        margin-left: auto;
+        font-size: 13px;
+        padding: 10px 20px;
+    }
     
     .hero {
         min-height: 70vh;
@@ -1604,6 +1643,12 @@ body {
         font-size: 13px;
     }
 
+    .nav-cta-button {
+        margin-left: auto;
+        font-size: 12px;
+        padding: 10px 18px;
+    }
+
     .hero {
         padding: 60px 0;
         min-height: auto;
@@ -1742,6 +1787,12 @@ body {
         align-items: flex-start;
     }
     
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
     .nav-links-right {
         flex-direction: column;
         gap: 12px;
@@ -1751,6 +1802,14 @@ body {
     .nav-link {
         font-size: 13px;
         padding: 8px 0;
+    }
+
+    .nav-cta-button {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+        padding: 12px 24px;
     }
 
     .hero .container {
