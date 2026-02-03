@@ -137,17 +137,6 @@ body {
     z-index: 0;
 }
 
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent 0%, rgba(0, 0, 170, 0.2) 100%);
-    pointer-events: none;
-    z-index: 0;
-}
 
 .hero .container {
     position: relative;
@@ -568,6 +557,64 @@ body {
 }
 
 /* ソリューション概要 */
+.appeal-section {
+    background-color: #f5f7f8;
+    padding: 100px 0;
+}
+
+.appeal-section .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.appeal-section .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.appeal-comparison {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.comparison-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.comparison-bad,
+.comparison-good {
+    display: flex;
+    gap: 15px;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-content {
+    flex: 1;
+}
+
+.comparison-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.comparison-description {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #666;
+}
+
 .solution-overview {
     background-color: #f5f7f8;
     padding: 100px 0;
@@ -1301,7 +1348,11 @@ body {
     font-size: 15px;
     line-height: 1.8;
     color: #666;
-    margin: 0;
+    margin: 0 0 0.8em 0;
+}
+
+.faq-answer p:last-child {
+    margin-bottom: 0;
 }
 
 .faq-answer strong {
@@ -1775,6 +1826,26 @@ body {
     .footer-company,
     .footer-info {
         text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-item {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .comparison-bad,
+    .comparison-good {
+        padding: 20px;
+    }
+
+    .comparison-title {
+        font-size: 18px;
+    }
+
+    .comparison-description {
+        font-size: 16px;
     }
 }
 
