@@ -345,6 +345,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 30px;
+    order: 1;
+}
+
+.hospitalia-visual {
+    order: 2;
 }
 
 .hospitalia-title {
