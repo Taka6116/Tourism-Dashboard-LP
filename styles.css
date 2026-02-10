@@ -1923,27 +1923,26 @@ body {
         order: 3;
         margin-top: 20px;
         align-self: center;
-        /* PC版と同じスタイルを維持 */
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        padding: 18px 36px;
+        gap: 8px;
+        padding: 12px 24px;
         background-color: #fff;
         border: none;
         border-radius: 50px;
         color: #4A90E2;
-        font-size: 21px;
+        font-size: 18px;
         font-weight: bold;
         text-decoration: none;
         transition: all 0.3s ease;
         box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
         width: fit-content;
-        max-width: 300px;
+        max-width: 280px;
     }
 
     .hero-cta span {
-        font-size: 24px;
+        font-size: 18px;
         font-weight: bold;
     }
 
@@ -2123,11 +2122,16 @@ body {
     }
 
     .hero-cta {
-        font-size: 14px;
+        font-size: 16px;
         padding: 12px 24px;
-        width: 100%;
-        max-width: 300px;
+        width: fit-content;
+        max-width: 280px;
         margin: 0 auto;
+        gap: 8px;
+    }
+    
+    .hero-cta span {
+        font-size: 16px;
     }
     
     .challenges-grid {
