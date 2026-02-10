@@ -89,6 +89,14 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
+    position: relative;
+    border-bottom: none !important;
+}
+
+.nav-link-text {
+    position: relative;
+    transition: border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
 }
 
 .nav-logo-icon {
@@ -108,17 +116,24 @@ body {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s, border-bottom 0.3s;
     padding: 5px 10px;
     white-space: nowrap;
+    position: relative;
+    border-bottom: 2px solid transparent;
 }
 
 .nav-link:hover {
     color: #4A90E2;
+    border-bottom: 2px solid #4A90E2;
 }
 
 .nav-link-left:hover {
     color: #4A90E2;
+}
+
+.nav-link-left:hover .nav-link-text {
+    border-bottom: 2px solid #4A90E2;
 }
 
 .nav-cta-button {
@@ -221,17 +236,21 @@ body {
 .hero-cta {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 18px 36px;
+    gap: 8px;
+    padding: 12px 52px;
     background-color: #fff;
     border: none;
     border-radius: 50px;
     color: #4A90E2;
-    font-size: 21px;
+    font-size: 18px;
     font-weight: bold;
     text-decoration: none;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+    width: fit-content;
+    max-width: 307px;
+    grid-column: 1;
+    justify-self: start;
 }
 
 .hero-cta:hover {
@@ -242,7 +261,7 @@ body {
 }
 
 .hero-cta span {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -1638,6 +1657,9 @@ body {
     .hero-cta {
         font-size: 16px;
         padding: 14px 28px;
+        width: fit-content;
+        max-width: 250px;
+        justify-self: center;
     }
     
     .pc-frame {
@@ -1868,6 +1890,25 @@ body {
         min-height: auto;
     }
 
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-text {
+        margin-top: 0;
+        order: 1;
+    }
+
+    .hero-image {
+        order: 2;
+        margin-top: 0;
+        justify-content: center;
+        display: flex;
+    }
+
     .hero-title {
         font-size: 36px;
         line-height: 1.3;
@@ -1879,13 +1920,37 @@ body {
     }
 
     .hero-cta {
-        font-size: 14px;
-        padding: 12px 24px;
+        order: 3;
+        margin-top: 20px;
+        align-self: center;
+        /* PC版と同じスタイルを維持 */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 18px 36px;
+        background-color: #fff;
+        border: none;
+        border-radius: 50px;
+        color: #4A90E2;
+        font-size: 21px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+        width: fit-content;
+        max-width: 300px;
     }
 
+    .hero-cta span {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* ヒーローセクションの画像を1.5段階大きく（0.3 → 0.45） */
     .pc-frame {
         max-width: 100%;
-        transform: scale(0.9);
+        transform: scale(0.45);
     }
 
     .section-title {
@@ -2145,7 +2210,7 @@ body {
 
     .pc-frame {
         max-width: 100%;
-        transform: scale(0.85);
+        transform: scale(0.45);
     }
     
     .hero {
