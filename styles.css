@@ -611,53 +611,86 @@ body {
     margin-bottom: 60px;
 }
 
-.appeal-comparison {
+.appeal-steps {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
-.comparison-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: stretch;
-}
-
-.comparison-bad,
-.comparison-good {
+.appeal-arrow {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 30px;
-    border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    height: 100%;
-}
-
-.comparison-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.comparison-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 12px;
-    color: #333;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
+    padding: 0 10px;
 }
 
-.comparison-description {
+.appeal-step {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appeal-step-image {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.appeal-step-last .appeal-step-image {
+    height: 180px;
+}
+
+.appeal-device-image {
+    max-width: 80%;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.appeal-step-last .appeal-device-image {
+    max-width: 90%;
+}
+
+.appeal-step-number {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.appeal-step-title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.appeal-step-description {
     font-size: 18px;
     line-height: 1.7;
     color: #666;
     margin: 0;
-    flex: 1;
+    min-height: 122px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
 .solution-overview {
@@ -1875,21 +1908,37 @@ body {
 }
 
 @media (max-width: 768px) {
-    .comparison-item {
-        grid-template-columns: 1fr;
-        gap: 20px;
+    .appeal-steps {
+        flex-direction: column;
+        gap: 30px;
     }
 
-    .comparison-bad,
-    .comparison-good {
-        padding: 20px;
+    .appeal-arrow {
+        transform: rotate(90deg);
+        padding: 10px 0;
     }
 
-    .comparison-title {
-        font-size: 18px;
+    .appeal-step {
+        max-width: 100%;
     }
 
-    .comparison-description {
+    .appeal-step {
+        padding: 30px 20px;
+    }
+
+    .appeal-step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .appeal-step-title {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    .appeal-step-description {
         font-size: 16px;
     }
 }
@@ -1983,27 +2032,34 @@ body {
         margin-bottom: 40px;
     }
 
-    .appeal-comparison {
+    .appeal-steps {
+        flex-direction: column;
         gap: 25px;
     }
 
-    .comparison-item {
-        grid-template-columns: 1fr;
-        gap: 15px;
+    .appeal-arrow {
+        transform: rotate(90deg);
+        padding: 10px 0;
     }
 
-    .comparison-bad,
-    .comparison-good {
-        padding: 20px;
+    .appeal-step {
+        max-width: 100%;
+        padding: 25px 20px;
     }
 
-    .comparison-title {
-        font-size: 17px;
+    .appeal-step-image {
+        height: 120px;
+    }
+
+    .appeal-step-title {
+        font-size: 18px;
         margin-bottom: 10px;
+        min-height: 54px;
     }
 
-    .comparison-description {
+    .appeal-step-description {
         font-size: 15px;
+        min-height: 92px;
     }
 
     .hero .container {
@@ -2213,22 +2269,27 @@ body {
         margin-bottom: 30px;
     }
 
-    .appeal-comparison {
+    .appeal-steps {
         gap: 20px;
     }
 
-    .comparison-bad,
-    .comparison-good {
-        padding: 15px;
+    .appeal-step {
+        padding: 20px 15px;
     }
 
-    .comparison-title {
+    .appeal-step-image {
+        height: 100px;
+    }
+
+    .appeal-step-title {
         font-size: 16px;
         margin-bottom: 8px;
+        min-height: 48px;
     }
 
-    .comparison-description {
+    .appeal-step-description {
         font-size: 14px;
+        min-height: 84px;
     }
 
     .hero-title {
