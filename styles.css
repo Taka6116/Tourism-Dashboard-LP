@@ -149,6 +149,12 @@ body {
     font-weight: bold;
 }
 
+/* モバイル用CTAボタンはPC版では非表示 */
+.nav-cta-button.mobile-cta {
+    display: none;
+}
+
+
 /* ヒーローセクション */
 .hero {
     background: 
@@ -1689,6 +1695,12 @@ body {
         order: 0;
     }
 
+    /* モバイル版でsolution-block-2とsolution-block-4のテキストをビジュアルの上に配置 */
+    .solution-block-2 .solution-text,
+    .solution-block-4 .solution-text {
+        order: -1;
+    }
+
     .solution-heading {
         font-size: 28px;
     }
@@ -1753,29 +1765,102 @@ body {
         padding: 0 20px;
     }
 
-    .nav {
-        padding-left: 20px;
-        padding-right: 20px;
-        flex-wrap: wrap;
+    /* ハンバーガーメニューを表示 */
+    .hamburger-menu {
+        display: flex;
+        left: 15px; /* nav要素のpaddingに合わせる */
     }
 
+    /* nav要素のpaddingを縮める */
+    .nav {
+        padding-left: 15px;
+        padding-right: 15px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    /* ロゴとテキストの調整 */
     .nav-link-left {
-        font-size: 20px;
+        font-size: 14px;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+        margin-left: 45px; /* ハンバーガーメニューのスペースを確保 */
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .nav-logo-icon {
         height: 20px;
+        flex-shrink: 0;
     }
 
+
+    /* デスクトップ用のCTAボタンを非表示 */
+    .nav-cta-button:not(.mobile-cta) {
+        display: none;
+    }
+
+    /* ハンバーガーメニュー用のナビリンク（モバイル時のみ固定位置で表示） */
     .nav-links-right {
-        gap: 15px;
-        font-size: 13px;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background-color: #fff;
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 0 30px 0;
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
+        transition: left 0.3s ease;
+        z-index: 999;
+        overflow-y: auto;
     }
 
-    .nav-cta-button {
-        margin-left: auto;
-        font-size: 12px;
-        padding: 10px 18px;
+    /* ハンバーガーメニューが開いた時 */
+    .nav-links-right.active {
+        left: 0;
+    }
+
+    .nav-links-right.active .nav-link {
+        font-size: 16px;
+        padding: 18px 25px;
+        width: 100%;
+        border-bottom: 1px solid #e0e0e0;
+        color: #333;
+        text-align: left;
+    }
+
+    .nav-links-right.active .nav-link:hover {
+        background-color: #f5f7f8;
+        color: #4A90E2;
+    }
+
+    /* モバイルCTAボタン（ハンバーガーメニュー内） */
+    .nav-links-right .nav-cta-button.mobile-cta {
+        display: none;
+    }
+
+    .nav-links-right.active .nav-cta-button.mobile-cta {
+        display: flex !important;
+        margin: 20px 20px 0 20px;
+        width: calc(100% - 40px);
+        justify-content: center;
+        font-size: 16px;
+        padding: 14px 24px;
+        border-radius: 50px;
+        background-color: #0066FF;
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+    }
+
+    .nav-links-right.active .nav-cta-button.mobile-cta:hover {
+        background-color: #0052CC;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
     }
 
     .hero {
@@ -1944,123 +2029,19 @@ body {
 }
 
 @media (max-width: 640px) {
-    .hamburger-menu {
-        display: flex;
-    }
-
+    /* 640px以下では、768px以下のスタイルを継承しつつ、より細かい調整を行う */
     .header {
         padding: 15px 0;
     }
 
-    .nav {
-        padding-left: 60px;
-        padding-right: 20px;
-        flex-wrap: nowrap;
-    }
-
     .nav-link-left {
-        font-size: 14px;
-        gap: 10px;
-        flex: 1;
-        min-width: 0;
-    }
-
-    .nav-link-left span {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        font-size: 13px;
     }
 
     .nav-logo-icon {
-        height: 20px;
-        flex-shrink: 0;
+        height: 18px;
     }
 
-    .nav-links-right {
-        position: fixed;
-        top: 0;
-        left: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: #fff;
-        flex-direction: column;
-        gap: 0;
-        padding: 80px 20px 20px;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-        transition: left 0.3s ease;
-        z-index: 999;
-        overflow-y: auto;
-    }
-
-    .nav-links-right.active {
-        left: 0;
-    }
-
-    .nav-link {
-        font-size: 16px;
-        padding: 15px 0;
-        width: 100%;
-        border-bottom: 1px solid #e0e0e0;
-    }
-
-    .nav-cta-button {
-        display: none;
-    }
-
-    .nav-links-right .nav-cta-button.mobile-cta {
-        display: none;
-        margin-left: 0;
-        margin-top: 20px;
-        width: 100%;
-        justify-content: center;
-        font-size: 16px;
-        padding: 14px 24px;
-        border-bottom: none;
-    }
-
-    .nav-links-right.active .nav-cta-button.mobile-cta {
-        display: flex;
-    }
-
-    .appeal-section {
-        padding: 60px 0;
-    }
-
-    .appeal-section .section-title {
-        font-size: 28px;
-        margin-bottom: 40px;
-    }
-
-    .appeal-steps {
-        flex-direction: column;
-        gap: 25px;
-    }
-
-    .appeal-arrow {
-        transform: rotate(90deg);
-        padding: 10px 0;
-    }
-
-    .appeal-step {
-        max-width: 100%;
-        padding: 25px 20px;
-    }
-
-    .appeal-step-image {
-        height: 120px;
-    }
-
-    .appeal-step-title {
-        font-size: 18px;
-        margin-bottom: 10px;
-        min-height: 54px;
-    }
-
-    .appeal-step-description {
-        font-size: 15px;
-        min-height: 92px;
-    }
 
     .hero .container {
         padding: 0 20px;
