@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デモ - 観光データ分析レポート | Hospitalia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body class="demo-page">
+    <!-- ヘッダー -->
+    <header class="demo-header">
+        <div class="demo-header-content">
+            <h1 class="demo-title">観光データ分析レポート</h1>
+            <div class="demo-header-controls">
+                <div class="demo-filter">
+                    <label>対象月:</label>
+                    <select class="demo-select">
+                        <option>2025年7月</option>
+                    </select>
+                </div>
+                <div class="demo-filter">
+                    <label>エリア:</label>
+                    <select class="demo-select">
+                        <option>福岡 博多</option>
+                    </select>
+                </div>
+                <button class="demo-export-btn">エクスポート</button>
+                <a href="index.html" class="demo-logout">ログアウト</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="demo-container">
+        <!-- 左サイドバー -->
+        <aside class="demo-sidebar">
+            <nav class="demo-sidebar-nav">
+                <a href="#summary" class="demo-nav-item" data-section="summary">サマリー</a>
+                <a href="#insights" class="demo-nav-item active" data-section="insights">インサイト</a>
+                <a href="#policies" class="demo-nav-item" data-section="policies">施策</a>
+            </nav>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="demo-main">
+            <!-- タブ -->
+            <div class="demo-tabs">
+                <button class="demo-tab" data-tab="overview">総合サマリー</button>
+                <button class="demo-tab" data-tab="category">カテゴリー別発話データ件数</button>
+                <button class="demo-tab" data-tab="language-trend">言語別発話数推移</button>
+                <button class="demo-tab active" data-tab="speaker">言語別話者データ</button>
+            </div>
+
+            <!-- コンテンツエリア -->
+            <div class="demo-content">
+                <!-- サマリーセクション -->
+                <section id="summary-section" class="demo-section" style="display: none;">
+                    <h2 class="demo-section-title">総合サマリー</h2>
+                    <div class="demo-cards">
+                        <div class="demo-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">発話データ数</span>
+                                <span class="demo-card-info">ℹ️</span>
+                            </div>
+                            <div class="demo-card-value">171</div>
+                            <div class="demo-card-change negative">-26.5%</div>
+                        </div>
+                        <div class="demo-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">総操作数</span>
+                                <span class="demo-card-info">ℹ️</span>
+                            </div>
+                            <div class="demo-card-value">71,710</div>
+                            <div class="demo-card-change negative">-26.5%</div>
+                        </div>
+                        <div class="demo-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">1. 地域観光・周辺グルメ</span>
+                                <span class="demo-card-info">ℹ️</span>
+                            </div>
+                            <div class="demo-card-value">0 件</div>
+                            <div class="demo-card-change neutral">前月比なし</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-language-share">
+                        <div class="demo-chart-container">
+                            <div class="demo-donut-chart">
+                                <div class="demo-donut-center">171<br>総件数</div>
+                            </div>
+                            <div class="demo-chart-details">
+                                <h3>発話数・言語詳細</h3>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot blue"></span>
+                                    <span>日本語</span>
+                                    <span class="demo-percent positive">+12.6%</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot green"></span>
+                                    <span>英語</span>
+                                    <span class="demo-percent negative">-65.1%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="demo-chart-container">
+                            <div class="demo-donut-chart">
+                                <div class="demo-donut-center">71,710<br>総件数</div>
+                            </div>
+                            <div class="demo-chart-details">
+                                <h3>総操作数・言語別詳細</h3>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot green"></span>
+                                    <span>英語</span>
+                                    <span class="demo-percent negative">-44.9%</span>
+                                    <span class="demo-count">21,310件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot purple"></span>
+                                    <span>台湾語</span>
+                                    <span class="demo-percent positive">+0.2%</span>
+                                    <span class="demo-count">20,040件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot blue"></span>
+                                    <span>日本語</span>
+                                    <span class="demo-percent positive">+45.4%</span>
+                                    <span class="demo-count">19,350件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot pink"></span>
+                                    <span>韓国語</span>
+                                    <span class="demo-percent negative">-11.8%</span>
+                                    <span class="demo-count">10,730件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot orange"></span>
+                                    <span>中国語</span>
+                                    <span class="demo-percent negative">-94.7%</span>
+                                    <span class="demo-count">280件</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- インサイトセクション -->
+                <section id="insights-section" class="demo-section">
+                    <div class="demo-insights-tabs">
+                        <button class="demo-insight-tab active">インサイト</button>
+                        <button class="demo-insight-tab">関連ニュースと事例</button>
+                    </div>
+
+                    <div class="demo-insights-grid">
+                        <div class="demo-insight-box">
+                            <h3>総括</h3>
+                            <p>2025年7月の博多エリアでは、朝食サービスへの関心が高いことが確認されました。特に「宿泊シルバー朝食」という特別プランへの言及が見られ、シニア層向けサービスの需要が示唆されています。一方で、特定の観光スポットに関する質問は少なく、日常的な生活インフラへの関心が高い傾向が見られます。</p>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>実際のユーザーの発話内容</h3>
+                            <p class="demo-user-utterance">「ダイコクドラッグってどこにある近く」</p>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>示唆</h3>
+                            <p>外国人観光客、特に長期滞在者に対して、多言語での生活インフラ案内（ドラッグストアなど）の強化が必要です。</p>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>今後の方向性</h3>
+                            <p>Wi-Fi環境の整備や、生活インフラ案内（ドラッグストアなど）を充実させ、長期滞在に対応できるシステム構築を目指します。</p>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>トレンド</h3>
+                            <ul>
+                                <li>朝食に関する質問が最多（時間、価格、メニューなど）</li>
+                                <li>喫煙場所の位置確認が複数回</li>
+                                <li>大浴場・温泉施設への関心が比較的高い</li>
+                                <li>タクシー手配などの交通手段の言及は少ない</li>
+                            </ul>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>言語別の特徴</h3>
+                            <ul>
+                                <li>日本語での質問が大多数</li>
+                                <li>英語での「breakfast」という単語は1回のみ</li>
+                                <li>シニア向けサービス（「シルバー朝食」）への言及あり</li>
+                            </ul>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>推奨事項</h3>
+                            <ul>
+                                <li>「シルバー朝食」の成功を踏まえ、シニア向け観光プランの拡充</li>
+                                <li>デジタル化による観光情報提供（館内施設だけでなく周辺エリア情報も含むデジタルコンシェルジュ）</li>
+                                <li>朝食観光の推進（地元の朝市との連携により、朝食を観光コンテンツとして活用）</li>
+                            </ul>
+                        </div>
+                        <div class="demo-insight-box">
+                            <h3>需要の兆候</h3>
+                            <p>特定のサービス「宿泊シルバー朝食」への言及や、シニア層をターゲットにした特別プランへの関心は、福岡・博多エリアにおけるシニア観光需要の重要性を示す重要なシグナルです。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 施策セクション -->
+                <section id="policies-section" class="demo-section" style="display: none;">
+                    <div class="demo-policies-tabs">
+                        <button class="demo-policy-tab">基本構成</button>
+                        <button class="demo-policy-tab active">実行計画</button>
+                        <button class="demo-policy-tab">関連ニュースと事例</button>
+                    </div>
+
+                    <div class="demo-policy-content">
+                        <h2 class="demo-policy-title">多言語対応デジタルマップを活用した生活インフラ案内システムの構築</h2>
+                        <p class="demo-policy-subtitle">エリア: 福岡博多</p>
+
+                        <div class="demo-roadmap">
+                            <h3>ロードマップ</h3>
+                            <div class="demo-roadmap-months">
+                                <div class="demo-roadmap-month">
+                                    <h4>1ヶ月目: 立ち上げ・基盤構築期</h4>
+                                    <ul>
+                                        <li>博多駅周辺の生活インフラ施設（ドラッグストア、スーパー、コンビニ）100店舗の位置情報データベース作成</li>
+                                        <li>多言語対応（英語、中国語、韓国語）の店舗情報と営業時間データの入力作業実施</li>
+                                        <li>QRコード付きデジタルマップアクセスカードのデザイン作成と印刷発注（5000枚）</li>
+                                    </ul>
+                                </div>
+                                <div class="demo-roadmap-month">
+                                    <h4>2ヶ月目: 実装・PoCテスト期</h4>
+                                    <ul>
+                                        <li>博多駅観光案内所にてQRコード付きアクセスカードの配布開始（1日100枚目標）とユーザーフィードバック収集</li>
+                                        <li>主要ホテル30軒のフロントデスクスタッフへのシステム説明会実施と利用促進依頼</li>
+                                        <li>利用者の動線データ分析とヒートマップ作成による人気スポット特定作業</li>
+                                    </ul>
+                                </div>
+                                <div class="demo-roadmap-month">
+                                    <h4>3ヶ月目: 検証・拡大判断期</h4>
+                                    <ul>
+                                        <li>利用データ分析に基づく対象エリアの拡大計画策定（天神地区への展開検討）</li>
+                                        <li>地域小売店との連携プログラム構築（クーポン連携、セール情報配信等）</li>
+                                        <li>多言語対応コールセンターとの連携による問い合わせ対応体制の確立（24時間対応）</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-execution-design">
+                            <h3>実行設計</h3>
+                            <div class="demo-design-grid">
+                                <div class="demo-design-item">
+                                    <strong>オーナー:</strong>
+                                    <p>福岡市観光協会（プロジェクトマネージャー1名、システム開発担当2名、コンテンツ制作担当2名）</p>
+                                </div>
+                                <div class="demo-design-item">
+                                    <strong>場所:</strong>
+                                    <p>博多駅周辺エリア（半径2km圏内）を初期実装エリアとして設定</p>
+                                </div>
+                                <div class="demo-design-item">
+                                    <strong>ターゲットペルソナ:</strong>
+                                    <p>20-40代の外国人観光客、特にビジネス目的の長期滞在者</p>
+                                </div>
+                                <div class="demo-design-item">
+                                    <strong>予算範囲:</strong>
+                                    <p>初期投資300万円（システム開発費）、運用費月額20万円。観光消費額10%増を目標</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-outcome-prediction">
+                            <h3>成果予測</h3>
+                            <div class="demo-outcome-grid">
+                                <div class="demo-outcome-item positive">
+                                    <h4>拡大フェーズ</h4>
+                                    <p>月間利用者1万人達成、観光客の平均滞在時間2日増加、周辺店舗の売上15%向上</p>
+                                </div>
+                                <div class="demo-outcome-item negative">
+                                    <h4>改善フェーズ</h4>
+                                    <p>システム利用率低迷、店舗情報更新の負担増大、メンテナンスコスト肥大化</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="demo-script.js"></script>
+</body>
+</html>
