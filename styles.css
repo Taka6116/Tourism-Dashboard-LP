@@ -2733,22 +2733,23 @@ img {
         gap: 40px; /* 60px → 40px に縮小してスペース確保 */
     }
     
-    /* ダッシュボード画像を大きく保つ */
+    /* ダッシュボード画像を10%小さく */
     .pc-frame {
-        transform: scale(1.05) translateY(0.5cm);
-        /* 1.0 → 1.05 に拡大 */
+        transform: scale(0.945) translateY(0.5cm);
+        /* 1.05 → 0.945 に10%縮小 */
     }
     
-    /* MacBookオーバーレイの位置調整 */
+    /* MacBookオーバーレイの位置調整 - ノートPCで調整 */
     .macbook-overlay {
-        transform: translate(4.3cm, 3.6cm);
+        transform: translate(4.6cm, 4.6cm) scale(0.775656);
         max-width: 85%; /* やや大きく */
     }
     
-    /* iPadオーバーレイの位置調整 */
+    /* iPadオーバーレイの位置調整 - ノートPCで10%小さく */
     .ipad-overlay {
         bottom: calc(8% - 4.3cm);
         max-width: 66%;
+        transform: scale(0.9);
     }
     
     /* タイトルを若干縮小してバランスを取る */
