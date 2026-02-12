@@ -172,9 +172,7 @@ body {
 
 /* ヒーローセクション */
 .hero {
-    background: 
-        radial-gradient(ellipse 120% 100% at 0% 100%, rgba(0, 191, 255, 0.6) 0%, rgba(0, 127, 255, 0.3) 30%, transparent 60%),
-        linear-gradient(135deg, #00BFFF 0%, #0099FF 20%, #007FFF 40%, #0055FF 60%, #0033CC 80%, #0000AA 100%);
+    background-color: #2E8BFF;
     padding: calc(120px - 1cm) 0 calc(120px - 3.5cm) 0;
     min-height: 100vh;
     position: relative;
@@ -190,7 +188,7 @@ body {
     left: -15%;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse 90% 70% at 20% 80%, rgba(0, 191, 255, 0.5) 0%, rgba(0, 127, 255, 0.25) 40%, transparent 80%);
+    background: radial-gradient(ellipse 90% 70% at 20% 80%, rgba(46, 139, 255, 0.4) 0%, rgba(46, 139, 255, 0.15) 40%, transparent 80%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
