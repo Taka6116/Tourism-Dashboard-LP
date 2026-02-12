@@ -2741,7 +2741,7 @@ img {
     
     /* MacBookオーバーレイの位置調整 - ノートPCで調整 */
     .macbook-overlay {
-        transform: translate(4.6cm, 4.6cm) scale(0.775656);
+        transform: translate(3.7cm, 4.3cm) scale(0.73687);
         max-width: 85%; /* やや大きく */
     }
     
