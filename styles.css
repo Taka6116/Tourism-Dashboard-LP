@@ -208,7 +208,7 @@ body {
 /* ヒーローセクション */
 .hero {
     background-color: #1D85F0;
-    padding: calc(120px - 1cm) 0 calc(120px - 3.5cm) 0;
+    padding: calc(120px - 1.5cm) 0 calc(120px - 4cm) 0;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -249,7 +249,7 @@ body {
 }
 
 .hero-title {
-    font-size: 94px;
+    font-size: 92px;
     font-weight: bold;
     margin-bottom: 40px;
     line-height: 1.2;
@@ -361,14 +361,14 @@ body {
     z-index: 10;
     object-fit: contain;
     pointer-events: none;
-    transform: translate(4.19cm, 3cm);
+    transform: translate(4.15cm, 3.5cm);
 }
 
 .pc-frame {
     position: relative;
     max-width: 100%;
     width: 100%;
-    transform: scale(1.0);
+    transform: scale(1.0) translateY(0.5cm);
     transform-origin: center;
 }
 
@@ -439,7 +439,7 @@ body {
 
 .ipad-overlay {
     position: absolute;
-    bottom: calc(8% - 4cm);
+    bottom: calc(8% - 4.5cm);
     left: calc(5% - 4.32cm);
     width: auto;
     max-width: 65%;
