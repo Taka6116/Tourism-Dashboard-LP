@@ -464,6 +464,165 @@
     display: block;
 }
 
+/* タブコンテンツ */
+.demo-tab-content {
+    animation: fadeIn 0.3s ease-in;
+}
+
+/* カテゴリー別発話データ件数 */
+.demo-category-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.demo-category-card {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.demo-category-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.demo-category-number {
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.demo-category-name {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.demo-category-value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.demo-category-change {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.demo-category-change.positive {
+    color: #4A90E2;
+}
+
+.demo-category-change.negative {
+    color: #D0021B;
+}
+
+.demo-category-change.neutral {
+    color: #666;
+}
+
+/* 推移チャートセクション */
+.demo-trend-chart-section {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #e0e0e0;
+}
+
+.demo-chart-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.demo-chart-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.demo-chart-legend {
+    flex-shrink: 0;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #333;
+}
+
+.demo-legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.demo-legend-dot.blue {
+    background-color: #4A90E2;
+}
+
+.demo-legend-dot.green {
+    background-color: #50C878;
+}
+
+.demo-legend-dot.orange {
+    background-color: #FF9800;
+}
+
+.demo-legend-dot.red {
+    background-color: #FF6B6B;
+}
+
+.demo-legend-dot.purple {
+    background-color: #9B59B6;
+}
+
+.demo-legend-dot.light-blue {
+    background-color: #87CEEB;
+}
+
+.demo-legend-dot.pink {
+    background-color: #E91E63;
+}
+
+.demo-legend-dot.yellow {
+    background-color: #FFD700;
+}
+
+.demo-line-chart {
+    flex: 1;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    min-height: 400px;
+}
+
+.demo-chart-svg {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+}
+
 /* 施策セクション */
 .demo-policies-tabs {
     display: flex;
@@ -653,6 +812,22 @@
 }
 
 /* レスポンシブ */
+@media (max-width: 1200px) {
+    .demo-category-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .demo-chart-wrapper {
+        flex-direction: column;
+    }
+
+    .demo-chart-legend {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 968px) {
     .demo-header-content {
         flex-direction: column;
@@ -713,6 +888,43 @@
     .demo-outcome-grid {
         grid-template-columns: 1fr;
     }
+
+    .demo-category-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .demo-chart-wrapper {
+        flex-direction: column;
+    }
+
+    .demo-chart-legend {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .demo-line-chart {
+        min-height: 300px;
+    }
+
+    .demo-chart-svg {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .demo-category-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-category-value {
+        font-size: 24px;
+    }
+
+    .demo-chart-legend {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 768px) {
@@ -763,5 +975,26 @@
 
     .demo-card-value {
         font-size: 28px;
+    }
+}
+
+/* グラフアニメーション */
+@keyframes drawLine {
+    from {
+        stroke-dashoffset: 800;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fadeInDot {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
