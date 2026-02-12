@@ -208,7 +208,7 @@ body {
 /* ヒーローセクション */
 .hero {
     background-color: #1D85F0;
-    padding: calc(120px - 1.5cm) 0 calc(120px - 4cm) 0;
+    padding: calc(120px - 1.5cm) 0 calc(120px - 6cm) 0;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
@@ -305,6 +305,7 @@ body {
     grid-column: 1;
     justify-self: start;
     flex-wrap: wrap;
+    margin-top: -1cm;
 }
 
 .hero-demo-button {
@@ -361,14 +362,14 @@ body {
     z-index: 10;
     object-fit: contain;
     pointer-events: none;
-    transform: translate(4.15cm, 3.5cm);
+    transform: translate(3.55cm, 4.5cm) scale(0.81);
 }
 
 .pc-frame {
     position: relative;
     max-width: 100%;
     width: 100%;
-    transform: scale(1.0) translateY(0.5cm);
+    transform: scale(1.0) translate(-0.8cm, 0.5cm);
     transform-origin: center;
 }
 
@@ -2583,4 +2584,116 @@ img {
 .onboarding-step,
 .solution-block {
     animation: fadeInUp 0.6s ease-out;
+}
+
+/* フェーズ1: レスポンシブ改善 - 最小限の調整 */
+/* PC版のタイトルサイズを柔軟に */
+@media (min-width: 769px) {
+    .hero-title {
+        font-size: clamp(64px, 5.7vw, 92px);
+        /* 小型ラップトップ: 64px, 通常ディスプレイ: 78-92px */
+    }
+    
+    .hero-description {
+        font-size: clamp(20px, 1.5vw, 24px);
+    }
+}
+
+/* 中間サイズのデバイス用の微調整 */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .pc-frame {
+        transform: scale(0.9) translate(-0.8cm, 0.5cm);
+    }
+    
+    .macbook-overlay {
+        transform: translate(3.2cm, 4.2cm) scale(0.81);
+    }
+    
+    .ipad-overlay {
+        bottom: calc(8% - 4.2cm);
+    }
+}
+
+/* セクションタイトルの柔軟化 */
+@media (min-width: 769px) {
+    .section-title {
+        font-size: clamp(30px, 2.3vw, 36px);
+    }
+    
+    .solution-heading {
+        font-size: clamp(28px, 2.3vw, 36px);
+    }
+}
+
+/* チャレンジグリッドの自動調整 */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .challenges-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .challenge-box:nth-child(1),
+    .challenge-box:nth-child(2),
+    .challenge-box:nth-child(3),
+    .challenge-box:nth-child(4) {
+        margin-top: 0; /* 2列レイアウトでは階段状にしない */
+    }
+}
+
+/* ========================================
+   ラップトップでのヒーローセクション最適化
+   ======================================== */
+
+/* ラップトップサイズ（1024px〜1600px）での調整 */
+@media (min-width: 1024px) and (max-width: 1600px) {
+    .hero-content {
+        gap: 40px; /* 60px → 40px に縮小してスペース確保 */
+    }
+    
+    /* ダッシュボード画像を大きく保つ */
+    .pc-frame {
+        transform: scale(1.05) translateY(0.5cm);
+        /* 1.0 → 1.05 に拡大 */
+    }
+    
+    /* MacBookオーバーレイの位置調整 */
+    .macbook-overlay {
+        transform: translate(4.3cm, 3.6cm);
+        max-width: 85%; /* やや大きく */
+    }
+    
+    /* iPadオーバーレイの位置調整 */
+    .ipad-overlay {
+        bottom: calc(8% - 4.3cm);
+        max-width: 66%;
+    }
+    
+    /* タイトルを若干縮小してバランスを取る */
+    .hero-title {
+        font-size: clamp(68px, 5.5vw, 92px);
+        margin-bottom: 30px;
+    }
+    
+    .hero-description {
+        font-size: clamp(20px, 1.4vw, 24px);
+        margin-bottom: 30px;
+    }
+}
+
+/* より小さいラップトップ（1024px〜1280px）用の追加調整 */
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .hero-content {
+        gap: 30px;
+    }
+    
+    .pc-frame {
+        transform: scale(0.95) translateY(0.5cm);
+    }
+    
+    .hero-title {
+        font-size: clamp(64px, 5.2vw, 78px);
+    }
+    
+    .hero-description {
+        font-size: clamp(18px, 1.3vw, 22px);
+    }
 }
