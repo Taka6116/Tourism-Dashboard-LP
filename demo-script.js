@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else if (tabType === 'language-trend') {
                         document.getElementById('language-trend-content').style.display = 'block';
                         resetChartAnimation('language-trend-chart');
+                    } else if (tabType === 'speaker') {
+                        document.getElementById('speaker-content').style.display = 'block';
                     }
                 } else {
                     // デフォルトで総合サマリーを表示
@@ -92,6 +94,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('language-trend-content').style.display = 'block';
                     // アニメーションをリセットして再実行
                     resetChartAnimation('language-trend-chart');
+                } else if (tabType === 'speaker') {
+                    document.getElementById('speaker-content').style.display = 'block';
                 }
             }
         });

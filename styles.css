@@ -100,7 +100,7 @@ body {
 }
 
 .nav-logo-icon {
-    height: 24px;
+    height: 40px;
     width: auto;
     display: block;
 }
@@ -1930,7 +1930,7 @@ body {
     }
 
     .nav-logo-icon {
-        height: 20px;
+        height: 32px;
         flex-shrink: 0;
     }
 
@@ -2238,7 +2238,7 @@ body {
     }
 
     .nav-logo-icon {
-        height: 18px;
+        height: 32px;
     }
 
 
@@ -2522,7 +2522,7 @@ body {
     }
 
     .nav-logo-icon {
-        height: 18px;
+        height: 32px;
     }
 }
 
