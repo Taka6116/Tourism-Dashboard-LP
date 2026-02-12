@@ -21,23 +21,25 @@ body {
 /* ヘッダー */
 .header {
     background-color: #fff;
-    padding: 20px 0;
+    padding: clamp(12px, 1.2vh, 20px) 0;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-height: fit-content;
+    max-height: none;
 }
 
 .nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 30px;
-    padding-left: 65px;
-    padding-right: 65px;
+    gap: clamp(15px, 1.5vw, 30px);
+    padding-left: clamp(30px, 3vw, 65px);
+    padding-right: clamp(30px, 3vw, 65px);
     max-width: 1920px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* 折り返しを防ぐ */
     position: relative;
 }
 
@@ -81,16 +83,17 @@ body {
 .nav-link-left {
     color: #333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: clamp(14px, 1.2vw, 18px);
     font-weight: bold;
     transition: color 0.3s;
-    padding: 5px 10px;
+    padding: 5px clamp(6px, 0.8vw, 10px);
     white-space: nowrap;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(10px, 1vw, 20px);
     position: relative;
     border-bottom: none !important;
+    flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-link-text {
@@ -100,27 +103,31 @@ body {
 }
 
 .nav-logo-icon {
-    height: 40px;
+    height: clamp(28px, 2.5vh, 40px);
     width: auto;
     display: block;
+    flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-links-right {
     display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
+    gap: clamp(15px, 1.5vw, 30px);
+    flex-wrap: nowrap; /* 折り返しを防ぐ */
+    flex-shrink: 1; /* 必要に応じて縮小可能 */
+    min-width: 0; /* flexboxの縮小を許可 */
 }
 
 .nav-link {
     color: #333;
     text-decoration: none;
-    font-size: 18px;
+    font-size: clamp(14px, 1.2vw, 18px);
     font-weight: bold;
     transition: color 0.3s, border-bottom 0.3s;
-    padding: 5px 10px;
+    padding: 5px clamp(6px, 0.8vw, 10px);
     white-space: nowrap;
     position: relative;
     border-bottom: 2px solid transparent;
+    flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-link:hover {
@@ -140,19 +147,20 @@ body {
     background-color: #0066FF;
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: clamp(13px, 1.1vw, 18px);
     font-weight: bold;
-    padding: 12px 24px;
+    padding: clamp(8px, 0.8vh, 12px) clamp(16px, 1.5vw, 24px);
     border-radius: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: clamp(6px, 0.6vw, 8px);
     transition: all 0.3s ease;
     white-space: nowrap;
     box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
-    min-width: 160px;
-    width: 160px;
+    min-width: clamp(120px, 12vw, 160px);
+    width: clamp(120px, 12vw, 160px);
+    flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-cta-button:hover {
@@ -162,7 +170,7 @@ body {
 }
 
 .nav-cta-button span {
-    font-size: 18px;
+    font-size: clamp(13px, 1.1vw, 18px);
     font-weight: bold;
 }
 
@@ -174,27 +182,29 @@ body {
 .nav-cta-group {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: clamp(8px, 0.8vw, 12px);
     margin-left: auto;
+    flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-demo-button {
     background-color: transparent;
     color: #0066FF;
     text-decoration: none;
-    font-size: 18px;
+    font-size: clamp(13px, 1.1vw, 18px);
     font-weight: bold;
-    padding: 12px 24px;
+    padding: clamp(8px, 0.8vh, 12px) clamp(16px, 1.5vw, 24px);
     border-radius: 50px;
     border: 2px solid #0066FF;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: clamp(6px, 0.6vw, 8px);
     transition: all 0.3s ease;
     white-space: nowrap;
-    min-width: 160px;
-    width: 160px;
+    min-width: clamp(120px, 12vw, 160px);
+    width: clamp(120px, 12vw, 160px);
+    flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-demo-button:hover {
@@ -2636,6 +2646,80 @@ img {
     .challenge-box:nth-child(3),
     .challenge-box:nth-child(4) {
         margin-top: 0; /* 2列レイアウトでは階段状にしない */
+    }
+}
+
+/* ========================================
+   ノートPC向けヘッダー最適化（全画面サイズで理想的なデザインを維持）
+   ======================================== */
+
+/* ノートPCサイズ（1024px〜1600px）でのヘッダー調整 */
+@media (min-width: 1024px) and (max-width: 1600px) {
+    .header {
+        padding: clamp(12px, 1.2vh, 20px) 0;
+    }
+    
+    .nav {
+        padding-left: clamp(30px, 3vw, 65px);
+        padding-right: clamp(30px, 3vw, 65px);
+        gap: clamp(15px, 1.5vw, 30px);
+        flex-wrap: nowrap; /* 折り返しを防ぐ */
+    }
+    
+    .nav-link-left {
+        font-size: clamp(14px, 1.2vw, 18px);
+        gap: clamp(10px, 1vw, 20px);
+    }
+    
+    .nav-link {
+        font-size: clamp(14px, 1.2vw, 18px);
+        padding: 5px clamp(6px, 0.8vw, 10px);
+    }
+    
+    .nav-cta-group {
+        gap: clamp(8px, 0.8vw, 12px);
+        flex-shrink: 0; /* 縮小を防ぐ */
+    }
+    
+    .nav-cta-button,
+    .nav-demo-button {
+        font-size: clamp(13px, 1.1vw, 16px);
+        padding: clamp(8px, 0.8vh, 12px) clamp(16px, 1.5vw, 24px);
+        min-width: clamp(120px, 12vw, 140px);
+        width: clamp(120px, 12vw, 140px);
+    }
+    
+    .nav-cta-button span,
+    .nav-demo-button span {
+        font-size: clamp(13px, 1.1vw, 16px);
+    }
+    
+    .nav-logo-icon {
+        height: clamp(28px, 2.5vh, 40px);
+    }
+}
+
+/* より小さいノートPC（1024px〜1280px）での追加調整 */
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .nav {
+        gap: clamp(12px, 1.2vw, 20px);
+    }
+    
+    .nav-link-left {
+        font-size: clamp(13px, 1.1vw, 16px);
+    }
+    
+    .nav-link {
+        font-size: clamp(13px, 1.1vw, 16px);
+        padding: 5px clamp(5px, 0.6vw, 8px);
+    }
+    
+    .nav-cta-button,
+    .nav-demo-button {
+        font-size: clamp(12px, 1vw, 14px);
+        padding: clamp(7px, 0.7vh, 10px) clamp(14px, 1.3vw, 20px);
+        min-width: clamp(110px, 11vw, 130px);
+        width: clamp(110px, 11vw, 130px);
     }
 }
 
