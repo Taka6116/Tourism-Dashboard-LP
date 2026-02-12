@@ -172,9 +172,7 @@ body {
 
 /* ヒーローセクション */
 .hero {
-    background: 
-        radial-gradient(ellipse 120% 100% at 0% 100%, rgba(0, 191, 255, 0.6) 0%, rgba(0, 127, 255, 0.3) 30%, transparent 60%),
-        linear-gradient(135deg, #00BFFF 0%, #0099FF 20%, #007FFF 40%, #0055FF 60%, #0033CC 80%, #0000AA 100%);
+    background-color: #1D85F0;
     padding: calc(120px - 1cm) 0 calc(120px - 3.5cm) 0;
     min-height: 100vh;
     position: relative;
@@ -190,7 +188,7 @@ body {
     left: -15%;
     width: 60%;
     height: 100%;
-    background: radial-gradient(ellipse 90% 70% at 20% 80%, rgba(0, 191, 255, 0.5) 0%, rgba(0, 127, 255, 0.25) 40%, transparent 80%);
+    background: radial-gradient(ellipse 90% 70% at 20% 80%, rgba(46, 139, 255, 0.4) 0%, rgba(46, 139, 255, 0.15) 40%, transparent 80%);
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
@@ -216,7 +214,7 @@ body {
 }
 
 .hero-title {
-    font-size: 96px;
+    font-size: 94px;
     font-weight: bold;
     margin-bottom: 40px;
     line-height: 1.2;
@@ -276,6 +274,20 @@ body {
     align-items: center;
     padding-left: 0;
     margin-top: -120px;
+    position: relative;
+}
+
+.macbook-overlay {
+    position: absolute;
+    bottom: -5%;
+    right: -2%;
+    width: auto;
+    max-width: 83.66%;
+    height: auto;
+    z-index: 10;
+    object-fit: contain;
+    pointer-events: none;
+    transform: translate(4.19cm, 3cm);
 }
 
 .pc-frame {
@@ -349,6 +361,18 @@ body {
     -khtml-user-drag: none;
     -moz-user-drag: none;
     -o-user-drag: none;
+}
+
+.ipad-overlay {
+    position: absolute;
+    bottom: calc(8% - 4cm);
+    left: calc(5% - 4.32cm);
+    width: auto;
+    max-width: 65%;
+    height: auto;
+    z-index: 5;
+    object-fit: contain;
+    pointer-events: none;
 }
 
 .pc-base {
@@ -1647,7 +1671,7 @@ body {
     }
 
     .hero-title {
-        font-size: 56px;
+        font-size: 54px;
     }
     
     .hero-description {
@@ -1910,7 +1934,7 @@ body {
     }
 
     .hero-title {
-        font-size: 36px;
+        font-size: 34px;
         line-height: 1.3;
     }
 
@@ -2112,7 +2136,7 @@ body {
     }
 
     .hero-title {
-        font-size: 32px;
+        font-size: 30px;
         line-height: 1.2;
     }
     
@@ -2343,7 +2367,7 @@ body {
     }
 
     .hero-title {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     .hero-description {
