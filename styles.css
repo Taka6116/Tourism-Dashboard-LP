@@ -1707,6 +1707,7 @@ body {
 
 .submit-btn {
     width: 100%;
+    margin-top: 30px;
     padding: 18px 30px;
     background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
     color: #fff;
@@ -2260,6 +2261,7 @@ body {
     }
 
     .submit-btn {
+        margin-top: 25px;
         padding: 16px 24px;
         font-size: 16px;
     }
@@ -2511,6 +2513,7 @@ body {
     }
 
     .submit-btn {
+        margin-top: 25px;
         padding: 16px 24px;
         font-size: 16px;
     }
