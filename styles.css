@@ -2021,7 +2021,8 @@ body {
     /* ハンバーガーメニューを表示 */
     .hamburger-menu {
         display: flex;
-        left: 15px; /* nav要素のpaddingに合わせる */
+        left: auto;
+        right: 15px; /* 右端に配置 */
     }
 
     /* nav要素のpaddingを縮める */
@@ -2038,7 +2039,8 @@ body {
         gap: 6px;
         flex: 1;
         min-width: 0;
-        margin-left: 45px; /* ハンバーガーメニューのスペースを確保 */
+        margin-left: 0; /* ハンバーガーメニューが右端に移動したため不要 */
+        margin-top: 0.1cm; /* 0.1cm下に下げる */
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2856,11 +2858,12 @@ img {
         transform: translateY(0.3cm);
         flex-direction: column;
         justify-content: center;
-        align-items: stretch;
+        align-items: center;
         flex-wrap: nowrap;
         gap: 12px;
         width: 100%;
-        padding: 0 20px;
+        padding: 0;
+        margin: 0;
         box-sizing: border-box;
     }
     
@@ -2873,11 +2876,13 @@ img {
         padding: 11px 19px;
         font-size: 13px;
         width: 100%;
-        min-width: auto;
+        max-width: 100%;
+        min-width: 0;
         min-height: 42px;
         height: auto;
         white-space: nowrap;
         position: relative;
+        margin: 0;
     }
     
     .hero .hero-cta span,
@@ -2937,12 +2942,13 @@ img {
     
     .hero .hero-demo-button {
         width: 100%;
+        max-width: 100%;
         justify-content: center;
         position: relative;
         align-items: center;
         padding: 11px 19px;
         min-height: 42px;
-        margin-left: 0.7cm;
+        margin: 0;
     }
     
     .hero .hero-demo-button .demo-button-content {
@@ -3160,6 +3166,18 @@ img {
         font-size: 18px;
     }
     
+    /* お問い合わせCTAのホバー効果 */
+    .hero .hero-cta:hover {
+        background-color: #4A90E2;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    }
+    
+    .hero .hero-cta:hover > span:last-child {
+        color: #fff;
+    }
+    
     /* デモを見るCTA：あしらいをCTA外の上に表示 */
     .hero .hero-demo-button {
         display: flex;
@@ -3209,6 +3227,7 @@ img {
         box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
         position: relative;
+        transition: all 0.3s ease;
     }
     
     .hero .hero-demo-button .demo-button-main {
@@ -3218,6 +3237,7 @@ img {
         margin-top: 0;
         width: auto;
         color: #fff;
+        transition: color 0.3s ease;
     }
     
     /* 矢印をCTAボタン内に配置 */
@@ -3230,6 +3250,23 @@ img {
         font-size: 18px;
         font-weight: bold;
         color: #fff;
+        transition: color 0.3s ease;
+    }
+    
+    /* デモを見るCTAのホバー効果 */
+    .hero .hero-demo-button:hover .demo-button-content {
+        background-color: #fff;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+    
+    .hero .hero-demo-button:hover .demo-button-main {
+        color: #4A90E2;
+    }
+    
+    .hero .hero-demo-button:hover .demo-button-content::after {
+        color: #4A90E2;
     }
     
     /* ダッシュボード画像を10%小さく */
@@ -3425,6 +3462,165 @@ img {
     
     .challenges .section-title {
         margin-bottom: 40px;
+    }
+}
+
+/* ========================================
+   ディスプレイ画面版（1600px以上）でのヒーローセクションCTA修正
+   ======================================== */
+@media (min-width: 1601px) {
+    /* ディスプレイ画面版：CTAボタンのUIを元に戻す */
+    .hero .hero-cta-group {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    
+    /* お問い合わせCTAを元の表示に戻す */
+    .hero .hero-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 52px;
+        background-color: #fff;
+        border: none;
+        border-radius: 50px;
+        color: #4A90E2;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+        width: fit-content;
+        max-width: 307px;
+        flex-direction: row;
+        position: static;
+    }
+    
+    .hero .hero-cta .cta-button-content {
+        display: contents;
+    }
+    
+    .hero .hero-cta .cta-badge {
+        display: none;
+    }
+    
+    .hero .hero-cta .hero-cta-text-pc {
+        display: inline;
+    }
+    
+    .hero .hero-cta .hero-cta-text-mobile {
+        display: none;
+    }
+    
+    .hero .hero-cta > span:last-child {
+        position: static;
+        transform: none;
+        top: auto;
+        right: auto;
+        font-size: 18px;
+    }
+    
+    /* お問い合わせCTAのホバー効果 */
+    .hero .hero-cta:hover {
+        background-color: #4A90E2;
+        color: #fff;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+    }
+    
+    .hero .hero-cta:hover > span:last-child {
+        color: #fff;
+    }
+    
+    /* デモを見るCTA：あしらいをCTA外の上に表示 */
+    .hero .hero-demo-button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        padding: 0;
+        width: auto;
+        max-width: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+    
+    /* あしらいをCTA外の上に表示 */
+    .hero .hero-demo-button .demo-button-content .cta-badge {
+        display: block !important;
+        font-size: 13px;
+        padding: 4px 10px;
+        color: #fff;
+        font-weight: 600;
+        white-space: nowrap;
+        text-align: center;
+        width: auto;
+        margin-bottom: 6px;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    /* CTAボタン本体（デモを見る） */
+    .hero .hero-demo-button .demo-button-content {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 52px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border: 2px solid #fff;
+        border-radius: 50px;
+        width: fit-content;
+        max-width: 307px;
+        box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .hero .hero-demo-button .demo-button-main {
+        display: inline;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 0;
+        width: auto;
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+    
+    /* 矢印をCTAボタン内に配置 */
+    .hero .hero-demo-button > span:last-child {
+        display: none; /* 外側のspanは非表示 */
+    }
+    
+    .hero .hero-demo-button .demo-button-content::after {
+        content: '→';
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        transition: color 0.3s ease;
+    }
+    
+    /* デモを見るCTAのホバー効果 */
+    .hero .hero-demo-button:hover .demo-button-content {
+        background-color: #fff;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+    }
+    
+    .hero .hero-demo-button:hover .demo-button-main {
+        color: #4A90E2;
+    }
+    
+    .hero .hero-demo-button:hover .demo-button-content::after {
+        color: #4A90E2;
     }
 }
 
