@@ -801,7 +801,7 @@ body {
 /* ソリューション概要 */
 .appeal-section {
     background-color: #f5f7f8;
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 .appeal-section .container {
@@ -812,17 +812,17 @@ body {
 
 .appeal-section .section-title {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 
 .appeal-steps {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-    gap: 20px;
-    max-width: 1200px;
+    gap: 10px;
+    max-width: 1400px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .appeal-arrow {
@@ -830,14 +830,19 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    padding: 0 10px;
+    padding: 0 4px;
+}
+
+.appeal-arrow svg {
+    width: 43px;
+    height: 17px;
 }
 
 .appeal-step {
     flex: 1;
-    min-width: 250px;
-    max-width: 300px;
-    padding: 40px 30px;
+    min-width: 0;
+    max-width: 288px;
+    padding: 24px 17px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -845,53 +850,53 @@ body {
 }
 
 .appeal-step-image {
-    margin-bottom: 20px;
+    margin-bottom: 14px;
     width: 100%;
-    height: 150px;
+    height: 108px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .appeal-step-last .appeal-step-image {
-    height: 180px;
+    height: 120px;
 }
 
 .appeal-device-image {
-    max-width: 80%;
+    max-width: 90%;
     max-height: 100%;
     height: auto;
     object-fit: contain;
 }
 
 .appeal-step-last .appeal-device-image {
-    max-width: 90%;
+    max-width: 100%;
 }
 
 .appeal-step-number {
-    font-size: 32px;
+    font-size: 29px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #333;
 }
 
 .appeal-step-title {
-    font-size: 22px;
+    font-size: 19px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #333;
-    min-height: 70px;
+    min-height: 53px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .appeal-step-description {
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
     color: #666;
     margin: 0;
-    min-height: 122px;
+    min-height: 0;
     display: flex;
     align-items: flex-start;
     justify-content: center;
