@@ -2010,8 +2010,8 @@ body {
 
     /* ロゴとテキストの調整 */
     .nav-link-left {
-        font-size: 14px;
-        gap: 8px;
+        font-size: 16px;
+        gap: 6px;
         flex: 1;
         min-width: 0;
         margin-left: 45px; /* ハンバーガーメニューのスペースを確保 */
@@ -2021,7 +2021,7 @@ body {
     }
 
     .nav-logo-icon {
-        height: 32px;
+        height: 26px;
         flex-shrink: 0;
     }
 
@@ -2330,11 +2330,11 @@ body {
     }
 
     .nav-link-left {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .nav-logo-icon {
-        height: 32px;
+        height: 24px;
     }
 
 
@@ -2615,11 +2615,11 @@ body {
     }
 
     .nav-link-left {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .nav-logo-icon {
-        height: 32px;
+        height: 24px;
     }
 }
 
@@ -2723,6 +2723,7 @@ img {
         justify-content: center;
         align-items: center;
         gap: 16px;
+        transform: translateY(-1.5cm);
     }
     
     .hero .pc-frame {
@@ -2768,6 +2769,10 @@ img {
         flex: 0 1 auto;
         width: auto;
         height: auto;
+    }
+    
+    .hero .hero-cta-group {
+        transform: translateY(-2cm);
     }
 }
 
