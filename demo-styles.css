@@ -1001,8 +1001,11 @@
     }
 
     .demo-export-btn {
-        padding: 8px 16px;
-        font-size: 13px;
+        padding: 8px 12px; /* セレクトボックスと同じパディングに揃える */
+        font-size: 14px; /* セレクトボックスと同じフォントサイズに揃える */
+        height: auto;
+        line-height: 1.5;
+        margin-top: 0.2cm; /* 0.2cm下にずらす */
     }
 
     .demo-main {
