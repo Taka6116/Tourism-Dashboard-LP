@@ -2245,6 +2245,10 @@ body {
         font-size: 14px;
         line-height: 1.7;
     }
+    
+    .solution-desc-br-pc {
+        display: none; /* モバイル版では改行を非表示 */
+    }
 
     .solution-category {
         font-size: 11px;
