@@ -2119,7 +2119,7 @@ body {
     }
 
     .hero {
-        padding: 60px 0;
+        padding: 60px 0 calc(60px + 0.5cm) 0; /* 下のパディングを0.5cm増やす */
         min-height: auto;
     }
 
@@ -2770,6 +2770,7 @@ img {
     
     .hero .hero-description .hero-desc-mobile-only {
         display: block;
+        margin-top: -1cm; /* 1cm上にずらす */
     }
     
     .hero .dashboard-image {
@@ -2821,7 +2822,7 @@ img {
     
     .hero .ipad-overlay {
         position: relative;
-        transform: scale(0.91) translate(2cm, 3cm);
+        transform: scale(1.092) translate(2cm, 2.5cm); /* 0.91 * 1.2 = 1.092, 3cm - 0.5cm = 2.5cm */
         transform-origin: center;
         max-width: 100%;
         width: auto;
@@ -2832,13 +2833,13 @@ img {
     .hero .macbook-overlay {
         position: absolute;
         left: 50%;
-        transform: translateX(-50%) scale(1.82);
+        transform: translateX(-50%) scale(2.184); /* 1.82 * 1.2 = 2.184 */
         transform-origin: center;
         max-width: 45%;
         width: auto;
         height: auto;
         top: 50%;
-        margin-top: 0.3cm;
+        margin-top: -0.2cm; /* 0.3cm - 0.5cm = -0.2cm */
         z-index: -1;
     }
     
@@ -2855,7 +2856,7 @@ img {
     }
     
     .hero .hero-cta-group {
-        transform: translateY(0.3cm);
+        transform: translateY(calc(0.3cm + 0.5cm)); /* iPad-displayとCTAの間に0.5cmのスペースを追加 */
         flex-direction: column;
         justify-content: center;
         align-items: center;
