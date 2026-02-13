@@ -2710,6 +2710,67 @@ img {
     }
 }
 
+/* モバイルのみ: ヒーローでMacBookとiPadを横並び、dashboard-heroは非表示 */
+@media (max-width: 768px) {
+    .hero .dashboard-image {
+        display: none;
+    }
+    
+    .hero .hero-image {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    
+    .hero .pc-frame {
+        position: relative;
+        transform: none;
+        width: auto;
+        max-width: 45%;
+        flex: 0 1 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero .pc-screen {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        position: relative;
+    }
+    
+    .hero .pc-screen::before,
+    .hero .pc-screen::after {
+        display: none;
+    }
+    
+    .hero .pc-base {
+        display: none;
+    }
+    
+    .hero .ipad-overlay {
+        position: static;
+        transform: none;
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
+    
+    .hero .macbook-overlay {
+        position: static;
+        transform: none;
+        max-width: 45%;
+        flex: 0 1 auto;
+        width: auto;
+        height: auto;
+    }
+}
+
 /* セクションタイトルの柔軟化 */
 @media (min-width: 769px) {
     .section-title {
