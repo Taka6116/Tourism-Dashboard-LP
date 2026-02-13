@@ -43,6 +43,30 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
+// スクロールトップボタン（赤枠エリア相当・常に右側に表示）
+(function () {
+    const scrollTopBtn = document.querySelector('.scroll-to-top');
+    if (!scrollTopBtn) return;
+
+    const showThreshold = 400;
+
+    function updateVisibility() {
+        if (window.pageYOffset > showThreshold) {
+            scrollTopBtn.classList.add('is-visible');
+        } else {
+            scrollTopBtn.classList.remove('is-visible');
+        }
+    }
+
+    window.addEventListener('scroll', updateVisibility, { passive: true });
+    updateVisibility();
+
+    scrollTopBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+})();
+
 // フォームバリデーションと送信処理
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
