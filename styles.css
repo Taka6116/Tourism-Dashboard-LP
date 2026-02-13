@@ -144,7 +144,7 @@ body {
 }
 
 .nav-cta-button {
-    background-color: #0066FF;
+    background-color: #1E88E5;
     color: #fff;
     text-decoration: none;
     font-size: clamp(13px, 1.1vw, 18px);
@@ -157,16 +157,16 @@ body {
     gap: clamp(6px, 0.6vw, 8px);
     transition: all 0.3s ease;
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(30, 136, 229, 0.35);
     min-width: clamp(120px, 12vw, 160px);
     width: clamp(120px, 12vw, 160px);
     flex-shrink: 0; /* 縮小を防ぐ */
 }
 
 .nav-cta-button:hover {
-    background-color: #0052CC;
+    background-color: #1976D2;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
+    box-shadow: 0 4px 12px rgba(30, 136, 229, 0.45);
 }
 
 .nav-cta-button span {
