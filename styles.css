@@ -862,6 +862,10 @@ body {
     height: 120px;
 }
 
+.appeal-step:not(.appeal-step-last) .appeal-step-image {
+    margin-top: 12px;
+}
+
 .appeal-device-image {
     max-width: 90%;
     max-height: 100%;
