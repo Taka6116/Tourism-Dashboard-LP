@@ -2913,6 +2913,31 @@ img {
     .hospitalia-section .amazon-proof-link {
         font-size: 13px;
     }
+    
+    /* 課題セクション「施策に繋がらない〜」をHospitalia同様に左右余白 */
+    .challenges .container {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    .challenges .challenges-grid {
+        max-width: 1200px;
+        gap: 24px;
+        padding-top: 18px;
+    }
+    
+    .challenges .challenge-box {
+        padding: 42px 28px 52px 28px;
+    }
+    
+    .challenges .section-title {
+        margin-bottom: 48px;
+    }
+    
+    /* 課題ボックスのタイトルを「満足度調査だけでは、」で改行 */
+    .challenges .challenge-title-line2 {
+        display: block;
+    }
 }
 
 /* より小さいラップトップ（1024px〜1280px）用の追加調整 */
@@ -2969,6 +2994,21 @@ img {
     .hospitalia-section .amazon-proof {
         padding: 10px 14px;
         max-width: 360px;
+    }
+    
+    /* 課題セクションはさらにコンテンツ幅を絞って左右余白を合わせる */
+    .challenges .challenges-grid {
+        max-width: 1100px;
+        gap: 20px;
+        padding-top: 14px;
+    }
+    
+    .challenges .challenge-box {
+        padding: 36px 24px 44px 24px;
+    }
+    
+    .challenges .section-title {
+        margin-bottom: 40px;
     }
 }
 
