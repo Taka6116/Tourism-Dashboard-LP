@@ -2807,6 +2807,15 @@ img {
         gap: 40px; /* 60px → 40px に縮小してスペース確保 */
     }
     
+    /* ヒーロー左側（タイトル・説明・CTA）を0.7cm上にずらす（画像はそのまま） */
+    .hero-text {
+        transform: translateY(-0.7cm);
+    }
+    
+    .hero-cta-group {
+        transform: translateY(-0.7cm);
+    }
+    
     /* ダッシュボード画像を10%小さく */
     .pc-frame {
         transform: scale(0.945) translateY(0.5cm);
@@ -2874,7 +2883,7 @@ img {
     }
     
     .hospitalia-section .hospitalia-device-image {
-        transform: scale(0.924);
+        transform: scale(0.97);
     }
     
     .hospitalia-section .amazon-proof-wrap {
@@ -2950,7 +2959,7 @@ img {
     }
     
     .hospitalia-section .hospitalia-device-image {
-        transform: scale(0.861);
+        transform: scale(0.904);
     }
     
     .hospitalia-section .amazon-proof-wrap {
@@ -2994,4 +3003,10 @@ img {
     display: block;
     width: 48px;
     height: 48px;
+    animation: scroll-to-top-float 2.2s ease-in-out infinite;
+}
+
+@keyframes scroll-to-top-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
