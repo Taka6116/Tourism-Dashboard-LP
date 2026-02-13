@@ -1494,7 +1494,7 @@ body {
 
 .onboarding-step.challenge-box-style {
     background-color: #fff;
-    padding: 50px 30px 60px 30px;
+    padding: 58px 30px 60px 30px;
     border-radius: 0;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -1515,18 +1515,22 @@ body {
 }
 
 .onboarding-step .step-number {
+    position: absolute;
+    top: -22px;
+    left: -22px;
     background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
     color: #fff;
     font-weight: bold;
     font-size: 18px;
-    width: 50px;
-    height: 50px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+    transform: rotate(-28deg);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
+    z-index: 1;
 }
 
 .onboarding-step.challenge-box-style h4 {
@@ -2246,7 +2250,7 @@ body {
     }
 
     .onboarding-step {
-        padding: 25px 20px;
+        padding: 48px 20px 25px 20px;
     }
 
     .flow-banner {
@@ -2470,13 +2474,15 @@ body {
     }
 
     .onboarding-step {
-        padding: 20px 15px;
+        padding: 44px 15px 20px 15px;
     }
 
     .step-number {
-        font-size: 24px;
-        width: 40px;
-        height: 40px;
+        font-size: 16px;
+        width: 44px;
+        height: 44px;
+        top: -18px;
+        left: -18px;
     }
 
     .onboarding-step h4 {
