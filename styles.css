@@ -487,6 +487,14 @@ body {
 }
 
 .hero-carousel-prev {
+    animation: hero-carousel-arrow-left-float 2.2s ease-in-out infinite;
+}
+
+.hero-carousel-next {
+    animation: hero-carousel-arrow-right-float 2.2s ease-in-out infinite;
+}
+
+.hero-carousel-prev {
     left: 20px;
 }
 
@@ -494,16 +502,28 @@ body {
     right: 20px;
 }
 
-.hero-carousel-prev:hover,
-.hero-carousel-next:hover {
+.hero-carousel-prev:hover {
     background-color: #fff;
-    transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) translateX(-6px) scale(1.1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: none; /* ホバー時はアニメーションを停止 */
 }
 
-.hero-carousel-prev:active,
+.hero-carousel-next:hover {
+    background-color: #fff;
+    transform: translateY(-50%) translateX(6px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: none; /* ホバー時はアニメーションを停止 */
+}
+
+.hero-carousel-prev:active {
+    transform: translateY(-50%) translateX(-6px) scale(0.95);
+    animation: none; /* アクティブ時はアニメーションを停止 */
+}
+
 .hero-carousel-next:active {
-    transform: translateY(-50%) scale(0.95);
+    transform: translateY(-50%) translateX(6px) scale(0.95);
+    animation: none; /* アクティブ時はアニメーションを停止 */
 }
 
 /* ページネーションドット */
@@ -3955,4 +3975,23 @@ img {
 @keyframes scroll-to-top-float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-6px); }
+}
+
+/* カルーセル矢印の左右アニメーション */
+@keyframes hero-carousel-arrow-left-float {
+    0%, 100% { 
+        transform: translateY(-50%) translateX(0px); 
+    }
+    50% { 
+        transform: translateY(-50%) translateX(-6px); 
+    }
+}
+
+@keyframes hero-carousel-arrow-right-float {
+    0%, 100% { 
+        transform: translateY(-50%) translateX(0px); 
+    }
+    50% { 
+        transform: translateY(-50%) translateX(6px); 
+    }
 }

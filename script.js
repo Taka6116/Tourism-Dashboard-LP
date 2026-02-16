@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentSlide = 0;
     let autoplayInterval = null;
-    const autoplayDelay = 10000; // 10秒
+    const autoplayDelay = 5000; // 5秒
 
     // スライドを表示する関数
     function showSlide(index) {
@@ -562,18 +562,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextButton) {
         nextButton.addEventListener('click', () => {
             nextSlide();
-            // 自動再生オフのためコメントアウト
-            // stopAutoplay();
-            // startAutoplay();
+            stopAutoplay();
+            startAutoplay();
         });
     }
 
     if (prevButton) {
         prevButton.addEventListener('click', () => {
             prevSlide();
-            // 自動再生オフのためコメントアウト
-            // stopAutoplay();
-            // startAutoplay();
+            stopAutoplay();
+            startAutoplay();
         });
     }
 
@@ -581,15 +579,14 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             showSlide(index);
-            // 自動再生オフのためコメントアウト
-            // stopAutoplay();
-            // startAutoplay();
+            stopAutoplay();
+            startAutoplay();
         });
     });
 
-    // マウスホバーで自動再生を一時停止（自動再生オフのため無効化）
-    // carousel.addEventListener('mouseenter', stopAutoplay);
-    // carousel.addEventListener('mouseleave', startAutoplay);
+    // マウスホバーで自動再生を一時停止
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
 
     // タッチスワイプ対応（モバイル）
     let touchStartX = 0;
@@ -616,12 +613,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 右にスワイプ（前のスライド）
                 prevSlide();
             }
-            // 自動再生オフのためコメントアウト
-            // stopAutoplay();
-            // startAutoplay();
+            stopAutoplay();
+            startAutoplay();
         }
     }
 
-    // 初期化：自動再生を開始（自動再生オフのため無効化）
-    // startAutoplay();
+    // 初期化：自動再生を開始
+    startAutoplay();
 });
