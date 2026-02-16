@@ -101,23 +101,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // インサイトタブ
+    // インサイトタブ（コンテンツ構成・ペルソナ・トレンド）
     const insightTabs = document.querySelectorAll('.demo-insight-tab');
-    
+    const insightTabContents = {
+        content: 'insight-content-tab',
+        persona: 'insight-persona-tab',
+        trend: 'insight-trend-tab'
+    };
+
     insightTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             insightTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
+            const tabKey = this.getAttribute('data-insight-tab');
+            document.querySelectorAll('.demo-insight-tab-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            const contentId = insightTabContents[tabKey];
+            if (contentId) {
+                const contentEl = document.getElementById(contentId);
+                if (contentEl) contentEl.style.display = 'block';
+            }
         });
     });
 
-    // 施策タブ
+    // 施策タブ（基本構成・実行計画・関連ニュースと事例）
     const policyTabs = document.querySelectorAll('.demo-policy-tab');
-    
+    const policyTabContents = {
+        basic: 'policy-basic-content',
+        plan: 'policy-plan-content',
+        news: 'policy-news-content'
+    };
+
     policyTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             policyTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
+            const tabKey = this.getAttribute('data-policy-tab');
+            document.querySelectorAll('.demo-policy-tab-content').forEach(el => {
+                el.style.display = 'none';
+            });
+            const contentId = policyTabContents[tabKey];
+            if (contentId) {
+                const contentEl = document.getElementById(contentId);
+                if (contentEl) contentEl.style.display = 'block';
+            }
         });
     });
 

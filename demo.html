@@ -23,6 +23,8 @@
                 <div class="demo-filter">
                     <label>対象月:</label>
                     <select class="demo-select">
+                        <option>2025年10月</option>
+                        <option>2025年8月</option>
                         <option>2025年7月</option>
                     </select>
                 </div>
@@ -476,132 +478,289 @@
                 <!-- インサイトセクション -->
                 <section id="insights-section" class="demo-section" style="display: none;">
                     <div class="demo-insights-tabs">
-                        <button class="demo-insight-tab active">インサイト</button>
+                        <button class="demo-insight-tab active" data-insight-tab="content">コンテンツ構成</button>
+                        <button class="demo-insight-tab" data-insight-tab="persona">ペルソナ</button>
+                        <button class="demo-insight-tab" data-insight-tab="trend">トレンド</button>
                     </div>
 
-                    <div class="demo-insights-grid">
-                        <div class="demo-insight-box">
-                            <h3>総括</h3>
-                            <p>2025年7月の博多エリアでは、朝食サービスへの関心が高いことが確認されました。特に「宿泊シルバー朝食」という特別プランへの言及が見られ、シニア層向けサービスの需要が示唆されています。一方で、特定の観光スポットに関する質問は少なく、日常的な生活インフラへの関心が高い傾向が見られます。</p>
+                    <!-- コンテンツ構成タブ -->
+                    <div id="insight-content-tab" class="demo-insight-tab-content">
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title">コンテンツ構成</h2>
+                            <div class="demo-insight-bars">
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">雑談・挨拶・エンタメ</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-green" style="width: 82%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">82%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">客室設備・WiFi</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-teal" style="width: 10%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">10%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">大浴場・館内施設</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-lightblue" style="width: 2.7%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">2.7%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">朝食・館内食事</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-purple" style="width: 2%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">2%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">フロント関連</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-orange" style="width: 2%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">2%</span>
+                                </div>
+                            </div>
+                            <h3 class="demo-insight-subtitle">前月比較の主な変化</h3>
+                            <p class="demo-insight-text">雑談カテゴリが全体の8割を超え、実務的な質問が減少</p>
+                            <h3 class="demo-insight-subtitle">示唆</h3>
+                            <p class="demo-insight-highlight">コミュニケーション主体の利用が増加、施設利用の基本的な理解が進んでいる可能性</p>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>実際のユーザーの発話内容</h3>
-                            <p>「ダイコクドラッグってどこにある近く」</p>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title">推奨アクション</h2>
+                            <div class="demo-insight-action">
+                                <h3 class="demo-insight-subtitle">抽象例</h3>
+                                <p class="demo-insight-text">買い物観光とアメニティの充実を軸とした差別化が有効</p>
+                            </div>
+                            <div class="demo-insight-action">
+                                <h3 class="demo-insight-subtitle">具体例</h3>
+                                <p class="demo-insight-text">商業施設との連携シャトルバス運行</p>
+                            </div>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>示唆</h3>
-                            <p>外国人観光客、特に長期滞在者に対して、多言語での生活インフラ案内（ドラッグストアなど）の強化が必要です。</p>
+                    </div>
+
+                    <!-- ペルソナタブ -->
+                    <div id="insight-persona-tab" class="demo-insight-tab-content" style="display: none;">
+                        <div class="demo-persona-cards">
+                            <div class="demo-insight-card demo-persona-card">
+                                <h2 class="demo-insight-card-title demo-persona-heading">ペルソナ</h2>
+                                <dl class="demo-persona-dl">
+                                    <dt>タイプ</dt>
+                                    <dd>買い物目的インバウンド層</dd>
+                                    <dt>根拠</dt>
+                                    <dd>shopping outletsやcanal cityへの言及</dd>
+                                    <dt>検討段階</dt>
+                                    <dd>観光スポット探索段階</dd>
+                                    <dt>課題</dt>
+                                    <dd>商業施設へのアクセス情報不足</dd>
+                                    <dt>機会</dt>
+                                    <dd>商業施設との連携による観光ルート開発</dd>
+                                </dl>
+                            </div>
+                            <div class="demo-insight-card demo-persona-card">
+                                <h2 class="demo-insight-card-title demo-persona-heading">ペルソナ</h2>
+                                <dl class="demo-persona-dl">
+                                    <dt>タイプ</dt>
+                                    <dd>長期滞在インバウンド</dd>
+                                    <dt>根拠</dt>
+                                    <dd>laundry serviceやfitness centerへの言及</dd>
+                                    <dt>検討段階</dt>
+                                    <dd>滞在サービス利用検討</dd>
+                                    <dt>課題</dt>
+                                    <dd>長期滞在向けサービスの認知度不足</dd>
+                                    <dt>機会</dt>
+                                    <dd>長期滞在者向けサービスの拡充</dd>
+                                </dl>
+                            </div>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>今後の方向性</h3>
-                            <p>Wi-Fi環境の整備や、生活インフラ案内（ドラッグストアなど）を充実させ、長期滞在に対応できるシステム構築を目指します。</p>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title demo-persona-heading">実際の声</h2>
+                            <p class="demo-insight-text demo-voice-quote">where is canal city (9件), where are the shopping outlets (9件)</p>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>トレンド</h3>
-                            <ul>
-                                <li>朝食に関する質問が最多（時間、価格、メニューなど）</li>
-                                <li>喫煙場所の位置確認が複数回</li>
-                                <li>大浴場・温泉施設への関心が比較的高い</li>
-                                <li>タクシー手配などの交通手段の言及は少ない</li>
-                            </ul>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title demo-persona-heading">示唆</h2>
+                            <p class="demo-insight-text">観光客が主要商業施設へのアクセス方法に苦慮している実態が判明。特に、キャナルシティ博多等の主要商業施設への案内強化が急務。また、全体の質問数(1620件)に対して、地域観光に関する質問が18件と極めて少ないことは、事前の情報提供や案内の充実度に課題があることを示唆しています。</p>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>言語別の特徴</h3>
-                            <ul>
-                                <li>日本語での質問が大多数</li>
-                                <li>英語での「breakfast」という単語は1回のみ</li>
-                                <li>シニア向けサービス（「シルバー朝食」）への言及あり</li>
-                            </ul>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title demo-persona-heading">詳細データ</h2>
+                            <div class="demo-persona-detail">
+                                <h3 class="demo-insight-subtitle">関連ニュース</h3>
+                                <p class="demo-insight-text">観光庁、新たな「先駆的DMO」7法人を選定、せとうち観光推進機構、箱根町観光協会など―デジタル技術を活用した観光地経営の高度化と、観光客の行動分析・需要予測の実施が成功のカギとなっている。・博多エリアでも、デジタル技術を活用した観光案内の効率化と観光客の動線分析が有効と考えられる。</p>
+                            </div>
+                            <div class="demo-persona-detail">
+                                <h3 class="demo-insight-subtitle">重要シグナル</h3>
+                                <p class="demo-insight-text">アウトレットモールへの関心が高く、買い物観光の需要が示唆される</p>
+                            </div>
+                            <div class="demo-persona-detail">
+                                <h3 class="demo-insight-subtitle">ニーズの変動</h3>
+                                <p class="demo-insight-text demo-persona-sublabel">継続して不足しているテーマ</p>
+                                <ul class="demo-insight-list">
+                                    <li>地域観光・周辺グルメ</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>推奨事項</h3>
-                            <ul>
-                                <li>「シルバー朝食」の成功を踏まえ、シニア向け観光プランの拡充</li>
-                                <li>デジタル化による観光情報提供（館内施設だけでなく周辺エリア情報も含むデジタルコンシェルジュ）</li>
-                                <li>朝食観光の推進（地元の朝市との連携により、朝食を観光コンテンツとして活用）</li>
-                            </ul>
+                    </div>
+
+                    <!-- トレンドタブ -->
+                    <div id="insight-trend-tab" class="demo-insight-tab-content" style="display: none;">
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title">トレンド</h2>
+                            <h3 class="demo-insight-subtitle">カテゴリ</h3>
+                            <p class="demo-trend-caption">割合の推移(前月→今月)</p>
+                            <div class="demo-trend-rows">
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">雑談・挨拶・エンタメ</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 67%;" title="前月 67%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-up" style="width: 81.4%;" title="今月 81.4%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-up">+14.4pt</span>
+                                </div>
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">フロント関連</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 5.5%;" title="前月 5.5%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 2%;" title="今月 2%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-down">-3.5pt</span>
+                                </div>
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">客室設備</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 13.4%;" title="前月 13.4%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 10%;" title="今月 10%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-down">-3.4pt</span>
+                                </div>
+                            </div>
+                            <div class="demo-trend-legend">
+                                <span class="demo-trend-legend-item"><span class="demo-trend-legend-swatch demo-trend-legend-last"></span>前月</span>
+                                <span class="demo-trend-legend-item"><span class="demo-trend-legend-swatch demo-trend-legend-up"></span>今月(増)</span>
+                                <span class="demo-trend-legend-item"><span class="demo-trend-legend-swatch demo-trend-legend-down"></span>今月(減)</span>
+                            </div>
                         </div>
-                        <div class="demo-insight-box">
-                            <h3>需要の兆候</h3>
-                            <p>特定のサービス「宿泊シルバー朝食」への言及や、シニア層をターゲットにした特別プランへの関心は、福岡・博多エリアにおけるシニア観光需要の重要性を示す重要なシグナルです。</p>
+                        <div class="demo-insight-card demo-trend-card-tint">
+                            <h2 class="demo-insight-card-title">言語別トレンド</h2>
+                            <p class="demo-insight-text">英語での質問が約69%を占め、特に買い物や施設利用に関する問い合わせが目立つ</p>
+                        </div>
+                        <div class="demo-insight-card demo-trend-card-tint">
+                            <h2 class="demo-insight-card-title">注目の声</h2>
+                            <p class="demo-insight-text">アウトレットモールへの関心が高く、買い物観光の需要が示唆される</p>
+                        </div>
+                        <div class="demo-insight-card demo-trend-card-tint">
+                            <h2 class="demo-insight-card-title">示唆</h2>
+                            <p class="demo-insight-text">観光客が主要商業施設へのアクセス方法に苦慮している実態が判明。特に、キャナルシティ博多等の主要商業施設への案内強化が急務。また、全体の質問数(1620件)に対して、地域観光に関する質問が18件と極めて少ないことは、事前の情報提供や案内の充実度に課題があることを示唆しています。</p>
                         </div>
                     </div>
                 </section>
 
                 <!-- 施策セクション -->
                 <section id="policies-section" class="demo-section" style="display: none;">
+                    <h2 class="demo-policy-title">福岡ミステリーナイトツアー「百物語巡り」プロジェクト</h2>
+                    <p class="demo-policy-subtitle">エリア: 福岡博多</p>
+
                     <div class="demo-policies-tabs">
-                        <button class="demo-policy-tab active">実行計画</button>
+                        <button class="demo-policy-tab active" data-policy-tab="basic">基本構成</button>
+                        <button class="demo-policy-tab" data-policy-tab="plan">実行計画</button>
+                        <button class="demo-policy-tab" data-policy-tab="news">関連ニュースと事例</button>
                     </div>
 
-                    <div class="demo-policy-content">
-                        <h2 class="demo-policy-title">多言語対応デジタルマップを活用した生活インフラ案内システムの構築</h2>
-                        <p class="demo-policy-subtitle">エリア: 福岡博多</p>
+                    <!-- 基本構成タブ -->
+                    <div id="policy-basic-content" class="demo-policy-tab-content">
+                        <div class="demo-policy-grid">
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">推奨事項 (Recommendations)</h3>
+                                <ul class="demo-policy-box-list">
+                                    <li>夏季限定の「福岡ミステリーナイトツアー」の企画・実施(寺社仏閣での怪談会や夜間特別拝観とのコラボレーション)</li>
+                                    <li>外国人観光客向けの「温泉/銭湯マナーガイド」の多言語での作成・配布 (イラスト付きで分かりやすく)</li>
+                                    <li>観光スポット案内と連動したAIコンシェルジェサービスの導入(特に夜間の観光情報提供の強化)</li>
+                                </ul>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">現状 (Current Situation)</h3>
+                                <p class="demo-policy-box-text">夏季における怪談文化への関心の高まりと、寺社仏閣の夜間活用ニーズが合致。適切なコンテンツ開発により、新たな観光価値の創出が可能</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">背景 (Background)</h3>
+                                <p class="demo-policy-box-text">8月のN1シグナルで「幽霊」に関する複数の質問が確認され、夏季限定の新たな観光需要が顕在化。寺社仏閣という福岡の強みと組み合わせることで、他地域では実現困難な差別化されたナイトタイムエコノミーの創出が可能</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">目的 (Purpose)</h3>
+                                <p class="demo-policy-box-text">夏季特有の怪談観光ニーズを活用した新規顧客層の開拓</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">施策案の基となる発話データ (Utterance Data Forming the Basis of the Policy Proposal)</h3>
+                                <p class="demo-policy-box-text">「幽霊は何回に出る?」「どこで幽霊が出る?」など、怪談文化への関心を示す質問が日本人観光客から複数寄せられている (日本語話者)</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">なぜ今なのか (Why Now?)</h3>
+                                <p class="demo-policy-box-text">夏季の怪談需要期に合わせた即時展開により、閑散期の誘客と夜間の観光消費を促進できる。また6-7月の「スマート接客」基盤を活用し、効率的な運営が可能</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">終了検討基準 (Criteria for Ending/Review)</h3>
+                                <ul class="demo-policy-box-list">
+                                    <li>本格運営開始2ヶ月後</li>
+                                    <li>参加者満足度70%未満、もしくは稼働率50%未満の場合は見直し</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
+                    <!-- 実行計画タブ -->
+                    <div id="policy-plan-content" class="demo-policy-tab-content" style="display: none;">
                         <div class="demo-roadmap">
                             <h3>ロードマップ</h3>
                             <div class="demo-roadmap-months">
                                 <div class="demo-roadmap-month">
                                     <h4>1ヶ月目: 立ち上げ・基盤構築期</h4>
                                     <ul>
-                                        <li>博多駅周辺の生活インフラ施設（ドラッグストア、スーパー、コンビニ）100店舗の位置情報データベース作成</li>
-                                        <li>多言語対応（英語、中国語、韓国語）の店舗情報と営業時間データの入力作業実施</li>
-                                        <li>QRコード付きデジタルマップアクセスカードのデザイン作成と印刷発注（5000枚）</li>
+                                        <li>福岡エリアの寺社仏閣との夜間特別拝観・怪談会の調整・企画</li>
+                                        <li>ミステリーナイトツアー「百物語巡り」コース設計とスタッフ研修</li>
+                                        <li>多言語対応の案内資料・音声ガイドの準備</li>
                                     </ul>
                                 </div>
                                 <div class="demo-roadmap-month">
-                                    <h4>2ヶ月目: 実装・PoCテスト期</h4>
+                                    <h4>2ヶ月目: 実装・テスト期</h4>
                                     <ul>
-                                        <li>博多駅観光案内所にてQRコード付きアクセスカードの配布開始（1日100枚目標）とユーザーフィードバック収集</li>
-                                        <li>主要ホテル30軒のフロントデスクスタッフへのシステム説明会実施と利用促進依頼</li>
-                                        <li>利用者の動線データ分析とヒートマップ作成による人気スポット特定作業</li>
+                                        <li>夏季限定ツアーの本格運営開始</li>
+                                        <li>参加者フィードバック収集と満足度・稼働率のモニタリング</li>
+                                        <li>AIコンシェルジェとの連携による夜間観光情報提供の強化</li>
                                     </ul>
                                 </div>
                                 <div class="demo-roadmap-month">
-                                    <h4>3ヶ月目: 検証・拡大判断期</h4>
+                                    <h4>3ヶ月目: 検証・見直し期</h4>
                                     <ul>
-                                        <li>利用データ分析に基づく対象エリアの拡大計画策定（天神地区への展開検討）</li>
-                                        <li>地域小売店との連携プログラム構築（クーポン連携、セール情報配信等）</li>
-                                        <li>多言語対応コールセンターとの連携による問い合わせ対応体制の確立（24時間対応）</li>
+                                        <li>終了検討基準に基づく継続・見直し判断</li>
+                                        <li>他エリア展開の可否検討</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="demo-execution-design">
-                            <h3>実行設計</h3>
-                            <div class="demo-design-grid">
-                                <div class="demo-design-item">
-                                    <strong>オーナー:</strong>
-                                    <p>福岡市観光協会（プロジェクトマネージャー1名、システム開発担当2名、コンテンツ制作担当2名）</p>
-                                </div>
-                                <div class="demo-design-item">
-                                    <strong>場所:</strong>
-                                    <p>博多駅周辺エリア（半径2km圏内）を初期実装エリアとして設定</p>
-                                </div>
-                                <div class="demo-design-item">
-                                    <strong>ターゲットペルソナ:</strong>
-                                    <p>20-40代の外国人観光客、特にビジネス目的の長期滞在者</p>
-                                </div>
-                                <div class="demo-design-item">
-                                    <strong>予算範囲:</strong>
-                                    <p>初期投資300万円（システム開発費）、運用費月額20万円。観光消費額10%増を目標</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="demo-outcome-prediction">
-                            <h3>成果予測</h3>
-                            <div class="demo-outcome-grid">
-                                <div class="demo-outcome-item positive">
-                                    <h4>拡大フェーズ</h4>
-                                    <p>月間利用者1万人達成、観光客の平均滞在時間2日増加、周辺店舗の売上15%向上</p>
-                                </div>
-                                <div class="demo-outcome-item negative">
-                                    <h4>改善フェーズ</h4>
-                                    <p>システム利用率低迷、店舗情報更新の負担増大、メンテナンスコスト肥大化</p>
-                                </div>
-                            </div>
+                    <!-- 関連ニュースと事例タブ -->
+                    <div id="policy-news-content" class="demo-policy-tab-content" style="display: none;">
+                        <div class="demo-policy-box">
+                            <h3 class="demo-policy-box-title">関連ニュース・事例</h3>
+                            <p class="demo-policy-box-text">夏季の怪談・ナイトツアーに関する他地域の事例や、観光庁のナイトタイムエコノミー推進に関する情報を掲載します。</p>
                         </div>
                     </div>
                 </section>
