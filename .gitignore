@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 *.log
+
+# ローカルバックアップ（Gitに含めない）
+local-backups/
