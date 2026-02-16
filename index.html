@@ -50,46 +50,140 @@
         </nav>
     </header>
 
-    <!-- ヒーローセクション -->
+    <!-- ヒーローセクション（カルーセル） -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">観光客の本音を施策へ</h1>
-                    <p class="hero-description">
-                        <span class="hero-desc-mobile-hide">従来の観光調査では見えなかった<br>
-                        「観光客が本当に困っていること」を、AIが可視化<br><br></span>
-                        <span class="hero-desc-pc">Amazon Alexa×観光客の発話データで<br>
-                        DMO・自治体、観光協会の施策立案を<br class="hero-desc-br-mobile">最短1日でスタート</span>
-                        <span class="hero-desc-mobile-only">Amazon Alexa × 観光客発話データ施策立案</span>
-                    </p>
-                </div>
-                <div class="hero-image">
-                    <div class="pc-frame">
-                        <div class="pc-screen">
-                            <img src="assets/dashboard-hero.png" class="dashboard-image" alt="観光データ分析ダッシュボード">
-                            <img src="assets/iPad-display.png" class="ipad-overlay" alt="iPad表示">
+        <div class="hero-carousel">
+            <!-- スライド1 -->
+            <div class="hero-slide active">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">観光客の本音を施策へ</h1>
                         </div>
-                        <div class="pc-base"></div>
+                        <div class="hero-image">
+                            <div class="pc-frame">
+                                <div class="pc-screen">
+                                    <img src="assets/dashboard-hero.png" class="dashboard-image" alt="観光データ分析ダッシュボード">
+                                    <img src="assets/iPad-display.png" class="ipad-overlay" alt="iPad表示">
+                                </div>
+                                <div class="pc-base"></div>
+                            </div>
+                            <img src="assets/macbook-display.png" class="macbook-overlay" alt="MacBook表示">
+                        </div>
+                        <div class="hero-cta-group">
+                            <a href="#contact" class="hero-cta">
+                                <div class="cta-button-content">
+                                    <span class="cta-badge">＼ ご相談だけでもOK！ ／</span>
+                                    <span class="hero-cta-text-pc">お問い合わせ</span><span class="hero-cta-text-mobile">お問い合わせ</span>
+                                </div>
+                                <span>→</span>
+                            </a>
+                            <a href="demo.html" class="hero-demo-button">
+                                <div class="demo-button-content">
+                                    <span class="cta-badge">＼ 今すぐデモを体験する ／</span>
+                                    <span class="demo-button-main">デモを見る</span>
+                                </div>
+                                <span>→</span>
+                            </a>
+                        </div>
                     </div>
-                    <img src="assets/macbook-display.png" class="macbook-overlay" alt="MacBook表示">
                 </div>
-                <div class="hero-cta-group">
-                    <a href="#contact" class="hero-cta">
-                        <div class="cta-button-content">
-                            <span class="cta-badge">＼ ご相談だけでもOK！ ／</span>
-                            <span class="hero-cta-text-pc">お問い合わせ</span><span class="hero-cta-text-mobile">お問い合わせ</span>
+            </div>
+
+            <!-- スライド2 -->
+            <div class="hero-slide hero-slide-2">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">観光客の<span class="hero-title-no-break">「生の声」</span>を<br>直接分析</h1>
+                            <p class="hero-description">
+                                <span class="hero-desc-pc">Amazon Alexa × 発話データ解析</span>
+                                <span class="hero-desc-mobile-only">Amazon Alexa × 発話データ解析</span>
+                            </p>
                         </div>
-                        <span>→</span>
-                    </a>
-                    <a href="demo.html" class="hero-demo-button">
-                        <div class="demo-button-content">
-                            <span class="cta-badge">＼ 今すぐデモを体験する ／</span>
-                            <span class="demo-button-main">デモを見る</span>
+                        <div class="hero-image">
+                            <img src="assets/macbook-display-graph.png" class="macbook-overlay" alt="MacBook表示">
                         </div>
-                        <span>→</span>
-                    </a>
+                        <div class="hero-cta-group">
+                            <a href="#contact" class="hero-cta">
+                                <div class="cta-button-content">
+                                    <span class="cta-badge">＼ ご相談だけでもOK！ ／</span>
+                                    <span class="hero-cta-text-pc">お問い合わせ</span><span class="hero-cta-text-mobile">お問い合わせ</span>
+                                </div>
+                                <span>→</span>
+                            </a>
+                            <a href="demo.html" class="hero-demo-button">
+                                <div class="demo-button-content">
+                                    <span class="cta-badge">＼ 今すぐデモを体験する ／</span>
+                                    <span class="demo-button-main">デモを見る</span>
+                                </div>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <!-- スライド3 -->
+            <div class="hero-slide hero-slide-3">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h1 class="hero-title">最短1営業日で<br>導入可能な観光DX</h1>
+                            <p class="hero-description">
+                                <span class="hero-desc-mobile-hide">複雑なシステム構築は不要。<br>
+                                Amazon Alexaの技術を活用し、すぐに運用開始できます。<br><br></span>
+                                <span class="hero-desc-pc">既存のデータと連携し、<br>
+                                観光客の声をリアルタイムで分析。<br class="hero-desc-br-mobile">迅速な意思決定をサポートします</span>
+                                <span class="hero-desc-mobile-only">最短1営業日で導入可能</span>
+                            </p>
+                        </div>
+                        <div class="hero-contact-form">
+                            <form class="hero-contact-form-inner" id="heroContactForm" action="https://api.web3forms.com/submit" method="POST">
+                                <input type="hidden" name="access_key" value="c60da01b-6916-477e-82f0-eece83c2d9c0">
+                                <input type="hidden" name="to" value="goto_takashi@cellmuller.com">
+                                <input type="hidden" name="subject" value="【観光データ分析プラットフォーム】お問い合わせ">
+                                <div class="form-group">
+                                    <label for="hero-name">お名前 <span class="required">必須</span></label>
+                                    <input type="text" id="hero-name" name="name" placeholder="田中 太郎" required>
+                                    <input type="hidden" name="from_name" id="hero-from_name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="hero-company">会社名 <span class="required">必須</span></label>
+                                    <input type="text" id="hero-company" name="company" placeholder="株式会社Sample" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hero-email">メールアドレス <span class="required">必須</span></label>
+                                    <input type="email" id="hero-email" name="email" placeholder="sample@abc.com" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hero-phone">電話番号</label>
+                                    <input type="tel" id="hero-phone" name="phone" placeholder="03-1234-5678">
+                                </div>
+                                <button type="submit" class="submit-btn">送信する <span>→</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ナビゲーション矢印 -->
+            <button class="hero-carousel-prev" aria-label="前のスライド">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="hero-carousel-next" aria-label="次のスライド">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+
+            <!-- ページネーションドット -->
+            <div class="hero-carousel-dots">
+                <button class="hero-dot active" aria-label="スライド1" data-slide="0"></button>
+                <button class="hero-dot" aria-label="スライド2" data-slide="1"></button>
+                <button class="hero-dot" aria-label="スライド3" data-slide="2"></button>
             </div>
         </div>
     </section>
@@ -428,6 +522,10 @@
                 <div class="form-group">
                     <label for="email">メールアドレス <span class="required">必須</span></label>
                     <input type="email" id="email" name="email" placeholder="sample@abc.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">電話番号</label>
+                    <input type="tel" id="phone" name="phone" placeholder="03-1234-5678">
                 </div>
                 <button type="submit" class="submit-btn">送信する <span>→</span></button>
             </form>

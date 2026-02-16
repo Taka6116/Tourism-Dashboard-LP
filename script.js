@@ -69,20 +69,30 @@ window.addEventListener('scroll', () => {
 
 // フォームバリデーションと送信処理
 document.addEventListener('DOMContentLoaded', function() {
+    // 通常のお問い合わせフォーム
     const contactForm = document.getElementById('contactForm');
     
-    if (!contactForm) {
-        console.warn('お問い合わせフォームが見つかりません');
-        return;
+    if (contactForm) {
+        setupContactForm(contactForm, 'name', 'company', 'email', 'from_name');
     }
     
-    contactForm.addEventListener('submit', function(e) {
+    // ヒーローセクション3枚目のフォーム
+    const heroContactForm = document.getElementById('heroContactForm');
+    
+    if (heroContactForm) {
+        setupContactForm(heroContactForm, 'hero-name', 'hero-company', 'hero-email', 'hero-from_name');
+    }
+});
+
+// フォーム送信処理の共通関数
+function setupContactForm(form, nameId, companyId, emailId, fromNameId) {
+    form.addEventListener('submit', function(e) {
         e.preventDefault();
         
         // フォーム要素の取得（存在チェック付き）
-        const nameField = document.getElementById('name');
-        const companyField = document.getElementById('company');
-        const emailField = document.getElementById('email');
+        const nameField = document.getElementById(nameId);
+        const companyField = document.getElementById(companyId);
+        const emailField = document.getElementById(emailId);
         
         if (!nameField || !companyField || !emailField) {
             console.error('フォーム要素が見つかりません');
@@ -96,35 +106,35 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = emailField.value.trim();
         
         // from_nameフィールドにnameの値を設定（Web3Forms用）
-        const fromNameField = document.getElementById('from_name');
+        const fromNameField = document.getElementById(fromNameId);
         if (fromNameField) {
             fromNameField.value = name;
         }
         
         // バリデーション
         if (!name) {
-            showError('name', 'お名前を入力してください');
+            showError(nameId, 'お名前を入力してください');
             return;
         } else {
-            clearError('name');
+            clearError(nameId);
         }
         
         if (!company) {
-            showError('company', '会社名を入力してください');
+            showError(companyId, '会社名を入力してください');
             return;
         } else {
-            clearError('company');
+            clearError(companyId);
         }
         
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!email) {
-            showError('email', 'メールアドレスを入力してください');
+            showError(emailId, 'メールアドレスを入力してください');
             return;
         } else if (!emailRegex.test(email)) {
-            showError('email', '正しいメールアドレスを入力してください');
+            showError(emailId, '正しいメールアドレスを入力してください');
             return;
         } else {
-            clearError('email');
+            clearError(emailId);
         }
         
         // 送信ボタンを無効化してローディング状態に
@@ -169,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.innerHTML = originalButtonText;
         });
     });
-});
+}
 
 // エラー表示関数
 function showError(fieldId, message) {
@@ -481,4 +491,137 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+});
+
+// ヒーローセクションカルーセル機能
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+
+    const slides = carousel.querySelectorAll('.hero-slide');
+    const prevButton = carousel.querySelector('.hero-carousel-prev');
+    const nextButton = carousel.querySelector('.hero-carousel-next');
+    const dots = carousel.querySelectorAll('.hero-dot');
+    
+    let currentSlide = 0;
+    let autoplayInterval = null;
+    const autoplayDelay = 10000; // 10秒
+
+    // スライドを表示する関数
+    function showSlide(index) {
+        // インデックスの範囲チェック
+        if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else if (index >= slides.length) {
+            currentSlide = 0;
+        } else {
+            currentSlide = index;
+        }
+
+        // すべてのスライドを非表示
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            if (i === currentSlide) {
+                slide.classList.add('active');
+            }
+        });
+
+        // ドットの更新
+        dots.forEach((dot, i) => {
+            dot.classList.remove('active');
+            if (i === currentSlide) {
+                dot.classList.add('active');
+            }
+        });
+    }
+
+    // 次のスライドへ
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    // 前のスライドへ
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // 自動再生を開始
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, autoplayDelay);
+    }
+
+    // 自動再生を停止
+    function stopAutoplay() {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    }
+
+    // イベントリスナー
+    if (nextButton) {
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            // 自動再生オフのためコメントアウト
+            // stopAutoplay();
+            // startAutoplay();
+        });
+    }
+
+    if (prevButton) {
+        prevButton.addEventListener('click', () => {
+            prevSlide();
+            // 自動再生オフのためコメントアウト
+            // stopAutoplay();
+            // startAutoplay();
+        });
+    }
+
+    // ドットクリック
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            showSlide(index);
+            // 自動再生オフのためコメントアウト
+            // stopAutoplay();
+            // startAutoplay();
+        });
+    });
+
+    // マウスホバーで自動再生を一時停止（自動再生オフのため無効化）
+    // carousel.addEventListener('mouseenter', stopAutoplay);
+    // carousel.addEventListener('mouseleave', startAutoplay);
+
+    // タッチスワイプ対応（モバイル）
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                // 左にスワイプ（次のスライド）
+                nextSlide();
+            } else {
+                // 右にスワイプ（前のスライド）
+                prevSlide();
+            }
+            // 自動再生オフのためコメントアウト
+            // stopAutoplay();
+            // startAutoplay();
+        }
+    }
+
+    // 初期化：自動再生を開始（自動再生オフのため無効化）
+    // startAutoplay();
 });

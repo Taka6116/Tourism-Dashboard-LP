@@ -219,12 +219,48 @@ body {
 .hero {
     background:
         linear-gradient(105deg, #1a6bb8 0%, #1D85F0 35%, #2FA4FF 70%, #7ec8ee 100%);
-    padding: calc(120px - 1.5cm) 0 calc(120px - 6cm) 0;
+    padding: calc(120px - 1.5cm) 0 calc(120px - 4cm) 0;
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+}
+
+/* ヒーローカルーセル */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
     display: flex;
     align-items: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+.hero-slide .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 40px;
+    max-width: 1600px;
+    width: 100%;
+    transform: translateY(-40px);
 }
 
 /* 平行四辺形レイヤー（左側・やや濃いめ） */
@@ -282,6 +318,37 @@ body {
     color: #fff;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     letter-spacing: -0.02em;
+}
+
+/* 2枚目のスライド専用：タイトルの改行制御 */
+.hero-slide-2 .hero-title {
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+/* 「生の声」が改行されないようにする */
+.hero-title-no-break {
+    white-space: nowrap;
+    display: inline-block;
+    letter-spacing: 0.02em;
+    margin-right: 0.05em;
+}
+
+/* 2枚目のスライド：タイトルの2行目（「生の声」を）の視覚的調整 */
+.hero-slide-2 .hero-title br {
+    display: block;
+    content: "";
+}
+
+/* 「生の声」をの行の視覚的バランス調整 */
+.hero-slide-2 .hero-title {
+    text-indent: 0;
+}
+
+.hero-slide-2 .hero-title .hero-title-no-break {
+    position: relative;
+    left: -0.02em;
 }
 
 .hero-description {
@@ -398,6 +465,82 @@ body {
     position: relative;
 }
 
+/* カルーセルナビゲーション矢印 */
+.hero-carousel-prev,
+.hero-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: #333;
+}
+
+.hero-carousel-prev {
+    left: 20px;
+}
+
+.hero-carousel-next {
+    right: 20px;
+}
+
+.hero-carousel-prev:hover,
+.hero-carousel-next:hover {
+    background-color: #fff;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.hero-carousel-prev:active,
+.hero-carousel-next:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* ページネーションドット */
+.hero-carousel-dots {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.hero-dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.2);
+}
+
+.hero-dot.active {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 12px;
+    height: 12px;
+}
+
 .macbook-overlay {
     position: absolute;
     bottom: -5%;
@@ -409,6 +552,92 @@ body {
     object-fit: contain;
     pointer-events: none;
     transform: translate(3.55cm, 4.5cm) scale(0.81);
+}
+
+/* 2枚目のスライド専用：macbook-display-graphの最適化 */
+.hero-slide-2 .hero-image {
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+.hero-slide-2 .macbook-overlay {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    transform: scale(1.38);
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* 3枚目のスライド専用：お問い合わせフォーム */
+.hero-slide-3 .hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+.hero-contact-form {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+.hero-contact-form-inner {
+    width: 100%;
+}
+
+.hero-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.hero-contact-form .form-group label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+.hero-contact-form .form-group input {
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-contact-form .form-group input:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.hero-contact-form .submit-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.hero-contact-form .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
 }
 
 .pc-frame {
@@ -2119,8 +2348,12 @@ body {
     }
 
     .hero {
-        padding: 60px 0 calc(60px + 0.5cm) 0; /* 下のパディングを0.5cm増やす */
+        padding: 60px 0 calc(60px + 1cm) 0; /* 下のパディングを1cmに（0.5cm追加） */
         min-height: auto;
+    }
+
+    .hero-slide .container {
+        transform: translateY(-20px);
     }
 
     .hero-content {
@@ -2160,6 +2393,52 @@ body {
         gap: 15px;
         width: 100%;
         align-items: center;
+    }
+
+    /* カルーセルナビゲーション（モバイル） */
+    .hero-carousel-prev,
+    .hero-carousel-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-carousel-prev {
+        left: 10px;
+    }
+
+    .hero-carousel-next {
+        right: 10px;
+    }
+
+    .hero-carousel-dots {
+        bottom: 40px;
+    }
+
+    .hero-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .hero-dot.active {
+        width: 10px;
+        height: 10px;
+    }
+
+    /* 2枚目のスライド（モバイル版） */
+    .hero-slide-2 .macbook-overlay {
+        max-width: 85%;
+        transform: scale(1.38);
+    }
+
+    /* 3枚目のスライド（モバイル版） */
+    .hero-slide-3 .hero-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-contact-form {
+        padding: 20px;
+        margin-top: 20px;
     }
 
     .hero-cta {
@@ -3474,6 +3753,16 @@ img {
    ディスプレイ画面版（1600px以上）でのヒーローセクションCTA修正
    ======================================== */
 @media (min-width: 1601px) {
+    /* ディスプレイ画面版：ヒーローセクションの下部パディングを増やす */
+    .hero {
+        padding: calc(120px - 1.5cm) 0 calc(120px - 3.5cm) 0;
+    }
+
+    /* ページネーションドットの位置を調整 */
+    .hero-carousel-dots {
+        bottom: 100px;
+    }
+
     /* ディスプレイ画面版：CTAボタンのUIを元に戻す */
     .hero .hero-cta-group {
         flex-direction: row;
