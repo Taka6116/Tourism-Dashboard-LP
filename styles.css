@@ -215,10 +215,9 @@ body {
 }
 
 
-/* ヒーローセクション */
+/* ヒーローセクション（ベースグラデーション） */
 .hero {
-    background:
-        linear-gradient(105deg, #1a6bb8 0%, #1D85F0 35%, #2FA4FF 70%, #7ec8ee 100%);
+    background: linear-gradient(135deg, #1a6bb8 0%, #1D85F0 40%, #2FA4FF 75%, #7ec8ee 100%);
     padding: calc(120px - 1.5cm) 0 calc(120px - 4cm) 0;
     min-height: 100vh;
     position: relative;
@@ -232,6 +231,39 @@ body {
     height: 100%;
     min-height: 100vh;
     overflow: hidden;
+}
+
+/* ① 極薄のデータレイヤー（5%不透明度・ドット＋緩い等高線風・分析感のみ） */
+.hero-carousel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        radial-gradient(ellipse 120% 80% at 50% 50%, transparent 40%, rgba(255, 255, 255, 0.03) 45%, transparent 55%);
+    background-size: 24px 24px, 100% 100%;
+    background-position: 0 0, 0 0;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ③ 左下に「観光の気配」を抽象で1点（点群の流れ・小さく・動かさない） */
+.hero-carousel::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 12%;
+    width: 200px;
+    height: 100px;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.35) 2px, transparent 2px),
+                radial-gradient(circle at 45% 60%, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 32px 28px, 36px 32px, 40px 36px;
+    background-repeat: repeat;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-slide {
@@ -353,7 +385,7 @@ body {
 
 .hero-description {
     font-size: 24px;
-    line-height: 1.8;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.95);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
@@ -605,12 +637,28 @@ body {
     margin-top: -30px;
 }
 
+/* ② 3枚目フォーム背面にソフトな光（楕円ぼかし・主役を静かに持ち上げる） */
 .hero-contact-form {
+    position: relative;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 100%;
+    z-index: 1;
+}
+
+.hero-contact-form::before {
+    content: '';
+    position: absolute;
+    width: 520px;
+    height: 360px;
+    right: -40px;
+    top: -40px;
+    background: radial-gradient(ellipse closest-side, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(12px);
+    z-index: 0;
+    pointer-events: none;
 }
 
 .hero-contact-form-inner {
