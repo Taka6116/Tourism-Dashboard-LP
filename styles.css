@@ -876,11 +876,16 @@ body {
     margin-bottom: 60px;
 }
 
+/* スマホでのみ「収集基盤」を改行する用（PCではインライン） */
+.hospitalia-title-line-mobile {
+    display: inline;
+}
+
 .hospitalia-content {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 80px;
-    align-items: start;
+    align-items: center;
     max-width: 1400px;
     margin: 0 auto;
     padding-top: 22px;
@@ -897,7 +902,7 @@ body {
     order: 2;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
+    align-items: center;
     max-height: 100%;
 }
 
@@ -914,7 +919,7 @@ body {
     max-width: 600px;
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .hospitalia-device-image {
@@ -981,7 +986,7 @@ body {
 /* 課題セクション */
 .challenges {
     background-color: #f5f7f8;
-    padding: 16px 0 195px 0;
+    padding: 16px 0 70px 0;
     min-height: 80vh;
     display: flex;
     align-items: flex-start;
@@ -1222,7 +1227,7 @@ body {
 
 .solution-overview {
     background-color: #f5f7f8;
-    padding: 100px 0;
+    padding: 56px 0 100px 0;
 }
 
 .solution-overview .container {
@@ -1848,7 +1853,7 @@ body {
 .onboarding-steps {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
+    gap: calc(20px + 0.5mm);
     margin-bottom: 40px;
     max-width: 1600px;
     margin-left: auto;
@@ -2277,6 +2282,20 @@ body {
         font-size: 14px;
     }
 
+    /* 課題→提案セクション間の余白を最適化（スマホ） */
+    .challenges {
+        padding-bottom: 40px;
+    }
+    .solution-overview {
+        padding-top: 36px;
+        padding-bottom: 60px;
+    }
+
+    /* スマホ：「観光客の本音から」/「施策までカバー」で改行 */
+    .section-title-line2-mobile {
+        display: block;
+    }
+
     .hospitalia-content {
         grid-template-columns: 1fr;
         gap: 50px;
@@ -2288,6 +2307,14 @@ body {
 
     .hospitalia-text {
         order: 1;
+    }
+
+    /* スマホ：見出しを「世界で唯一の観光データ」/「収集基盤」で改行・中央揃え */
+    .hospitalia-section .section-title {
+        text-align: center;
+    }
+    .hospitalia-title-line-mobile {
+        display: block;
     }
 
     .hospitalia-title {
@@ -2347,6 +2374,14 @@ body {
         grid-template-columns: 1fr;
     }
 
+    /* スマホ版：現場の声が施策になるまで → 導入の流れ の間の余白を最適化 */
+    .appeal-section {
+        padding: 48px 0 36px 0;
+    }
+    .onboarding-flow {
+        padding: 44px 0 80px 0;
+    }
+
     .onboarding-steps {
         grid-template-columns: 1fr;
     }
@@ -2359,18 +2394,16 @@ body {
         transform: rotate(90deg);
     }
 
+    /* スマホ版：フッター内テキストを中央揃え */
     .footer-content {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
         gap: 20px;
     }
 
-    .footer-company {
-        text-align: left;
-    }
-
+    .footer-company,
     .footer-info {
-        text-align: left;
+        text-align: center;
     }
 }
 
@@ -2670,20 +2703,61 @@ body {
 
     .onboarding-steps {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: calc(24px + 0.5mm);
     }
 
     .onboarding-step {
         padding: 48px 20px 25px 20px;
     }
 
+    /* スマホ版：導入の流れボックスをテキスト量に合わせて小さく */
+    .onboarding-step.challenge-box-style {
+        min-height: 0;
+        padding: 36px 18px 22px 18px;
+    }
+    .onboarding-step.challenge-box-style h4 {
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .onboarding-step.challenge-box-style p {
+        font-size: 14px;
+    }
+
     .flow-banner {
         padding: 15px 20px;
         font-size: 14px;
     }
+    /* スマホ：「お問い合わせから最短1日」/「でサービス開始が可能！」で改行 */
+    .flow-banner-line2-mobile {
+        display: block;
+    }
 
     .timeline {
         margin-top: 30px;
+    }
+
+    /* スマホ版：よくある質問の見出しとボックスの間の余白を最適化 */
+    /* 導入の流れとよくある質問の間の余白を詰める（スマホ） */
+    .onboarding-flow {
+        padding-bottom: 48px;
+    }
+    .onboarding-steps {
+        margin-bottom: 28px;
+    }
+    .timeline {
+        margin-top: 20px;
+    }
+    .faq {
+        padding: 44px 0 48px 0;
+    }
+    .contact {
+        padding: 36px 0 100px 0;
+    }
+    .faq .section-title {
+        margin-bottom: 28px;
+    }
+    .faq-list {
+        margin-top: 24px;
     }
 
     .faq-item {
@@ -2732,6 +2806,27 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* 現場の声が施策になるまで → 導入の流れ の間の余白をさらに詰める */
+    .appeal-section {
+        padding: 44px 0 28px 0;
+    }
+    .onboarding-flow {
+        padding: 36px 0 40px 0;
+    }
+    /* 導入の流れとよくある質問の間の余白を詰める */
+    .onboarding-steps {
+        margin-bottom: 22px;
+    }
+    .timeline {
+        margin-top: 16px;
+    }
+    .faq {
+        padding: 32px 0 40px 0;
+    }
+    .contact {
+        padding: 28px 0 100px 0;
+    }
+
     .appeal-steps {
         flex-direction: column;
         gap: 30px;
@@ -2844,6 +2939,15 @@ body {
         padding: 60px 0;
     }
 
+    /* 課題→提案セクション間の余白を最適化（768px以下） */
+    .challenges {
+        padding-bottom: 36px;
+    }
+    .solution-overview {
+        padding-top: 32px;
+        padding-bottom: 56px;
+    }
+
     .hospitalia-content {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -2901,6 +3005,22 @@ body {
         padding: 44px 15px 20px 15px;
     }
 
+    /* スマホ版：導入の流れボックスをさらにコンパクトに（768px以下） */
+    .onboarding-steps {
+        gap: calc(20px + 0.5mm);
+    }
+    .onboarding-step.challenge-box-style {
+        min-height: 0;
+        padding: 28px 14px 18px 14px;
+    }
+    .onboarding-step.challenge-box-style h4 {
+        margin-bottom: 8px;
+        font-size: 15px;
+    }
+    .onboarding-step.challenge-box-style p {
+        font-size: 13px;
+    }
+
     .step-number {
         font-size: 16px;
         width: 44px;
@@ -2921,6 +3041,9 @@ body {
         padding: 12px 15px;
         font-size: 13px;
     }
+    .flow-banner-line2-mobile {
+        display: block;
+    }
 
     .highlight-days {
         font-size: 20px;
@@ -2929,11 +3052,19 @@ body {
     .timeline {
         flex-direction: column;
         gap: 15px;
-        margin-top: 25px;
+        margin-top: 16px;
     }
 
     .timeline-item {
         width: 100%;
+    }
+
+    /* スマホ版：よくある質問の見出しとボックスの間をさらに詰める */
+    .faq .section-title {
+        margin-bottom: 22px;
+    }
+    .faq-list {
+        margin-top: 18px;
     }
 
     .faq-item {
@@ -2950,8 +3081,9 @@ body {
         padding-top: 15px;
     }
 
+    /* よくある質問とお問い合わせの間の余白は .faq の padding-bottom で調整済み */
     .contact {
-        padding: calc(60px - 1.5cm) 0 100px 0;
+        padding: 28px 0 100px 0;
     }
 
     .contact-form {
@@ -2989,7 +3121,7 @@ body {
 
 @media (max-width: 480px) {
     .appeal-section {
-        padding: 50px 0;
+        padding: 44px 0 24px 0;
     }
 
     .appeal-section .section-title {
@@ -3054,6 +3186,53 @@ body {
 
     .onboarding-step h4 {
         font-size: 15px;
+    }
+
+    /* スマホ版：導入の流れボックスをさらに小さく（480px以下）／導入の流れ→よくある質問の余白も最適化 */
+    .onboarding-flow {
+        padding: 32px 0 36px 0;
+    }
+    .onboarding-steps {
+        margin-bottom: 18px;
+    }
+    .timeline {
+        margin-top: 12px;
+    }
+    .faq {
+        padding: 28px 0 32px 0;
+    }
+    .contact {
+        padding: 24px 0 80px 0;
+    }
+    .onboarding-steps {
+        gap: calc(18px + 0.5mm);
+        margin-bottom: 28px;
+    }
+    .onboarding-step.challenge-box-style {
+        padding: 22px 12px 16px 12px;
+    }
+    .onboarding-step.challenge-box-style h4 {
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+    .onboarding-step.challenge-box-style p {
+        font-size: 12px;
+        line-height: 1.55;
+    }
+    .onboarding-step .step-number {
+        font-size: 14px;
+        width: 38px;
+        height: 38px;
+        top: -14px;
+        left: -14px;
+    }
+
+    /* スマホ版（480px以下）：よくある質問の見出しとボックスの間をさらに最適化 */
+    .faq .section-title {
+        margin-bottom: 18px;
+    }
+    .faq-list {
+        margin-top: 14px;
     }
 
     .faq-question {
@@ -3521,20 +3700,10 @@ img {
 
 /* ラップトップサイズ（1024px〜1600px）での調整 */
 @media (min-width: 1024px) and (max-width: 1600px) {
-    /* ノートパソコン版：スクロール時もドットを画面下部に固定表示 */
+    /* ドットはヒーローセクション内のみ表示（absoluteのままスクロールで隠れる） */
     .hero-carousel-dots {
-        position: fixed;
+        position: absolute;
         bottom: 28px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
-    }
-    .hero-carousel-dots.hero-dots-visible {
-        opacity: 1;
-        pointer-events: auto;
     }
 
     /* カルーセル矢印が文字・CTA・問い合わせフォームと重ならないようコンテナに余白を確保 */
@@ -3827,6 +3996,14 @@ img {
         font-size: 13px;
     }
     
+    /* 課題→提案セクション間の余白を最適化（PC・1024px以上） */
+    .challenges {
+        padding-bottom: 56px;
+    }
+    .solution-overview {
+        padding-top: 48px;
+    }
+
     /* 課題セクション「施策に繋がらない〜」をHospitalia同様に左右余白 */
     .challenges .container {
         padding-left: 40px;
@@ -3939,6 +4116,14 @@ img {
         padding: calc(120px - 1.5cm) 0 calc(120px - 3.5cm) 0;
     }
 
+    /* 課題→提案セクション間の余白を最適化（ディスプレイ画面版） */
+    .challenges {
+        padding-bottom: 52px;
+    }
+    .solution-overview {
+        padding-top: 44px;
+    }
+
     /* 課題セクション1つ目「満足度調査だけでは、」の後で改行（観光客の本音が見えないは2行目に） */
     .challenges .challenge-box:nth-child(1) .challenge-title-line2 {
         display: block;
@@ -3948,20 +4133,10 @@ img {
         display: block;
     }
 
-    /* ディスプレイ画面版：スクロール時もドットを画面下部に固定表示 */
+    /* ドットはヒーローセクション内のみ表示（absoluteのままスクロールで隠れる） */
     .hero-carousel-dots {
-        position: fixed;
+        position: absolute;
         bottom: 28px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
-    }
-    .hero-carousel-dots.hero-dots-visible {
-        opacity: 1;
-        pointer-events: auto;
     }
 
     /* ディスプレイ画面版：CTAボタンのUIを元に戻す */
