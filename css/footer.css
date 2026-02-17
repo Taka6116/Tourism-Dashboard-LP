@@ -2195,6 +2195,17 @@
     .challenges .section-title {
         margin-bottom: 40px;
     }
+
+    /* ラップトップ版：フッターのテキストを中央揃え */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-company,
+    .footer-info {
+        text-align: center;
+    }
 }
 
 @media (min-width: 1601px) {
@@ -2476,5 +2487,16 @@
     }
     .hero-slide-3 .hero-contact-form {
         margin-top: calc(-80px - 0.5cm);
+    }
+
+    /* ディスプレイ画面版：フッターのテキストを中央揃え */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-company,
+    .footer-info {
+        text-align: center;
     }
 }
