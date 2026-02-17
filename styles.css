@@ -597,12 +597,12 @@ body {
 .hero-slide-3 .hero-content {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    align-items: flex-start;
+    align-items: center;
 }
 
-/* 3枚目：タイトル「最短1営業日で…」の上が切れないよう位置を少し下げる */
+/* 3枚目：左側コピーが短いため、フォームと縦方向で中央揃えになるよう位置を調整 */
 .hero-slide-3 .hero-text {
-    margin-top: -70px;
+    margin-top: -30px;
 }
 
 .hero-contact-form {
@@ -3609,9 +3609,12 @@ img {
         color: #4A90E2;
     }
 
-    /* 3枚目スライド：問い合わせフォームをやや上に寄せる */
+    /* 3枚目スライド：問い合わせフォームを左コピーと上下中央揃え（下がり気味を解消） */
+    .hero-slide-3 .hero-content {
+        align-items: center;
+    }
     .hero-slide-3 .hero-contact-form {
-        margin-top: -48px;
+        margin-top: calc(-80px - 0.5cm);
     }
     
     /* ダッシュボード画像を10%小さく */
@@ -3637,6 +3640,11 @@ img {
     .hero-title {
         font-size: clamp(68px, 5.5vw, 92px);
         margin-bottom: 30px;
+    }
+    /* 3枚目のみ：1px小さく・0.5mm下にずらす */
+    .hero-slide-3 .hero-title {
+        font-size: calc(clamp(68px, 5.5vw, 92px) - 1px);
+        transform: translateY(0.5mm);
     }
     
     .hero-description {
@@ -3750,6 +3758,11 @@ img {
     
     .hero-title {
         font-size: clamp(64px, 5.2vw, 78px);
+    }
+    /* 3枚目のみ：1px小さく・0.5mm下にずらす */
+    .hero-slide-3 .hero-title {
+        font-size: calc(clamp(64px, 5.2vw, 78px) - 1px);
+        transform: translateY(0.5mm);
     }
     
     .hero-description {
@@ -3987,6 +4000,14 @@ img {
     
     .hero .hero-demo-button:hover .demo-button-content::after {
         color: #4A90E2;
+    }
+
+    /* 3枚目カルーセル：お問い合わせフォームを左コピーと上下中央揃え（下がり気味を解消） */
+    .hero-slide-3 .hero-content {
+        align-items: center;
+    }
+    .hero-slide-3 .hero-contact-form {
+        margin-top: calc(-80px - 0.5cm);
     }
 }
 
