@@ -1188,6 +1188,73 @@ body {
     margin: 0 auto 80px;
 }
 
+/* デモCTA（提供内容直下）：他セクションと同じ背景色・横長ピル形ボタン・上下ゆれアニメ */
+.demo-cta-wrap {
+    padding: 36px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f7f8;
+}
+
+.demo-cta-wrap .container {
+    max-width: 1600px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.demo-cta-button {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 14px 56px 16px;
+    min-height: 56px;
+    background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 9999px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 20px rgba(74, 144, 226, 0.4), 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    animation: demo-cta-float 2.5s ease-in-out infinite;
+}
+
+.demo-cta-button:hover {
+    box-shadow: 0 8px 28px rgba(74, 144, 226, 0.5), 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    animation: none;
+}
+
+.demo-cta-ashirai {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.05em;
+}
+
+.demo-cta-main {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.demo-cta-sub {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes demo-cta-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
 .solution-block {
     display: grid;
     grid-template-columns: 1fr 1fr;
