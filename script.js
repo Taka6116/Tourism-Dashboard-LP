@@ -507,12 +507,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let autoplayInterval = null;
     const autoplayDelay = 6000; // 6秒で自動切り替え（1枚目→2枚目→3枚目→1枚目）
 
+    // スマホ版はカルーセル2枚まで（3枚目は表示しない）
+    function getMaxSlideIndex() {
+        return window.matchMedia('(max-width: 768px)').matches ? 1 : slides.length - 1;
+    }
+
     // スライドを表示する関数
     function showSlide(index) {
-        // インデックスの範囲チェック
+        const maxIndex = getMaxSlideIndex();
+        // インデックスの範囲チェック（スマホは0〜1のみ）
         if (index < 0) {
-            currentSlide = slides.length - 1;
-        } else if (index >= slides.length) {
+            currentSlide = maxIndex;
+        } else if (index > maxIndex) {
             currentSlide = 0;
         } else {
             currentSlide = index;
@@ -612,6 +618,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     } else if (dotsContainer) {
         dotsContainer.classList.add('hero-dots-visible');
+    }
+
+    // スマホ表示時は3枚目を表示しないため、現在が2なら1枚目へ
+    if (window.matchMedia('(max-width: 768px)').matches && currentSlide > 1) {
+        showSlide(0);
     }
 
     // タッチスワイプ対応（モバイル）

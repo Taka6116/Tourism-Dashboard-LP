@@ -2512,18 +2512,60 @@ body {
         box-shadow: 0 4px 12px rgba(0, 102, 255, 0.4);
     }
 
-    .hero {
-        padding: 60px 0 calc(60px + 1cm) 0; /* 下のパディングを1cmに（0.5cm追加） */
-        min-height: auto;
+    /* スマホ：ヒーローをコンパクトに（Hospitaliaとの間を詰める）・3枚目は非表示 */
+    .hero-slide-3 {
+        display: none !important;
+    }
+    .hero-carousel-dots .hero-dot:nth-child(3) {
+        display: none;
     }
 
+    .hero {
+        padding: 40px 0 48px 0;
+        min-height: auto;
+        display: block;
+    }
+    .hero-carousel {
+        min-height: auto;
+        height: auto;
+        position: relative;
+    }
+    .hero-slide {
+        min-height: auto;
+        align-items: flex-start;
+    }
+    /* 1枚目・2枚目：CTAと3点ドットを最下部に配置（重ねない） */
+    .hero-slide:not(.hero-slide-3) {
+        min-height: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 52px;
+    }
+    .hero-slide:not(.hero-slide-3) .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+    }
+    .hero-slide:not(.hero-slide-3) .hero-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        min-height: 0;
+    }
+    .hero-slide:not(.hero-slide-3) .hero-cta-group {
+        margin-top: auto;
+        flex-shrink: 0;
+    }
     .hero-slide .container {
-        transform: translateY(-20px);
+        transform: translateY(-4px);
     }
 
     .hero-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 26px;
         display: flex;
         flex-direction: column;
     }
@@ -2531,6 +2573,7 @@ body {
     .hero-text {
         margin-top: 0;
         order: 1;
+        margin-bottom: 2px;
     }
 
     .hero-image {
@@ -2552,12 +2595,16 @@ body {
 
     .hero-cta-group {
         order: 3;
-        margin-top: 20px;
+        margin-top: 18px;
         align-self: center;
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         width: 100%;
         align-items: center;
+    }
+    /* 1・2枚目ではCTAを最下部に寄せる（上記のmargin-topを上書き） */
+    .hero-slide:not(.hero-slide-3) .hero-cta-group {
+        margin-top: auto;
     }
 
     /* カルーセルナビゲーション（モバイル） */
@@ -2576,7 +2623,12 @@ body {
     }
 
     .hero-carousel-dots {
-        bottom: 40px;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 15;
+        display: flex;
+        gap: 10px;
     }
 
     .hero-dot {
@@ -2589,24 +2641,38 @@ body {
         height: 10px;
     }
 
-    /* 2枚目のスライド（モバイル版） */
+    /* 2枚目のスライド（モバイル版）：コピーと画像の間を十分に空ける */
+    .hero-slide-2 .hero-content {
+        gap: 24px;
+    }
+    .hero-slide-2 .hero-text {
+        margin-bottom: 8px;
+    }
     .hero-slide-2 .macbook-overlay {
-        max-width: 85%;
-        transform: scale(1.38);
+        max-width: 76%;
+        transform: scale(1.18);
+    }
+    /* 2枚目のみ：画像とCTAを0.5mm下にずらす（スマホ） */
+    .hero-slide-2 .hero-image {
+        transform: translateY(0.5mm);
+    }
+    .hero-slide-2 .hero-cta-group {
+        transform: translateY(0.5mm);
     }
 
     /* 3枚目のスライド（モバイル版） */
     .hero-slide-3 .hero-content {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 24px;
     }
     .hero-slide-3 .hero-text {
         margin-top: 0;
+        margin-bottom: 8px;
     }
 
     .hero-contact-form {
-        padding: 20px;
-        margin-top: 20px;
+        padding: 16px;
+        margin-top: 16px;
     }
 
     .hero-cta {
@@ -2997,8 +3063,20 @@ body {
     }
     
     .hero {
-        min-height: auto;
-        padding: 50px 0;
+        padding: 32px 0 40px 0;
+    }
+
+    /* 480px以下：2枚目画像サイズ・3枚目フォーム余白 */
+    .hero-slide-2 .macbook-overlay {
+        max-width: 74%;
+        transform: scale(1.12);
+    }
+    .hero-slide-3 .hero-contact-form {
+        padding: 14px;
+        margin-top: 12px;
+    }
+    .hero-carousel-dots {
+        bottom: 20px;
     }
 
     .onboarding-step {
@@ -3626,47 +3704,64 @@ img {
 
 /* ノートPCサイズ（1024px〜1600px）でのヘッダー調整 */
 @media (min-width: 1024px) and (max-width: 1600px) {
+    /* ラップトップ版：2枚目画像のヘッダーに合わせる（ロゴ・ナビ暗色・CTA一番右端・上ライン） */
     .header {
-        padding: clamp(12px, 1.2vh, 20px) 0;
+        padding: clamp(12px, 1.2vh, 20px) 0 clamp(12px, 1.2vh, 20px) clamp(20px, 2.5vw, 50px);
+        min-height: 66px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
     }
-    
+    .header .nav {
+        transform: scale(0.9);
+        transform-origin: left center;
+        max-width: 100%;
+        width: 100%;
+    }
+
     .nav {
-        padding-left: clamp(30px, 3vw, 65px);
-        padding-right: clamp(30px, 3vw, 65px);
+        padding-left: 0;
+        padding-right: 0;
         gap: clamp(15px, 1.5vw, 30px);
-        flex-wrap: nowrap; /* 折り返しを防ぐ */
+        flex-wrap: nowrap;
+        justify-content: flex-start;
     }
-    
-    .nav-link-left {
-        font-size: clamp(14px, 1.2vw, 18px);
-        gap: clamp(10px, 1vw, 20px);
+    .nav-link-left,
+    .nav-links-right {
+        justify-content: flex-start;
     }
-    
-    .nav-link {
-        font-size: clamp(14px, 1.2vw, 18px);
-        padding: 5px clamp(6px, 0.8vw, 10px);
-    }
-    
+    /* デモを見る・お問い合わせCTAを右端に */
     .nav-cta-group {
-        gap: clamp(8px, 0.8vw, 12px);
-        flex-shrink: 0; /* 縮小を防ぐ */
+        margin-left: auto;
+        gap: clamp(6px, 0.6vw, 10px);
+        flex-shrink: 0;
     }
-    
+
+    .nav-link-left {
+        font-size: clamp(16px, 1.2vw, 20px);
+        gap: clamp(10px, 1vw, 20px);
+        color: #333;
+    }
+
+    .nav-link {
+        font-size: clamp(16px, 1.2vw, 20px);
+        padding: 7px clamp(8px, 0.8vw, 12px);
+        color: #333;
+    }
+
     .nav-cta-button,
     .nav-demo-button {
-        font-size: clamp(13px, 1.1vw, 16px);
-        padding: clamp(8px, 0.8vh, 12px) clamp(16px, 1.5vw, 24px);
+        font-size: clamp(15px, 1.1vw, 18px);
+        padding: clamp(10px, 0.8vh, 14px) clamp(18px, 1.5vw, 26px);
         min-width: clamp(120px, 12vw, 140px);
         width: clamp(120px, 12vw, 140px);
     }
-    
+
     .nav-cta-button span,
     .nav-demo-button span {
-        font-size: clamp(13px, 1.1vw, 16px);
+        font-size: clamp(15px, 1.1vw, 18px);
     }
-    
+
     .nav-logo-icon {
-        height: clamp(28px, 2.5vh, 40px);
+        height: clamp(30px, 2.5vh, 42px);
     }
 }
 
@@ -3677,18 +3772,18 @@ img {
     }
     
     .nav-link-left {
-        font-size: clamp(13px, 1.1vw, 16px);
+        font-size: clamp(15px, 1.1vw, 18px);
     }
     
     .nav-link {
-        font-size: clamp(13px, 1.1vw, 16px);
-        padding: 5px clamp(5px, 0.6vw, 8px);
+        font-size: clamp(15px, 1.1vw, 18px);
+        padding: 7px clamp(7px, 0.6vw, 10px);
     }
     
     .nav-cta-button,
     .nav-demo-button {
-        font-size: clamp(12px, 1vw, 14px);
-        padding: clamp(7px, 0.7vh, 10px) clamp(14px, 1.3vw, 20px);
+        font-size: clamp(14px, 1vw, 16px);
+        padding: clamp(9px, 0.7vh, 12px) clamp(16px, 1.3vw, 22px);
         min-width: clamp(110px, 11vw, 130px);
         width: clamp(110px, 11vw, 130px);
     }
@@ -3700,10 +3795,20 @@ img {
 
 /* ラップトップサイズ（1024px〜1600px）での調整 */
 @media (min-width: 1024px) and (max-width: 1600px) {
-    /* ドットはヒーローセクション内のみ表示（absoluteのままスクロールで隠れる） */
+    /* ノートパソコン版：スクロール時もドットを画面下部に固定表示 */
     .hero-carousel-dots {
-        position: absolute;
+        position: fixed;
         bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+    }
+    .hero-carousel-dots.hero-dots-visible {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     /* カルーセル矢印が文字・CTA・問い合わせフォームと重ならないようコンテナに余白を確保 */
@@ -3718,17 +3823,32 @@ img {
         right: 16px;
     }
 
+    /* ラップトップ版：ヒーロー内のコピー・CTA・画像を0.924倍に・1.5cm上にずらす */
+    .hero .container {
+        transform: translateY(-1.5cm) scale(0.924);
+        transform-origin: center center;
+    }
+    .hero {
+        min-height: 100vh;
+        overflow: visible;
+        padding-bottom: calc(120px - 6cm);
+    }
+    .hero-carousel,
+    .hero-slide {
+        overflow: visible;
+    }
+
     .hero-content {
-        gap: 40px; /* 60px → 40px に縮小してスペース確保 */
+        gap: 40px;
+        align-items: center;
     }
-    
-    /* ヒーロー左側（タイトル・説明・CTA）を0.7cm上にずらす（画像はそのまま） */
+
+    /* 左側コピー・CTAを縦方向で中央揃え（2枚目画像の様に） */
     .hero-text {
-        transform: translateY(-0.7cm);
+        transform: none;
     }
-    
     .hero-cta-group {
-        transform: translateY(-0.7cm);
+        transform: none;
     }
     
     /* ラップトップ版：CTAボタンのUIを元に戻す */
@@ -4111,9 +4231,76 @@ img {
    ディスプレイ画面版（1600px以上）でのヒーローセクションCTA修正
    ======================================== */
 @media (min-width: 1601px) {
-    /* ディスプレイ画面版：ヒーローセクションの下部パディングを増やす */
+    /* ディスプレイ画面版：2枚目画像のヘッダーに合わせる（ロゴ・ナビ暗色・CTA一番右端・上ライン） */
+    .header {
+        padding: clamp(12px, 1.2vh, 20px) 0 clamp(12px, 1.2vh, 20px) clamp(20px, 2.5vw, 50px);
+        min-height: 66px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .header .nav {
+        transform: scale(0.9);
+        transform-origin: left center;
+        max-width: 100%;
+        width: 100%;
+    }
+    .nav {
+        padding-left: 0;
+        padding-right: 0;
+        justify-content: flex-start;
+    }
+    .nav-link-left,
+    .nav-links-right {
+        justify-content: flex-start;
+    }
+    .nav-link-left {
+        color: #333;
+        font-size: clamp(16px, 1.2vw, 20px);
+    }
+    .nav-link {
+        color: #333;
+        font-size: clamp(16px, 1.2vw, 20px);
+        padding: 7px clamp(8px, 0.8vw, 12px);
+    }
+    .nav-cta-button,
+    .nav-demo-button {
+        font-size: clamp(15px, 1.1vw, 18px);
+        padding: clamp(10px, 0.8vh, 14px) clamp(18px, 1.5vw, 26px);
+    }
+    .nav-cta-button span,
+    .nav-demo-button span {
+        font-size: clamp(15px, 1.1vw, 18px);
+    }
+    .nav-logo-icon {
+        height: clamp(30px, 2.5vh, 42px);
+    }
+    /* デモを見る・お問い合わせCTAを右端に・2つを寄せて配置 */
+    .nav-cta-group {
+        margin-left: auto;
+        gap: clamp(6px, 0.6vw, 10px);
+    }
+
+    /* ディスプレイ画面版：ヒーローセクションの下部を2cm短く */
     .hero {
-        padding: calc(120px - 1.5cm) 0 calc(120px - 3.5cm) 0;
+        padding: calc(120px - 1.5cm) 0 calc(120px - 5.5cm) 0;
+        min-height: 100vh;
+        overflow: visible;
+    }
+
+    /* ディスプレイ画面版：ヒーロー内のコピー・CTA・画像を0.924倍に・1.5cm上にずらす */
+    .hero .container {
+        transform: translateY(-1.5cm) scale(0.924);
+        transform-origin: center center;
+    }
+    .hero-carousel,
+    .hero-slide {
+        overflow: visible;
+    }
+    .hero-content {
+        align-items: center;
+    }
+    .hero-text,
+    .hero-cta-group {
+        transform: none;
     }
 
     /* 課題→提案セクション間の余白を最適化（ディスプレイ画面版） */
@@ -4133,10 +4320,20 @@ img {
         display: block;
     }
 
-    /* ドットはヒーローセクション内のみ表示（absoluteのままスクロールで隠れる） */
+    /* ディスプレイ画面版：スクロール時もドットを画面下部に固定表示 */
     .hero-carousel-dots {
-        position: absolute;
+        position: fixed;
         bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+    }
+    .hero-carousel-dots.hero-dots-visible {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     /* ディスプレイ画面版：CTAボタンのUIを元に戻す */
