@@ -1,0 +1,153 @@
+/* 導入の流れセクション */
+.onboarding-flow {
+    background-color: var(--color-bg-subtle);
+    padding: var(--space-2xl) 0;
+}
+
+.onboarding-flow .container {
+    max-width: var(--container-max);
+    padding: 0 10px;
+}
+
+.flow-banner {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-bg);
+    padding: 20px 40px;
+    border-radius: 25px;
+    text-align: center;
+    margin: 40px auto 50px;
+    max-width: 800px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3);
+}
+
+.flow-banner::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--color-accent-dark);
+}
+
+.flow-banner p {
+    font-size: var(--text-lg);
+    margin: 0;
+    font-weight: 500;
+}
+
+.highlight-days {
+    color: #FFA500;
+    font-weight: bold;
+}
+
+.onboarding-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: calc(20px + 0.5mm);
+    margin-bottom: 40px;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    align-items: stretch;
+}
+
+.onboarding-step.challenge-box-style {
+    background-color: var(--color-bg);
+    padding: 58px 30px 60px 30px;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    height: 100%;
+    min-height: 320px;
+}
+
+.onboarding-step.challenge-box-style:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.onboarding-step .step-number {
+    position: absolute;
+    top: -22px;
+    left: -22px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-bg);
+    font-weight: bold;
+    font-size: var(--text-lg);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-28deg);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
+    z-index: 1;
+}
+
+.onboarding-step.challenge-box-style h4 {
+    font-size: var(--text-lg);
+    margin-bottom: 15px;
+    color: var(--color-text);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.onboarding-step.challenge-box-style p {
+    font-size: 15px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.timeline {
+    display: flex;
+    max-width: var(--container-content);
+    margin: 0 auto;
+    padding: 0 20px;
+    border-top: none;
+}
+
+.timeline-item {
+    flex: 1;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+.timeline-left {
+    background-color: #E8F4F8;
+    border-radius: 8px 0 0 8px;
+}
+
+.timeline-right {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-bg);
+    border-radius: 0 8px 8px 0;
+}
+
+.timeline-label {
+    font-size: var(--text-sm);
+    font-weight: 500;
+}
+
+.timeline-left .timeline-label {
+    color: var(--color-accent);
+}
+
+.timeline-right .timeline-label {
+    color: var(--color-bg);
+}

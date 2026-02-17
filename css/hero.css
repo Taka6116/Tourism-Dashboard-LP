@@ -1,0 +1,636 @@
+/* ヒーローセクション（ベースグラデーション） */
+.hero {
+    background: linear-gradient(135deg, #1a6bb8 0%, #1D85F0 40%, #2FA4FF 75%, #7ec8ee 100%);
+    padding: calc(120px - 1.5cm) 0 calc(120px - 4cm) 0;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ヒーローカルーセル */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* ① 極薄のデータレイヤー（5%不透明度・ドット＋緩い等高線風・分析感のみ） */
+.hero-carousel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.5) 1px, transparent 1px),
+        radial-gradient(ellipse 120% 80% at 50% 50%, transparent 40%, rgba(255, 255, 255, 0.03) 45%, transparent 55%);
+    background-size: 24px 24px, 100% 100%;
+    background-position: 0 0, 0 0;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ③ 左下に「観光の気配」を抽象で1点（点群の流れ・小さく・動かさない） */
+.hero-carousel::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 12%;
+    width: 200px;
+    height: 100px;
+    background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.35) 2px, transparent 2px),
+                radial-gradient(circle at 45% 60%, rgba(255, 255, 255, 0.25) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 70% 40%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 32px 28px, 36px 32px, 40px 36px;
+    background-repeat: repeat;
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out, visibility 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+}
+
+.hero-slide .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 40px;
+    max-width: var(--container-max);
+    width: 100%;
+    transform: translateY(-40px);
+}
+
+/* 平行四辺形レイヤー（左側・やや濃いめ） */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -15%;
+    width: 70%;
+    height: 140%;
+    background: rgba(30, 100, 180, 0.18);
+    clip-path: polygon(0% 0%, 100% 25%, 100% 100%, 0% 75%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* 平行四辺形レイヤー（中央〜右・薄め） */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    right: -20%;
+    width: 75%;
+    height: 120%;
+    background: rgba(100, 180, 230, 0.12);
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+    padding: 0 40px;
+    max-width: var(--container-max);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.hero-text {
+    margin-top: -76px;
+}
+
+.hero-title {
+    font-size: 92px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    line-height: 1.2;
+    color: var(--color-bg);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    letter-spacing: -0.02em;
+}
+
+/* 2枚目のスライド専用：タイトルの改行制御 */
+.hero-slide-2 .hero-title {
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: normal;
+}
+
+/* 「生の声」が改行されないようにする */
+.hero-title-no-break {
+    white-space: nowrap;
+    display: inline-block;
+    letter-spacing: 0.02em;
+    margin-right: 0.05em;
+}
+
+/* 2枚目のスライド：タイトルの2行目（「生の声」を）の視覚的調整 */
+.hero-slide-2 .hero-title br {
+    display: block;
+    content: "";
+}
+
+/* 「生の声」をの行の視覚的バランス調整 */
+.hero-slide-2 .hero-title {
+    text-indent: 0;
+}
+
+.hero-slide-2 .hero-title .hero-title-no-break {
+    position: relative;
+    left: -0.02em;
+}
+
+.hero-description {
+    font-size: var(--text-xl);
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.hero-description .hero-desc-mobile-only {
+    display: none;
+}
+
+.hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--space-sm) 52px;
+    background-color: var(--color-bg);
+    border: none;
+    border-radius: 50px;
+    color: var(--color-accent);
+    font-size: var(--text-lg);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
+    width: fit-content;
+    max-width: 307px;
+    grid-column: 1;
+    justify-self: start;
+}
+
+.hero-cta:hover {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.hero-cta span {
+    font-size: var(--text-lg);
+    font-weight: bold;
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    grid-column: 1;
+    justify-self: start;
+    flex-wrap: wrap;
+    margin-top: -1cm;
+}
+
+.hero-demo-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.cta-badge {
+    display: inline-block;
+    font-size: 13px;
+    padding: 4px 10px;
+    color: var(--color-bg);
+    font-weight: 600;
+}
+
+.hero-demo-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: var(--space-sm) 52px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 2px solid var(--color-bg);
+    border-radius: 50px;
+    color: var(--color-bg);
+    font-size: var(--text-lg);
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+    width: fit-content;
+    max-width: 307px;
+    backdrop-filter: blur(10px);
+}
+
+.hero-demo-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.hero-demo-button span {
+    font-size: var(--text-lg);
+    font-weight: bold;
+}
+
+.cta-icon {
+    font-size: var(--text-sm);
+    display: inline-block;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-left: 0;
+    margin-top: -120px;
+    position: relative;
+}
+
+/* カルーセルナビゲーション矢印 */
+.hero-carousel-prev,
+.hero-carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    color: var(--color-text);
+}
+
+.hero-carousel-prev {
+    animation: hero-carousel-arrow-left-float 2.2s ease-in-out infinite;
+}
+
+.hero-carousel-next {
+    animation: hero-carousel-arrow-right-float 2.2s ease-in-out infinite;
+}
+
+.hero-carousel-prev {
+    left: 20px;
+}
+
+.hero-carousel-next {
+    right: 20px;
+}
+
+.hero-carousel-prev:hover {
+    background-color: var(--color-bg);
+    transform: translateY(-50%) translateX(-6px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: none; /* ホバー時はアニメーションを停止 */
+}
+
+.hero-carousel-next:hover {
+    background-color: var(--color-bg);
+    transform: translateY(-50%) translateX(6px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: none; /* ホバー時はアニメーションを停止 */
+}
+
+.hero-carousel-prev:active {
+    transform: translateY(-50%) translateX(-6px) scale(0.95);
+    animation: none; /* アクティブ時はアニメーションを停止 */
+}
+
+.hero-carousel-next:active {
+    transform: translateY(-50%) translateX(6px) scale(0.95);
+    animation: none; /* アクティブ時はアニメーションを停止 */
+}
+
+/* ページネーションドット */
+.hero-carousel-dots {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.hero-dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    transform: scale(1.2);
+}
+
+.hero-dot.active {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 12px;
+    height: 12px;
+}
+
+.macbook-overlay {
+    position: absolute;
+    bottom: -5%;
+    right: -2%;
+    width: auto;
+    max-width: 83.66%;
+    height: auto;
+    z-index: 10;
+    object-fit: contain;
+    pointer-events: none;
+    transform: translate(3.55cm, 4.5cm) scale(0.81);
+}
+
+/* 2枚目のスライド専用：macbook-display-graphの最適化 */
+.hero-slide-2 .hero-image {
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+.hero-slide-2 .macbook-overlay {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    max-width: 90%;
+    width: auto;
+    height: auto;
+    transform: scale(1.38);
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* 3枚目のスライド専用：お問い合わせフォーム */
+.hero-slide-3 .hero-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+/* 3枚目：左側コピーが短いため、フォームと縦方向で中央揃えになるよう位置を調整 */
+.hero-slide-3 .hero-text {
+    margin-top: -30px;
+}
+
+/* ② 3枚目フォーム背面にソフトな光（楕円ぼかし・主役を静かに持ち上げる） */
+.hero-contact-form {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    z-index: 1;
+}
+
+.hero-contact-form::before {
+    content: '';
+    position: absolute;
+    width: 520px;
+    height: 360px;
+    right: -40px;
+    top: -40px;
+    background: radial-gradient(ellipse closest-side, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 70%);
+    filter: blur(12px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-contact-form-inner {
+    width: 100%;
+}
+
+.hero-contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.hero-contact-form .form-group label {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+
+.hero-contact-form .form-group input {
+    padding: 10px 12px;
+    font-size: var(--text-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.hero-contact-form .form-group input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.hero-contact-form .submit-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-dark) 100%);
+    color: var(--color-bg);
+    border: none;
+    border-radius: 8px;
+    font-size: var(--text-base);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.hero-contact-form .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+}
+
+.pc-frame {
+    position: relative;
+    max-width: 100%;
+    width: 100%;
+    transform: scale(1.0) translate(-0.8cm, 0.5cm);
+    transform-origin: center;
+}
+
+.pc-screen {
+    background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 50%, #a8a8a8 100%);
+    border-radius: 8px 8px 0 0;
+    padding: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 2px solid var(--color-border-dark);
+    position: relative;
+}
+
+.pc-screen::after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35%;
+    height: 12%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.1) 0px,
+        rgba(0, 0, 0, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 2px,
+        rgba(255, 255, 255, 0.1) 4px
+    );
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 3;
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+.pc-screen::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #b0b0b0 0%, var(--color-border-dark) 50%, #b0b0b0 100%);
+    border-radius: 2px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
+
+.ipad-overlay {
+    position: absolute;
+    bottom: calc(8% - 4.5cm);
+    left: calc(5% - 4.32cm);
+    width: auto;
+    max-width: 65%;
+    height: auto;
+    z-index: 5;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.pc-base {
+    width: 100%;
+    height: 20px;
+    background: linear-gradient(to bottom, 
+        var(--color-border-dark) 0%, 
+        var(--color-border) 20%, 
+        #f0f0f0 40%, 
+        #e8e8e8 50%, 
+        #d8d8d8 60%, 
+        #c0c0c0 80%, 
+        #a0a0a0 100%);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.pc-base::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.6) 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0.1) 70%,
+        transparent 100%);
+    border-radius: 0 0 8px 8px;
+    pointer-events: none;
+}
+
+.pc-base::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 8px;
+    background: linear-gradient(to bottom, 
+        #c0c0c0 0%, 
+        var(--color-border-dark) 30%, 
+        #b0b0b0 50%, 
+        #909090 100%);
+    border-radius: 0 0 4px 4px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2),
+        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+}
