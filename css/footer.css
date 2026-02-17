@@ -2276,9 +2276,9 @@
         right: 16px;
     }
 
-    /* ヒーロー内のコピー・CTA・画像を0.924倍に・1.5cm上にずらす（ラップトップ版と同じ） */
+    /* ヒーロー内のコピー・CTA・画像を3%大きく（0.924×1.03≒0.952）・1.5cm上にずらす */
     .hero .container {
-        transform: translateY(-1.5cm) scale(0.924);
+        transform: translateY(-1.5cm) scale(0.952);
         transform-origin: center center;
     }
     .hero-carousel,
