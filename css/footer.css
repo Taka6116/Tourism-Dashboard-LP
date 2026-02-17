@@ -2242,14 +2242,26 @@
         gap: clamp(6px, 0.6vw, 10px);
     }
 
-    /* ディスプレイ画面版：ヒーローセクションの下部を2cm短く */
+    /* ディスプレイ画面版：ラップトップ版と同じ尺で表示 */
     .hero {
-        padding: calc(120px - 1.5cm) 0 calc(120px - 5.5cm) 0;
+        padding: calc(120px - 1.5cm) 0 calc(120px - 6cm) 0;
         min-height: 100vh;
         overflow: hidden; /* 背景の青・水色をヒーロー内に収める（Hospitalia見出しに被らない） */
     }
 
-    /* ディスプレイ画面版：ヒーロー内のコピー・CTA・画像を0.924倍に・1.5cm上にずらす */
+    /* カルーセル矢印が文字・CTAと重ならないようコンテナに余白（ラップトップ版と同じ） */
+    .hero .container {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .hero-carousel-prev {
+        left: 16px;
+    }
+    .hero-carousel-next {
+        right: 16px;
+    }
+
+    /* ヒーロー内のコピー・CTA・画像を0.924倍に・1.5cm上にずらす（ラップトップ版と同じ） */
     .hero .container {
         transform: translateY(-1.5cm) scale(0.924);
         transform-origin: center center;
@@ -2259,6 +2271,7 @@
         overflow: visible;
     }
     .hero-content {
+        gap: 60px;
         align-items: center;
     }
     .hero-text,
@@ -2266,12 +2279,12 @@
         transform: none;
     }
 
-    /* 課題→提案セクション間の余白を最適化（ディスプレイ画面版） */
+    /* 課題→提案セクション間の余白（ラップトップ版と同じ尺） */
     .challenges {
-        padding-bottom: 52px;
+        padding-bottom: 40px;
     }
     .solution-overview {
-        padding-top: 44px;
+        padding-top: 36px;
     }
 
     /* 課題セクション1つ目「満足度調査だけでは、」の後で改行（観光客の本音が見えないは2行目に） */
