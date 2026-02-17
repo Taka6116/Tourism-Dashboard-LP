@@ -807,7 +807,7 @@ body {
 /* Hospitaliaセクション */
 .hospitalia-section {
     background-color: #f5f7f8;
-    padding: 30px 0 195px 0;
+    padding: 30px 0 100px 0;
     min-height: 80vh;
     display: flex;
     align-items: flex-start;
@@ -933,7 +933,7 @@ body {
 /* 課題セクション */
 .challenges {
     background-color: #f5f7f8;
-    padding: 30px 0 195px 0;
+    padding: 16px 0 195px 0;
     min-height: 80vh;
     display: flex;
     align-items: flex-start;
@@ -971,20 +971,12 @@ body {
     align-items: stretch;
 }
 
-.challenge-box:nth-child(1) {
-    margin-top: 0;
-}
-
-.challenge-box:nth-child(2) {
-    margin-top: 40px;
-}
-
-.challenge-box:nth-child(3) {
-    margin-top: 80px;
-}
-
+/* ボックス高さを統一（右下がりをやめてすべて同じ高さに） */
+.challenge-box:nth-child(1),
+.challenge-box:nth-child(2),
+.challenge-box:nth-child(3),
 .challenge-box:nth-child(4) {
-    margin-top: 120px;
+    margin-top: 0;
 }
 
 .challenge-box {
@@ -3830,6 +3822,15 @@ img {
     /* ディスプレイ画面版：ヒーローセクションの下部パディングを増やす */
     .hero {
         padding: calc(120px - 1.5cm) 0 calc(120px - 3.5cm) 0;
+    }
+
+    /* 課題セクション1つ目「満足度調査だけでは、」の後で改行（観光客の本音が見えないは2行目に） */
+    .challenges .challenge-box:nth-child(1) .challenge-title-line2 {
+        display: block;
+    }
+    /* 課題セクション4つ目「結果として具体的な」の後で改行（施策案が出ないは2行目に） */
+    .challenges .challenge-box:nth-child(4) .challenge-title-line2 {
+        display: block;
     }
 
     /* ディスプレイ画面版：スクロール時もドットを画面下部に固定表示 */
