@@ -691,12 +691,15 @@
         margin-bottom: 8px;
     }
     .hero-slide-2 .macbook-overlay {
+        left: 50%;
         max-width: 76%;
-        transform: scale(1.18);
+        transform: translateX(-50%) scale(1.18);
     }
-    /* 2枚目のみ：画像とCTAを0.5mm下にずらす（スマホ） */
+    /* 2枚目のみ：画像を左右中央揃え・0.5mm下にずらす（スマホ） */
     .hero-slide-2 .hero-image {
         transform: translateY(0.5mm);
+        justify-content: center;
+        align-items: center;
     }
     .hero-slide-2 .hero-cta-group {
         transform: translateY(0.5mm);
@@ -1360,10 +1363,11 @@
         padding: 32px 0 40px 0;
     }
 
-    /* 480px以下：2枚目画像サイズ・3枚目フォーム余白 */
+    /* 480px以下：2枚目画像サイズ・3枚目フォーム余白・左右中央揃え */
     .hero-slide-2 .macbook-overlay {
+        left: 50%;
         max-width: 74%;
-        transform: scale(1.12);
+        transform: translateX(-50%) scale(1.12);
     }
     .hero-slide-3 .hero-contact-form {
         padding: 14px;
