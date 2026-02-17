@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     let currentSlide = 0;
     let autoplayInterval = null;
-    const autoplayDelay = 5000; // 5秒
+    const autoplayDelay = 6000; // 6秒で自動切り替え（1枚目→2枚目→3枚目→1枚目）
 
     // スライドを表示する関数
     function showSlide(index) {
@@ -545,8 +545,9 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide - 1);
     }
 
-    // 自動再生を開始
+    // 自動再生を開始（既存のタイマーは必ず1本だけになるよう先に停止）
     function startAutoplay() {
+        stopAutoplay();
         autoplayInterval = setInterval(nextSlide, autoplayDelay);
     }
 
@@ -587,6 +588,31 @@ document.addEventListener('DOMContentLoaded', () => {
     // マウスホバーで自動再生を一時停止
     carousel.addEventListener('mouseenter', stopAutoplay);
     carousel.addEventListener('mouseleave', startAutoplay);
+
+    // ディスプレイ画面版：ヒーローが画面内にあるときだけドットを表示（fixed表示用）
+    const dotsContainer = carousel.querySelector('.hero-carousel-dots');
+    const heroSection = document.querySelector('.hero');
+    if (dotsContainer && heroSection && window.matchMedia('(min-width: 1024px)').matches) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        dotsContainer.classList.add('hero-dots-visible');
+                    } else {
+                        dotsContainer.classList.remove('hero-dots-visible');
+                    }
+                });
+            },
+            { threshold: 0, rootMargin: '0px' }
+        );
+        observer.observe(heroSection);
+        // 初期表示でヒーローが見えている場合
+        if (heroSection.getBoundingClientRect().top < window.innerHeight) {
+            dotsContainer.classList.add('hero-dots-visible');
+        }
+    } else if (dotsContainer) {
+        dotsContainer.classList.add('hero-dots-visible');
+    }
 
     // タッチスワイプ対応（モバイル）
     let touchStartX = 0;

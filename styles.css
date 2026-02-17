@@ -600,6 +600,11 @@ body {
     align-items: flex-start;
 }
 
+/* 3枚目：タイトル「最短1営業日で…」の上が切れないよう位置を少し下げる */
+.hero-slide-3 .hero-text {
+    margin-top: -70px;
+}
+
 .hero-contact-form {
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
@@ -2455,6 +2460,9 @@ body {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+    .hero-slide-3 .hero-text {
+        margin-top: 0;
+    }
 
     .hero-contact-form {
         padding: 20px;
@@ -3406,6 +3414,34 @@ img {
 
 /* ラップトップサイズ（1024px〜1600px）での調整 */
 @media (min-width: 1024px) and (max-width: 1600px) {
+    /* ノートパソコン版：スクロール時もドットを画面下部に固定表示 */
+    .hero-carousel-dots {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+    }
+    .hero-carousel-dots.hero-dots-visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    /* カルーセル矢印が文字・CTA・問い合わせフォームと重ならないようコンテナに余白を確保 */
+    .hero .container {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .hero-carousel-prev {
+        left: 16px;
+    }
+    .hero-carousel-next {
+        right: 16px;
+    }
+
     .hero-content {
         gap: 40px; /* 60px → 40px に縮小してスペース確保 */
     }
@@ -3571,6 +3607,11 @@ img {
     
     .hero .hero-demo-button:hover .demo-button-content::after {
         color: #4A90E2;
+    }
+
+    /* 3枚目スライド：問い合わせフォームをやや上に寄せる */
+    .hero-slide-3 .hero-contact-form {
+        margin-top: -48px;
     }
     
     /* ダッシュボード画像を10%小さく */
@@ -3778,9 +3819,20 @@ img {
         padding: calc(120px - 1.5cm) 0 calc(120px - 3.5cm) 0;
     }
 
-    /* ページネーションドットの位置を調整 */
+    /* ディスプレイ画面版：スクロール時もドットを画面下部に固定表示 */
     .hero-carousel-dots {
-        bottom: 100px;
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+    }
+    .hero-carousel-dots.hero-dots-visible {
+        opacity: 1;
+        pointer-events: auto;
     }
 
     /* ディスプレイ画面版：CTAボタンのUIを元に戻す */
