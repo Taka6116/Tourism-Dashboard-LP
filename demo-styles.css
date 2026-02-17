@@ -750,6 +750,18 @@
     border-color: #bbdefb;
 }
 
+/* トレンドタブ：言語別トレンド・注目の声・示唆を横並びに */
+.demo-trend-cards-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.demo-trend-cards-row .demo-insight-card {
+    min-width: 0;
+}
+
 /* 旧インサイトグリッド（他で参照されている場合用） */
 .demo-insights-grid {
     display: grid;
