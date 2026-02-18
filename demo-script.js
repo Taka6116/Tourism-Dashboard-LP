@@ -101,6 +101,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 言語別話者データ：日本語/英語タブ切り替え
+    const speakerLangTabs = document.querySelectorAll('.demo-speaker-lang-tab');
+    const speakerJaContent = document.getElementById('speaker-ja-content');
+    const speakerEnContent = document.getElementById('speaker-en-content');
+    if (speakerLangTabs.length && speakerJaContent && speakerEnContent) {
+        speakerLangTabs.forEach(function(tab) {
+            tab.addEventListener('click', function() {
+                speakerLangTabs.forEach(function(t) { t.classList.remove('active'); });
+                this.classList.add('active');
+                var lang = this.getAttribute('data-speaker-lang');
+                if (lang === 'en') {
+                    speakerJaContent.style.display = 'none';
+                    speakerEnContent.style.display = 'block';
+                } else {
+                    speakerJaContent.style.display = 'block';
+                    speakerEnContent.style.display = 'none';
+                }
+            });
+        });
+    }
+
     // インサイトタブ（コンテンツ構成・ペルソナ・トレンド）
     const insightTabs = document.querySelectorAll('.demo-insight-tab');
     const insightTabContents = {

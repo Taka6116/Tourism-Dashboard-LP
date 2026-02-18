@@ -94,7 +94,7 @@
                                 <span class="demo-card-title">1. 地域観光・周辺グルメ</span>
                             </div>
                             <div class="demo-card-value">3 件</div>
-                            <div class="demo-card-change neutral">前月比なし</div>
+                            <div class="demo-card-change positive">+12.5%</div>
                         </div>
                     </div>
 
@@ -166,7 +166,7 @@
                                 <div class="demo-category-number">1.</div>
                                 <div class="demo-category-name">地域観光・周辺グルメ</div>
                                 <div class="demo-category-value">3 件</div>
-                                <div class="demo-category-change neutral">前月比なし</div>
+                                <div class="demo-category-change positive">+12.5%</div>
                             </div>
                             <div class="demo-category-card">
                                 <div class="demo-category-number">2.</div>
@@ -474,8 +474,131 @@
 
                     <!-- 言語別話者データタブのコンテンツ -->
                     <div id="speaker-content" class="demo-tab-content" style="display: none;">
-                        <h2 class="demo-section-title">言語別話者データ</h2>
-                        <p class="demo-speaker-text">本契約頂くと、取れているエリアの実際の発話データが言語別・カテゴリー別にご覧いただくことができます</p>
+                        <div class="demo-speaker-header">
+                            <h2 class="demo-section-title">言語別話者データ</h2>
+                            <span class="demo-speaker-info-icon" aria-label="説明">?</span>
+                        </div>
+                        <div class="demo-speaker-lang-tabs">
+                            <button type="button" class="demo-speaker-lang-tab active" data-speaker-lang="ja">日本語</button>
+                            <button type="button" class="demo-speaker-lang-tab" data-speaker-lang="en">英語</button>
+                        </div>
+
+                        <!-- 日本語話者データ -->
+                        <div id="speaker-ja-content" class="demo-speaker-lang-content">
+                            <h3 class="demo-speaker-lang-title">日本語話者データ</h3>
+                            <div class="demo-speaker-categories">
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">交通案内・駐車場</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-blue">
+                                        <span class="demo-speaker-bubble">レンタカーはありますか</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">地域観光</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-blue">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">おすすめの観光スポットは</span>
+                                        <span class="demo-speaker-bubble">周辺の見どころを教えて</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">近くの食事処はありますか</span>
+                                        <span class="demo-speaker-bubble">知覚にリラックスできる場所はありますか？</span>
+                                        <span class="demo-speaker-bubble">集中できるようなお店、スペースありますか？</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">キャナルシティに　○○はありますか？</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">フロント・荷物・チェックイン</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-purple">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">チェックアウト何時</span>
+                                        <span class="demo-speaker-bubble">フロントの営業時間はいつですか</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">フロントの内線番号は</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">朝食・館内食事</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-orange">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">朝食何時から</span>
+                                        <span class="demo-speaker-bubble">ホテルに朝食はありますか</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">大浴場・館内施設</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-blue">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">大浴場ってあるの</span>
+                                        <span class="demo-speaker-bubble">電子レンジはどこにある</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">喫煙所ありますか</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">喫煙所は何階ですか</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">コインランドリーは</span>
+                                        <span class="demo-speaker-bubble">大浴場はどこですか</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-lg demo-speaker-bubble-end">雑談</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">客室設備・WiFi・家電操作</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-pink">
+                                        <span class="demo-speaker-bubble">テレビのリモコンはどこ</span>
+                                        <span class="demo-speaker-bubble">wifiのパスワード教えて</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">wi fiパスワードは</span>
+                                        <span class="demo-speaker-bubble">照明を消したい</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">テレビのリモコンがない</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">アメニティ・備品・清掃</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-purple">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">プリンターはありますか</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">氷はどこですか</span>
+                                        <span class="demo-speaker-bubble">無料の水はありますか</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">ウェルカムドリンク開かない</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">血圧計はありますか</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 英語話者データ -->
+                        <div id="speaker-en-content" class="demo-speaker-lang-content" style="display: none;">
+                            <h3 class="demo-speaker-lang-title">英語話者データ</h3>
+                            <div class="demo-speaker-categories">
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">客室設備・WiFi・家電操作</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-pink">
+                                        <span class="demo-speaker-bubble">what is the WiFi password</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-lg">how do I turn off the lights in the room</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">where is the TV remote</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">フロント・荷物・チェックイン</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-purple">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">what time is check-out</span>
+                                        <span class="demo-speaker-bubble">front desk hours</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">luggage delivery</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">朝食・館内食事</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-orange">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">what time is breakfast</span>
+                                        <span class="demo-speaker-bubble">does the hotel have breakfast</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">大浴場・館内施設</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-blue">
+                                        <span class="demo-speaker-bubble">where is the public bath</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">is there a microwave</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">smoking area</span>
+                                    </div>
+                                </div>
+                                <div class="demo-speaker-category">
+                                    <h4 class="demo-speaker-category-title">地域観光</h4>
+                                    <div class="demo-speaker-bubbles demo-speaker-bubbles-blue">
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">recommended sightseeing spots</span>
+                                        <span class="demo-speaker-bubble">what to see around here</span>
+                                        <span class="demo-speaker-bubble demo-speaker-bubble-sm">good restaurants nearby</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 
@@ -495,23 +618,23 @@
                                 <div class="demo-insight-bar-row">
                                     <span class="demo-insight-bar-label">雑談・挨拶・エンタメ</span>
                                     <div class="demo-insight-bar-track">
-                                        <div class="demo-insight-bar-fill bar-green" style="width: 82%;"></div>
+                                        <div class="demo-insight-bar-fill bar-green" style="width: 75%;"></div>
                                     </div>
-                                    <span class="demo-insight-bar-pct">82%</span>
+                                    <span class="demo-insight-bar-pct">75%</span>
                                 </div>
                                 <div class="demo-insight-bar-row">
                                     <span class="demo-insight-bar-label">客室設備・WiFi</span>
                                     <div class="demo-insight-bar-track">
-                                        <div class="demo-insight-bar-fill bar-teal" style="width: 10%;"></div>
+                                        <div class="demo-insight-bar-fill bar-teal" style="width: 15%;"></div>
                                     </div>
-                                    <span class="demo-insight-bar-pct">10%</span>
+                                    <span class="demo-insight-bar-pct">15%</span>
                                 </div>
                                 <div class="demo-insight-bar-row">
                                     <span class="demo-insight-bar-label">大浴場・館内施設</span>
                                     <div class="demo-insight-bar-track">
-                                        <div class="demo-insight-bar-fill bar-lightblue" style="width: 2.7%;"></div>
+                                        <div class="demo-insight-bar-fill bar-lightblue" style="width: 3%;"></div>
                                     </div>
-                                    <span class="demo-insight-bar-pct">2.7%</span>
+                                    <span class="demo-insight-bar-pct">3%</span>
                                 </div>
                                 <div class="demo-insight-bar-row">
                                     <span class="demo-insight-bar-label">朝食・館内食事</span>
@@ -521,27 +644,27 @@
                                     <span class="demo-insight-bar-pct">2%</span>
                                 </div>
                                 <div class="demo-insight-bar-row">
-                                    <span class="demo-insight-bar-label">フロント関連</span>
+                                    <span class="demo-insight-bar-label">地域観光・周辺グルメ</span>
                                     <div class="demo-insight-bar-track">
-                                        <div class="demo-insight-bar-fill bar-orange" style="width: 2%;"></div>
+                                        <div class="demo-insight-bar-fill bar-orange" style="width: 0%;"></div>
                                     </div>
-                                    <span class="demo-insight-bar-pct">2%</span>
+                                    <span class="demo-insight-bar-pct">0%</span>
                                 </div>
                             </div>
                             <h3 class="demo-insight-subtitle">前月比較の主な変化</h3>
-                            <p class="demo-insight-text">雑談カテゴリが全体の8割を超え、実務的な質問が減少</p>
+                            <p class="demo-insight-text">地域観光・周辺グルメカテゴリが前月1%から0%に完全消失。客室設備・WiFiに関する問い合わせが増加し、特に英語での質問が目立つ</p>
                             <h3 class="demo-insight-subtitle">示唆</h3>
-                            <p class="demo-insight-highlight">コミュニケーション主体の利用が増加、施設利用の基本的な理解が進んでいる可能性</p>
+                            <p class="demo-insight-highlight">「何もない」状態を逆手に取れる。WiFi・設備利用へのニーズは、グローバルビジネス層の「純粋な集中」を求める環境整備の機会を示している</p>
                         </div>
                         <div class="demo-insight-card">
                             <h2 class="demo-insight-card-title">推奨アクション</h2>
                             <div class="demo-insight-action">
                                 <h3 class="demo-insight-subtitle">抽象例</h3>
-                                <p class="demo-insight-text">買い物観光とアメニティの充実を軸とした差別化が有効</p>
+                                <p class="demo-insight-text">防音・遮光を備えた集中型ワークスペースとデジタルインフラの整備による差別化が有効</p>
                             </div>
                             <div class="demo-insight-action">
                                 <h3 class="demo-insight-subtitle">具体例</h3>
-                                <p class="demo-insight-text">商業施設との連携シャトルバス運行</p>
+                                <p class="demo-insight-text">完全個室の設置、多言語設備ガイド（QRコード）の標準配布、荷物配送の統一化と案内改善</p>
                             </div>
                         </div>
                     </div>
@@ -553,40 +676,40 @@
                                 <h2 class="demo-insight-card-title demo-persona-heading">ペルソナ</h2>
                                 <dl class="demo-persona-dl">
                                     <dt>タイプ</dt>
-                                    <dd>買い物目的インバウンド層</dd>
+                                    <dd>集中・静謐を求めるグローバルビジネス層</dd>
                                     <dt>根拠</dt>
-                                    <dd>shopping outletsやcanal cityへの言及</dd>
+                                    <dd>WiFiパスワード・照明操作など基本設備利用に関する英語での質問が複数</dd>
                                     <dt>検討段階</dt>
-                                    <dd>観光スポット探索段階</dd>
+                                    <dd>滞在中の業務・オンライン会議の環境確保</dd>
                                     <dt>課題</dt>
-                                    <dd>商業施設へのアクセス情報不足</dd>
+                                    <dd>「余計なものを排除し、純粋にビジネスに集中できる」空間の不足</dd>
                                     <dt>機会</dt>
-                                    <dd>商業施設との連携による観光ルート開発</dd>
+                                    <dd>感覚遮断型ワークスペースや防音個室の提供による差別化</dd>
                                 </dl>
                             </div>
                             <div class="demo-insight-card demo-persona-card">
                                 <h2 class="demo-insight-card-title demo-persona-heading">ペルソナ</h2>
                                 <dl class="demo-persona-dl">
                                     <dt>タイプ</dt>
-                                    <dd>長期滞在インバウンド</dd>
+                                    <dd>重要プレゼン・商談を控えた30-45歳役職者</dd>
                                     <dt>根拠</dt>
-                                    <dd>laundry serviceやfitness centerへの言及</dd>
+                                    <dd>時差のある海外とのコミュニケーションを想定した設備・環境への言及</dd>
                                     <dt>検討段階</dt>
-                                    <dd>滞在サービス利用検討</dd>
+                                    <dd>宿泊施設内で確実に集中できる環境の確保</dd>
                                     <dt>課題</dt>
-                                    <dd>長期滞在向けサービスの認知度不足</dd>
+                                    <dd>客室・ロビーでは騒音や視線が気になり、デジタルインフラも不十分</dd>
                                     <dt>機会</dt>
-                                    <dd>長期滞在者向けサービスの拡充</dd>
+                                    <dd>高速WiFiと静謐性を両立した完全個室の整備</dd>
                                 </dl>
                             </div>
                         </div>
                         <div class="demo-insight-card">
                             <h2 class="demo-insight-card-title demo-persona-heading">実際の声</h2>
-                            <p class="demo-insight-text demo-voice-quote">キャナルシティはどこですか、ショッピングアウトレットはどこにありますか</p>
+                            <p class="demo-insight-text demo-voice-quote">what is the WiFi password / how do I turn off the lights in the room</p>
                         </div>
                         <div class="demo-insight-card">
                             <h2 class="demo-insight-card-title demo-persona-heading">示唆</h2>
-                            <p class="demo-insight-text">観光客が主要商業施設へのアクセス方法に苦慮している実態が判明。特に、キャナルシティ博多等の主要商業施設への案内強化が急務。また、全体の質問数(1620件)に対して、地域観光に関する質問が18件と極めて少ないことは、事前の情報提供や案内の充実度に課題があることを示唆しています。</p>
+                            <p class="demo-insight-text">シンプルな設備利用の質問の背後に、「純粋にビジネスに集中したい」という本質的欲求がある。地域観光カテゴリの消失（1%→0%）はネガティブではなく、「何もない」空間を究極の集中環境として再定義する施策の根拠となり得る。福岡・博多の国際ビジネス拠点化に合わせ、感覚遮断型ワークスペースの需要が顕在化している。</p>
                         </div>
                     </div>
 
@@ -598,43 +721,43 @@
                             <p class="demo-trend-caption">割合の推移(前月→今月)</p>
                             <div class="demo-trend-rows">
                                 <div class="demo-trend-row">
+                                    <span class="demo-trend-label">客室設備・WiFi</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 10%;" title="前月 10%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-up" style="width: 15%;" title="今月 15%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-up">+5pt</span>
+                                </div>
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">地域観光・周辺グルメ</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 1%;" title="前月 1%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 0%;" title="今月 0%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-down">-1pt</span>
+                                </div>
+                                <div class="demo-trend-row">
                                     <span class="demo-trend-label">雑談・挨拶・エンタメ</span>
                                     <div class="demo-trend-bars">
                                         <div class="demo-trend-bar-track">
-                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 67%;" title="前月 67%"></div>
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 82%;" title="前月 82%"></div>
                                         </div>
                                         <span class="demo-trend-arrow" aria-hidden="true">→</span>
                                         <div class="demo-trend-bar-track">
-                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-up" style="width: 81.4%;" title="今月 81.4%"></div>
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 75%;" title="今月 75%"></div>
                                         </div>
                                     </div>
-                                    <span class="demo-trend-pt demo-trend-pt-up">+14.4pt</span>
-                                </div>
-                                <div class="demo-trend-row">
-                                    <span class="demo-trend-label">フロント関連</span>
-                                    <div class="demo-trend-bars">
-                                        <div class="demo-trend-bar-track">
-                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 5.5%;" title="前月 5.5%"></div>
-                                        </div>
-                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
-                                        <div class="demo-trend-bar-track">
-                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 2%;" title="今月 2%"></div>
-                                        </div>
-                                    </div>
-                                    <span class="demo-trend-pt demo-trend-pt-down">-3.5pt</span>
-                                </div>
-                                <div class="demo-trend-row">
-                                    <span class="demo-trend-label">客室設備</span>
-                                    <div class="demo-trend-bars">
-                                        <div class="demo-trend-bar-track">
-                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 13.4%;" title="前月 13.4%"></div>
-                                        </div>
-                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
-                                        <div class="demo-trend-bar-track">
-                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 10%;" title="今月 10%"></div>
-                                        </div>
-                                    </div>
-                                    <span class="demo-trend-pt demo-trend-pt-down">-3.4pt</span>
+                                    <span class="demo-trend-pt demo-trend-pt-down">-7pt</span>
                                 </div>
                             </div>
                             <div class="demo-trend-legend">
@@ -646,15 +769,15 @@
                         <div class="demo-trend-cards-row">
                             <div class="demo-insight-card demo-trend-card-tint">
                                 <h2 class="demo-insight-card-title">言語別トレンド</h2>
-                                <p class="demo-insight-text">英語での質問が約69%を占め、特に買い物や施設利用に関する問い合わせが目立つ</p>
+                                <p class="demo-insight-text">8月データで英語での質問が急増。特にWiFi・基本設備利用に関する問い合わせが英語圏ビジネス層に集中している</p>
                             </div>
                             <div class="demo-insight-card demo-trend-card-tint">
                                 <h2 class="demo-insight-card-title">注目の声</h2>
-                                <p class="demo-insight-text">アウトレットモールへの関心が高く、買い物観光の需要が示唆される</p>
+                                <p class="demo-insight-text">WiFiパスワードや室内照明の操作など、シンプルな設備利用の質問が、デジタルインフラと「集中できる環境」へのニーズを示唆</p>
                             </div>
                             <div class="demo-insight-card demo-trend-card-tint">
                                 <h2 class="demo-insight-card-title">示唆</h2>
-                                <p class="demo-insight-text">観光客が主要商業施設へのアクセス方法に苦慮している実態が判明。特に、キャナルシティ博多等の主要商業施設への案内強化が急務。また、全体の質問数(1620件)に対して、地域観光に関する質問が18件と極めて少ないことは、事前の情報提供や案内の充実度に課題があることを示唆しています。</p>
+                                <p class="demo-insight-text">地域観光カテゴリの完全消失（1%→0%）を逆手に取り、「何もない」空間を究極の集中環境として再定義するタイミング。福岡・博多の国際ビジネス拠点化に合わせ、感覚遮断型ワークスペースや防音個室の整備が施策として有効。</p>
                             </div>
                         </div>
                     </div>
@@ -662,7 +785,7 @@
 
                 <!-- 施策セクション -->
                 <section id="policies-section" class="demo-section" style="display: none;">
-                    <h2 class="demo-policy-title">博多・福岡 買い物観光アクセス強化プロジェクト</h2>
+                    <h2 class="demo-policy-title">NOTHINGNESS - 感覚遮断型ワークスペース</h2>
                     <p class="demo-policy-subtitle">エリア: 福岡博多</p>
 
                     <div class="demo-policies-tabs">
@@ -675,39 +798,36 @@
                     <div id="policy-basic-content" class="demo-policy-tab-content">
                         <div class="demo-policy-grid">
                             <div class="demo-policy-box">
-                                <h3 class="demo-policy-box-title">推奨事項</h3>
+                                <h3 class="demo-policy-box-title">施策・実施アクション</h3>
                                 <ul class="demo-policy-box-list">
-                                    <li>キャナルシティ博多・マリノア等へのシャトルバス・巡回バス運行の検討（宿泊施設・商業施設との連携）</li>
-                                    <li>商業施設の営業時間・アクセス・多言語対応をまとめた「買い物観光ガイド」の作成・配布</li>
-                                    <li>宿泊施設のAIコンシェルジェやフロントと連携し、商業施設への経路・交通手段を多言語で案内する仕組みの整備</li>
+                                    <li>福岡・博多間の観光ルート開発と案内強化（観光スポット間の連携強化）</li>
+                                    <li>ホテル‐運送会社間の荷物配送サービスの統一化と案内改善</li>
+                                    <li>多言語による基本設備利用ガイドの標準化と配布（QRコード活用）</li>
                                 </ul>
-                            </div>
-                            <div class="demo-policy-box">
-                                <h3 class="demo-policy-box-title">現状</h3>
-                                <p class="demo-policy-box-text">インバウンド層から商業施設（アウトレット・キャナルシティ等）へのアクセス方法の問い合わせが多く、情報提供が分散している。一元的な案内と交通手段の見える化で、機会損失を防ぐ余地がある。</p>
-                            </div>
-                            <div class="demo-policy-box">
-                                <h3 class="demo-policy-box-title">背景</h3>
-                                <p class="demo-policy-box-text">発話データで「ショッピングアウトレット」「キャナルシティ」への行き方・場所を尋ねる質問が英語話者を中心に複数確認。買い物目的の滞在ニーズはあるが、アクセス情報が不足していると推測される。</p>
                             </div>
                             <div class="demo-policy-box">
                                 <h3 class="demo-policy-box-title">目的</h3>
-                                <p class="demo-policy-box-text">買い物観光ニーズに応えるアクセス・案内の整備により、宿泊者満足度の向上と周辺商業施設との連携強化を図る。</p>
+                                <p class="demo-policy-box-text">「何もない無機質な空間」を「究極の集中」を求める層の聖地に転換する。</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">現状</h3>
+                                <p class="demo-policy-box-text">この単純な質問の背後には、「余計なものを排除し、純粋にビジネスに集中したい」というビジネスパーソンの本質的欲求が潜んでいる。</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">背景</h3>
+                                <p class="demo-policy-box-text">地域観光・周辺グルメカテゴリの完全消失（前月1%→0%）という一見ネガティブな状況を、逆手に取る。「何もない」という状態を、グローバルビジネスパーソンが求める「純粋な集中」のための究極の環境として再定義する。特にWiFiパスワードや基本的な設備利用に関する英語での質問が多いことから、デジタルインフラへの強いニーズが確認できる。</p>
                             </div>
                             <div class="demo-policy-box">
                                 <h3 class="demo-policy-box-title">施策案の基となる発話データ</h3>
-                                <p class="demo-policy-box-text">「Where is canal city?」「How to get to shopping outlets?」など、商業施設の場所・アクセス方法を尋ねる質問が英語話者を中心に寄せられている。</p>
+                                <p class="demo-policy-box-text">what is the WiFi password / how do I turn off the lights in the room</p>
                             </div>
                             <div class="demo-policy-box">
-                                <h3 class="demo-policy-box-title">なぜ今なのか</h3>
-                                <p class="demo-policy-box-text">インバウンド回復に伴い買い物需要が戻りつつある一方、交通・案内の整備が追いついていない。宿泊施設の声（発話データ）を踏まえた案内強化は、差別化と満足度向上に直結する。</p>
+                                <h3 class="demo-policy-box-title">タイミング</h3>
+                                <p class="demo-policy-box-text">8月データでWiFi関連の問い合わせが急増し、特に英語圏ビジネス層からの基本的な設備利用に関する質問が集中。国際的なビジネス拠点としての性格が鮮明になってきたタイミング。</p>
                             </div>
                             <div class="demo-policy-box">
                                 <h3 class="demo-policy-box-title">終了検討基準</h3>
-                                <ul class="demo-policy-box-list">
-                                    <li>案内・シャトル運用開始から3ヶ月後に効果を検証</li>
-                                    <li>宿泊者アンケートまたは発話データにおいて「商業施設・アクセス」関連の問い合わせが一定割合減じない場合は見直し</li>
-                                </ul>
+                                <p class="demo-policy-box-text">開始から90日後。3ヶ月間の実証実験結果による事業継続判断。</p>
                             </div>
                         </div>
                     </div>
@@ -718,26 +838,71 @@
                             <h3>ロードマップ</h3>
                             <div class="demo-roadmap-months">
                                 <div class="demo-roadmap-month">
-                                    <h4>1ヶ月目: 調査・設計期</h4>
+                                    <h4>1ヶ月目: 立ち上げ・基盤構築期</h4>
                                     <ul>
-                                        <li>商業施設・宿泊施設とのヒアリングとシャトルルート・運行頻度の検討</li>
-                                        <li>買い物観光ガイドの構成策定と多言語化の範囲の確定</li>
-                                        <li>AIコンシェルジェ・フロント向けの案内フローと回答テンプレートの整備</li>
+                                        <li>防音・遮光性能を備えた完全個室10室の設置工事と、高速WiFi環境の整備完了</li>
+                                        <li>予約管理システムの構築と決済システムの連携、利用ログ収集の仕組み実装</li>
+                                        <li>グローバル企業50社のオフィス管理者へのダイレクトアプローチと内覧会の実施</li>
                                     </ul>
                                 </div>
                                 <div class="demo-roadmap-month">
-                                    <h4>2ヶ月目: 実装・試行期</h4>
+                                    <h4>2ヶ月目: 実装・PoCテスト期</h4>
                                     <ul>
-                                        <li>ガイドの配布開始とシャトル運行の試験運用</li>
-                                        <li>発話データ・問い合わせ件数のモニタリングと案内内容の改善</li>
-                                        <li>商業施設側との情報更新の仕組み（営業時間・イベント等）の構築</li>
+                                        <li>利用者の行動データ（滞在時間、利用頻度等）の収集と分析レポートの作成開始</li>
+                                        <li>主要なオンライン会議システム5種との接続テストと、トラブル対応マニュアルの整備</li>
+                                        <li>海外のコワーキングスペース3社との提携による相互利用プログラムの構築</li>
                                     </ul>
                                 </div>
                                 <div class="demo-roadmap-month">
-                                    <h4>3ヶ月目: 検証・見直し期</h4>
+                                    <h4>3ヶ月目: 検証・拡大判断期</h4>
                                     <ul>
-                                        <li>終了検討基準に基づく効果測定と継続・見直し判断</li>
-                                        <li>他エリア・他商業施設への横展開の可否検討</li>
+                                        <li>利用データの分析に基づく価格戦略の最適化と、長期契約プランの設計完了</li>
+                                        <li>会員企業向けのオンライン予約システムのカスタマイズと運用開始</li>
+                                        <li>利用実績上位10社へのヒアリングに基づく設備・サービスの改善計画の策定</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-execution-design">
+                            <h3>実行設計</h3>
+                            <div class="demo-design-grid">
+                                <div class="demo-design-item">
+                                    <strong>オーナー</strong>
+                                    <p>IT部門2名（環境構築）、音響エンジニア1名（防音設計）、インテリアデザイナー1名（空間設計）</p>
+                                </div>
+                                <div class="demo-design-item">
+                                    <strong>場所</strong>
+                                    <p>ホテル地下1階の未使用倉庫スペース（300㎡）を改装</p>
+                                </div>
+                                <div class="demo-design-item">
+                                    <strong>ターゲットペルソナ</strong>
+                                    <p>グローバル企業で重要プレゼンや商談を控えた30-45歳の役職者。特に時差のある海外とのコミュニケーションが必要な層</p>
+                                </div>
+                                <div class="demo-design-item">
+                                    <strong>予算範囲</strong>
+                                    <p>初期投資2500万円（防音工事1000万円、設備投資1000万円、システム開発500万円）、月間売上目標600万円</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="demo-outcome-prediction">
+                            <h3>成果予測</h3>
+                            <div class="demo-outcome-grid">
+                                <div class="demo-outcome-item positive">
+                                    <h4>拡大フェーズ</h4>
+                                    <ul class="demo-policy-box-list">
+                                        <li>月間売上800万円達成</li>
+                                        <li>固定利用企業30社獲得</li>
+                                        <li>宿泊単価の25%アップ</li>
+                                    </ul>
+                                </div>
+                                <div class="demo-outcome-item negative">
+                                    <h4>改善フェーズ</h4>
+                                    <ul class="demo-policy-box-list">
+                                        <li>稼働率20%未満</li>
+                                        <li>騒音トラブルの発生</li>
+                                        <li>設備維持コストの増大</li>
                                     </ul>
                                 </div>
                             </div>
@@ -750,24 +915,23 @@
                             <!-- 記事1 -->
                             <article class="demo-news-entry">
                                 <div class="demo-news-title-block">
-                                    観光庁「ナイトタイムエコノミー」推進で夜間観光が拡大 - 寺社の特別拝観・怪談コンテンツに需要
+                                    ホテル内「集中型ワークスペース」需要が拡大 - 防音・遮光と高速WiFiを備えた個室がビジネス層に人気
                                 </div>
                                 <div class="demo-news-body">
                                     <h4 class="demo-news-heading">変化や動き</h4>
-                                    <p>観光庁が推進するナイトタイムエコノミー施策により、各地で夜間観光コンテンツの整備が進んでいる。夏季は怪談需要の高まりと相まって、寺社仏閣の夜間特別拝観や怪談会との連携事例が増加。アウトドア志向の継続や、滞在型・体験型ニーズの高まりも背景にある。</p>
+                                    <p>リモートワーク・オンライン会議の定着に伴い、宿泊施設内に防音・遮光を備えた「集中型ワークスペース」を設ける事例が増加。特に時差の大きい海外とのやりとりが多いビジネスパーソンから、WiFi環境と静謐性を両立した個室へのニーズが高まっている。</p>
                                     <h4 class="demo-news-heading">地域が抱える問題</h4>
-                                    <p>福岡エリアでは、昼間の観光地の混雑と夜間の稼働率の低さが課題。寺社や歴史資源を活かした差別化されたナイトコンテンツが少なく、夏季の誘客や宿泊者向けの「夜の過ごし方」の選択肢が限られている。</p>
+                                    <p>福岡・博多エリアは国際会議や商談の受け入れが増える一方、宿泊者が「確実に集中できる空間」を確保しづらい。従来の客室やロビーでは騒音や視線が気になり、重要なプレゼン・商談に支障をきたす声がある。</p>
                                     <h4 class="demo-news-heading">取るべきアクション</h4>
                                     <ol class="demo-news-action-list">
-                                        <li>寺社仏閣との夜間特別拝観・怪談会の企画・調整を行い、夏季限定のナイトツアーを設計する。</li>
-                                        <li>DMOや自治体が「夜間観光マップ」や多言語案内を整備し、宿泊者へ情報を届ける。</li>
-                                        <li>宿泊施設と連携し、怪談ツアーと宿泊パックを組み合わせたプランを提供する。</li>
-                                        <li>地域の怪談・伝承をコンテンツ化し、ガイド養成や音声ガイドの多言語対応を進める。</li>
+                                        <li>防音・遮光性能を備えた完全個室の設置と高速WiFiの整備を完了し、予約管理・利用ログ収集の仕組みを実装する。</li>
+                                        <li>グローバル企業のオフィス管理者へのダイレクトアプローチと内覧会を実施し、固定利用企業の獲得を図る。</li>
+                                        <li>利用データの分析に基づく価格戦略の最適化と、長期契約プランの設計を行う。</li>
                                     </ol>
                                 </div>
                                 <div class="demo-news-meta-block">
                                     <span>対象エリア:</span> 福岡
-                                    <span>出典先:</span> Tourism_NightEconomy_Gov
+                                    <span>出典先:</span> Hotel_Workspace_Trend
                                     <span>リンク</span> <a href="#" class="demo-news-link">リンク</a>
                                     <span>日付:</span> 2026-02-17T09:17:19.370938
                                 </div>
@@ -776,18 +940,18 @@
                             <!-- 記事2 -->
                             <article class="demo-news-entry">
                                 <div class="demo-news-title-block">
-                                    京都市の「夏の夜の寺社拝観」は前年比約1.4倍に - 怪談・幽霊コンテンツとのコラボが奏功
+                                    ホテル‐運送連携の荷物配送統一化と多言語設備ガイドの標準化が進む - 福岡で実証実験の報告
                                 </div>
                                 <div class="demo-news-body">
                                     <h4 class="demo-news-heading">変化や動き</h4>
-                                    <p>京都市内の複数寺社で実施している夏季限定の夜間特別拝観が、怪談会や幽霊にまつわるガイドツアーと連携したことで、前年比約1.4倍の参加者を記録。観光客の「昼とは違う非日常体験」へのニーズと、寺社の夜間活用による収益・認知向上の両立が実現している。</p>
+                                    <p>宿泊施設と運送会社の荷物配送サービスを統一し、多言語の基本設備利用ガイド（QRコード）を標準配布する動きが各地で広がっている。インバウンド・ビジネス客の「荷物の預け先が分からない」「WiFiや設備の使い方が分からない」という問い合わせ削減に効果があるとされる。</p>
                                     <h4 class="demo-news-heading">地域が抱える問題</h4>
-                                    <p>福岡では、博多・太宰府等の歴史・寺社資源はあるものの、夜間の観光コンテンツが十分に整備されていない。宿泊客の「夜の時間帯の過ごし方」への問い合わせが増える一方で、他地域のような差別化されたナイト体験の事例が少ない。</p>
+                                    <p>福岡・博多では国際ビジネス拠点としての性格が強まる一方、荷物配送は施設ごとバラバラで、設備利用の案内も言語・媒体が統一されていない。英語圏ビジネス層からの基本的な設備利用に関する問い合わせが集中している。</p>
                                     <h4 class="demo-news-heading">取るべきアクション</h4>
                                     <ol class="demo-news-action-list">
-                                        <li>他地域の成功事例（夜間拝観・怪談ツアー）を参考に、福岡版「ミステリーナイトツアー」のコース設計と寺社との調整を進める。</li>
-                                        <li>宿泊施設のAIコンシェルジェやフロントと連携し、夜間ツアー情報を多言語で提供する。</li>
-                                        <li>参加者フィードバックを収集し、満足度・稼働率に基づく継続・見直し判断の基準を設ける。</li>
+                                        <li>ホテル‐運送会社間の荷物配送サービスの統一化と案内の改善を進める。</li>
+                                        <li>多言語による基本設備利用ガイドの標準化とQRコードでの配布を実施する。</li>
+                                        <li>3ヶ月間の実証実験結果に基づく効果検証と事業継続判断を行う。</li>
                                     </ol>
                                 </div>
                                 <div class="demo-news-meta-block">
