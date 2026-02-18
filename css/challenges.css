@@ -131,3 +131,10 @@
     text-align: left;
     flex-grow: 1;
 }
+
+/* ディスプレイ・ラップトップ版のみ：課題ボックス内アイコンを15%大きく（10%+5%、ボックス等の他要素は変更しない） */
+@media (min-width: 1024px) {
+    .challenges .challenge-icon svg {
+        transform: scale(1.155);
+    }
+}
