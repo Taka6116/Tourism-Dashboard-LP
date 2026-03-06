@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
                 if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
                 if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
                 // サマリーセクション表示時、デフォルトで総合サマリーを表示
                 const tabContents = document.querySelectorAll('.demo-tab-content');
                 tabContents.forEach(content => {
@@ -64,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
                 if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
                 if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
             } else if (targetSection === 'policies') {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'none';
@@ -72,6 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
                 if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
                 if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
             } else if (targetSection === 'ongoing-policies') {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'none';
@@ -81,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
                 if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
                 if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
             } else if (targetSection === 'market-analysis') {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'none';
@@ -90,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (marketEl) marketEl.style.display = 'block';
                 if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
                 if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
             } else if (targetSection === 'area-comparison') {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'none';
@@ -99,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const areaCompEl = document.getElementById('area-comparison-section');
                 if (areaCompEl) areaCompEl.style.display = 'block';
                 if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
             } else if (targetSection === 'strategy-summary') {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'none';
@@ -108,6 +114,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
                 const strategyEl = document.getElementById('strategy-summary-section');
                 if (strategyEl) strategyEl.style.display = 'block';
+                if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
+            } else if (targetSection === 'manual') {
+                document.getElementById('summary-section').style.display = 'none';
+                document.getElementById('insights-section').style.display = 'none';
+                document.getElementById('policies-section').style.display = 'none';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+                const manualEl = document.getElementById('manual-section');
+                if (manualEl) manualEl.style.display = 'block';
             }
         });
     });
@@ -288,6 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
     if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
     if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+    if (document.getElementById('manual-section')) document.getElementById('manual-section').style.display = 'none';
     document.getElementById('overview-content').style.display = 'block';
     
     // サマリーナビゲーションをアクティブに
