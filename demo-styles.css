@@ -162,6 +162,29 @@
     border-left-color: #fff;
 }
 
+.demo-nav-separator {
+    display: block;
+    height: 1px;
+    margin: 12px 20px;
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.demo-nav-item-with-icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.demo-nav-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+
+.demo-nav-icon svg {
+    flex-shrink: 0;
+}
+
 /* メインコンテンツ */
 .demo-main {
     flex: 1;
@@ -1139,7 +1162,693 @@
     border: 1px solid #e8b4b8;
 }
 
-/* 施策セクション */
+/* 施策セクション（アプリUI準拠：カテゴリピル・ステータスピル・施策カード） */
+.demo-policy-category-pills-wrap {
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.demo-policy-category-pills {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.demo-policy-pill {
+    flex-shrink: 0;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+    border: 1px solid #d0d0d0;
+    background-color: #fff;
+    color: #333;
+}
+
+.demo-policy-pill-cat:hover {
+    background-color: #f5f5f5;
+    border-color: #b0b0b0;
+}
+
+.demo-policy-pill-cat.active {
+    background-color: #e8e8e8;
+    border-color: #aaa;
+}
+
+.demo-policy-status-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.demo-policy-pill-status {
+    border: 2px solid #c62828;
+    background-color: #fff;
+    color: #333;
+    padding: 10px 20px;
+    font-size: 15px;
+}
+
+.demo-policy-pill-status:hover {
+    background-color: #ffebee;
+}
+
+.demo-policy-pill-status.active {
+    background-color: #e65100;
+    border-color: #e65100;
+    color: #fff;
+}
+
+.demo-policy-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.demo-policy-card {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.demo-policy-card-tag {
+    display: inline-block;
+    background-color: #7cb342;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+
+.demo-policy-card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px 0;
+    line-height: 1.35;
+}
+
+.demo-policy-card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 14px 0;
+    flex-grow: 1;
+}
+
+.demo-policy-card-keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.demo-policy-card-keywords span {
+    font-size: 12px;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 4px 10px;
+    border-radius: 9999px;
+}
+
+/* 実行中の施策セクション */
+.demo-ongoing-notice {
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+    border: 1px solid #7cb342;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #2e7d32;
+    text-align: center;
+    line-height: 1.5;
+    box-shadow: 0 2px 8px rgba(124, 179, 66, 0.15);
+}
+
+.demo-ongoing-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 24px 0;
+}
+
+.demo-ongoing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.demo-ongoing-card {
+    position: relative;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px 20px 16px;
+}
+
+.demo-ongoing-card-delete {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px;
+    border: none;
+    background: none;
+    color: #999;
+    cursor: pointer;
+}
+
+.demo-ongoing-card-delete:hover {
+    color: #666;
+}
+
+.demo-ongoing-card-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.demo-ongoing-card-label {
+    display: inline-block;
+    background-color: #7cb342;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.demo-ongoing-card-scope {
+    font-size: 13px;
+    color: #666;
+}
+
+.demo-ongoing-card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px 0;
+    line-height: 1.35;
+}
+
+.demo-ongoing-card-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.demo-ongoing-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.demo-ongoing-card-owner {
+    display: inline-flex;
+    color: #5c6bc0;
+}
+
+.demo-ongoing-card-dots {
+    font-size: 14px;
+    color: #999;
+}
+
+.demo-ongoing-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.demo-ongoing-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.demo-ongoing-card-tags span {
+    font-size: 12px;
+    color: #558b2f;
+    border: 1px solid #9ccc65;
+    background-color: rgba(156, 204, 101, 0.12);
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.demo-ongoing-card-progress {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.demo-ongoing-progress-label {
+    font-size: 12px;
+    color: #999;
+}
+
+.demo-ongoing-progress-pct {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2d8659;
+}
+
+.demo-ongoing-progress-frac {
+    font-size: 12px;
+    color: #666;
+}
+
+/* 市場分析セクション */
+.demo-market-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.demo-market-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 20px 0;
+}
+
+.demo-market-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+}
+
+.demo-market-tab {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+}
+
+.demo-market-tab:hover {
+    color: #333;
+}
+
+.demo-market-tab.active {
+    color: #2d8659;
+    border-bottom-color: #2d8659;
+    font-weight: 600;
+}
+
+.demo-market-overview {
+    margin-bottom: 28px;
+}
+
+.demo-market-overview-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 12px 0;
+}
+
+.demo-market-overview-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 16px 0;
+}
+
+.demo-market-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.demo-market-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.demo-market-stat-num {
+    font-size: 18px;
+}
+
+.demo-market-stat-opportunity {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.demo-market-stat-concern {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.demo-market-stat-trend {
+    background-color: #e3f2fd;
+    color: #1565c0;
+}
+
+.demo-market-columns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.demo-market-col-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.demo-market-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.demo-market-card {
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.demo-market-card-main {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 10px 0;
+}
+
+.demo-market-card-source {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+/* エリア比較セクション */
+.demo-area-comp-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.demo-area-comp-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 6px 0;
+}
+
+.demo-area-comp-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.demo-area-comp-tabs {
+    display: flex;
+    gap: 0;
+}
+
+.demo-area-comp-tab {
+    padding: 8px 18px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+.demo-area-comp-tab:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.demo-area-comp-tab:last-child {
+    border-radius: 0 6px 6px 0;
+    margin-left: -1px;
+}
+
+.demo-area-comp-tab:hover {
+    background-color: #eee;
+    color: #333;
+}
+
+.demo-area-comp-tab.active {
+    background-color: #fff;
+    border-color: #2d8659;
+    color: #2d8659;
+    font-weight: 600;
+}
+
+.demo-area-comp-selectors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.demo-area-comp-select-wrap {
+    min-width: 200px;
+}
+
+.demo-area-comp-select-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.demo-area-comp-select {
+    width: 100%;
+    max-width: 260px;
+    padding: 10px 14px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.demo-area-comp-a .demo-area-comp-select {
+    background-color: #e8f5e9;
+    border-color: #7cb342;
+    color: #2e7d32;
+}
+
+.demo-area-comp-b .demo-area-comp-select {
+    background-color: #e3f2fd;
+    border-color: #1976d2;
+    color: #1565c0;
+}
+
+.demo-area-comp-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.demo-area-comp-block {
+    border-top: 1px solid #e5e5e5;
+    padding: 20px 0;
+}
+
+.demo-area-comp-block:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.demo-area-comp-block-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 14px 0;
+}
+
+.demo-area-comp-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.demo-area-comp-col {
+    padding-right: 24px;
+}
+
+.demo-area-comp-col:first-child {
+    border-right: 1px solid #e0e0e0;
+}
+
+.demo-area-comp-col:last-child {
+    padding-right: 0;
+    padding-left: 24px;
+}
+
+.demo-area-comp-area-label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.demo-area-comp-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    margin: 0;
+}
+
+/* 戦略サマリーセクション */
+.demo-strategy-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.demo-strategy-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 6px 0;
+}
+
+.demo-strategy-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.demo-strategy-tabs {
+    display: flex;
+    gap: 0;
+}
+
+.demo-strategy-tab {
+    padding: 8px 18px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
+
+.demo-strategy-tab:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.demo-strategy-tab:last-child {
+    border-radius: 0 6px 6px 0;
+    margin-left: -1px;
+}
+
+.demo-strategy-tab:hover {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.demo-strategy-tab.active {
+    background-color: #f5f5f5;
+    border-color: #2d8659;
+    color: #2d8659;
+    font-weight: 600;
+}
+
+.demo-strategy-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.demo-strategy-card {
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.demo-strategy-card-heading {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 6px 0;
+}
+
+.demo-strategy-card-project {
+    font-size: 15px;
+    color: #555;
+    margin: 0 0 18px 0;
+}
+
+.demo-strategy-card-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.demo-strategy-card-col {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.demo-strategy-card-label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.demo-strategy-card-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    margin: 0 0 8px 0;
+}
+
+.demo-strategy-card-text:last-child {
+    margin-bottom: 0;
+}
+
+/* 施策セクション（旧タブ・旧グリッド・他で参照される場合用） */
 .demo-policies-tabs {
     display: flex;
     gap: 0;
@@ -1516,6 +2225,10 @@
         overflow-x: auto;
     }
 
+    .demo-nav-separator {
+        display: none;
+    }
+
     .demo-nav-item {
         padding: 15px 20px;
         white-space: nowrap;
@@ -1589,6 +2302,14 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .demo-policy-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .demo-market-columns {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .demo-design-grid {
         grid-template-columns: 1fr;
     }
@@ -1628,6 +2349,31 @@
     }
 
     .demo-policy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-policy-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-market-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-area-comp-cols {
+        grid-template-columns: 1fr;
+    }
+
+    .demo-area-comp-col:first-child {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .demo-area-comp-col:last-child {
+        padding-left: 0;
+    }
+
+    .demo-strategy-card-body {
         grid-template-columns: 1fr;
     }
 

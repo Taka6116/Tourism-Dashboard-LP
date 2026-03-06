@@ -23,6 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('summary-section').style.display = 'block';
                 document.getElementById('insights-section').style.display = 'none';
                 document.getElementById('policies-section').style.display = 'none';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
                 // サマリーセクション表示時、デフォルトで総合サマリーを表示
                 const tabContents = document.querySelectorAll('.demo-tab-content');
                 tabContents.forEach(content => {
@@ -56,10 +60,54 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'block';
                 document.getElementById('policies-section').style.display = 'none';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
             } else if (targetSection === 'policies') {
                 document.getElementById('summary-section').style.display = 'none';
                 document.getElementById('insights-section').style.display = 'none';
                 document.getElementById('policies-section').style.display = 'block';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+            } else if (targetSection === 'ongoing-policies') {
+                document.getElementById('summary-section').style.display = 'none';
+                document.getElementById('insights-section').style.display = 'none';
+                document.getElementById('policies-section').style.display = 'none';
+                const ongoingEl = document.getElementById('ongoing-policies-section');
+                if (ongoingEl) ongoingEl.style.display = 'block';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+            } else if (targetSection === 'market-analysis') {
+                document.getElementById('summary-section').style.display = 'none';
+                document.getElementById('insights-section').style.display = 'none';
+                document.getElementById('policies-section').style.display = 'none';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                const marketEl = document.getElementById('market-analysis-section');
+                if (marketEl) marketEl.style.display = 'block';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+            } else if (targetSection === 'area-comparison') {
+                document.getElementById('summary-section').style.display = 'none';
+                document.getElementById('insights-section').style.display = 'none';
+                document.getElementById('policies-section').style.display = 'none';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                const areaCompEl = document.getElementById('area-comparison-section');
+                if (areaCompEl) areaCompEl.style.display = 'block';
+                if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
+            } else if (targetSection === 'strategy-summary') {
+                document.getElementById('summary-section').style.display = 'none';
+                document.getElementById('insights-section').style.display = 'none';
+                document.getElementById('policies-section').style.display = 'none';
+                if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+                if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+                if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+                const strategyEl = document.getElementById('strategy-summary-section');
+                if (strategyEl) strategyEl.style.display = 'block';
             }
         });
     });
@@ -146,27 +194,58 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 施策タブ（基本構成・実行計画・関連ニュースと事例）
+    // 施策タブ（旧：基本構成・実行計画・関連ニュース）— 要素が存在する場合のみ
     const policyTabs = document.querySelectorAll('.demo-policy-tab');
-    const policyTabContents = {
-        basic: 'policy-basic-content',
-        plan: 'policy-plan-content',
-        news: 'policy-news-content'
-    };
-
+    const policyTabContents = { basic: 'policy-basic-content', plan: 'policy-plan-content', news: 'policy-news-content' };
     policyTabs.forEach(tab => {
         tab.addEventListener('click', function() {
             policyTabs.forEach(t => t.classList.remove('active'));
             this.classList.add('active');
             const tabKey = this.getAttribute('data-policy-tab');
-            document.querySelectorAll('.demo-policy-tab-content').forEach(el => {
-                el.style.display = 'none';
-            });
+            document.querySelectorAll('.demo-policy-tab-content').forEach(el => { el.style.display = 'none'; });
             const contentId = policyTabContents[tabKey];
             if (contentId) {
                 const contentEl = document.getElementById(contentId);
                 if (contentEl) contentEl.style.display = 'block';
             }
+        });
+    });
+
+    // 施策セクション：カテゴリピル・ステータスピルのアクティブ切り替え
+    document.querySelectorAll('.demo-policy-pill-cat').forEach(pill => {
+        pill.addEventListener('click', function() {
+            document.querySelectorAll('.demo-policy-pill-cat').forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+    document.querySelectorAll('.demo-policy-pill-status').forEach(pill => {
+        pill.addEventListener('click', function() {
+            document.querySelectorAll('.demo-policy-pill-status').forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // 市場分析：エリア詳細 / 全国トレンドタブ
+    document.querySelectorAll('.demo-market-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.demo-market-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // エリア比較：革新案 / 着実案タブ
+    document.querySelectorAll('.demo-area-comp-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.demo-area-comp-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // 戦略サマリー：革新案 / 着実案タブ
+    document.querySelectorAll('.demo-strategy-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            document.querySelectorAll('.demo-strategy-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
         });
     });
 
@@ -205,6 +284,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('summary-section').style.display = 'block';
     document.getElementById('insights-section').style.display = 'none';
     document.getElementById('policies-section').style.display = 'none';
+    if (document.getElementById('ongoing-policies-section')) document.getElementById('ongoing-policies-section').style.display = 'none';
+    if (document.getElementById('market-analysis-section')) document.getElementById('market-analysis-section').style.display = 'none';
+    if (document.getElementById('area-comparison-section')) document.getElementById('area-comparison-section').style.display = 'none';
+    if (document.getElementById('strategy-summary-section')) document.getElementById('strategy-summary-section').style.display = 'none';
     document.getElementById('overview-content').style.display = 'block';
     
     // サマリーナビゲーションをアクティブに
