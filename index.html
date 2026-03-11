@@ -28,6 +28,65 @@
     <link rel="stylesheet" href="css/features.css">
     <link rel="stylesheet" href="css/onboarding.css">
     <link rel="stylesheet" href="css/footer.css">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://example.com/#organization",
+      "name": "〇〇株式会社",
+      "url": "https://example.com",
+      "logo": "https://example.com/logo.png",
+      "description": "観光自治体・DMO向け観光データ分析ダッシュボード"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://example.com/#website",
+      "url": "https://example.com",
+      "name": "観光データダッシュボード",
+      "publisher": {
+        "@id": "https://example.com/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://example.com/#software",
+      "name": "観光データダッシュボード",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "観光自治体やDMO向けに観光データを分析し施策提案を生成するダッシュボード",
+      "provider": {
+        "@id": "https://example.com/#organization"
+      },
+      "featureList": [
+        "観光データ分析",
+        "観光施策提案生成",
+        "観光レポート作成",
+        "インバウンド分析"
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://example.com/#service",
+      "name": "観光データ分析サービス",
+      "serviceType": "観光データ分析",
+      "provider": {
+        "@id": "https://example.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Japan"
+      },
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "観光自治体、DMO、観光行政、観光事業者"
+      }
+    }
+  ]
+}
+    </script>
 </head>
 <body>
     <!-- ヘッダー/ナビゲーションバー -->
