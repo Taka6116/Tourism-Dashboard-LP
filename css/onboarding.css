@@ -6,7 +6,9 @@
 
 .onboarding-flow .container {
     max-width: var(--container-max);
-    padding: 0 10px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    overflow: visible;
 }
 
 .flow-banner {
@@ -47,14 +49,16 @@
 
 .onboarding-steps {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: calc(20px + 0.5mm);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
     margin-bottom: 40px;
-    max-width: var(--container-max);
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 10px;
+    padding: 0 40px;
     align-items: stretch;
+    box-sizing: border-box;
+    overflow: visible;
 }
 
 .onboarding-step.challenge-box-style {
@@ -96,6 +100,7 @@
     transform: rotate(-28deg);
     box-shadow: 0 4px 12px rgba(74, 144, 226, 0.35);
     z-index: 1;
+    overflow: visible;
 }
 
 .onboarding-step.challenge-box-style h4 {
@@ -150,4 +155,10 @@
 
 .timeline-right .timeline-label {
     color: var(--color-bg);
+}
+
+@media (max-width: 1280px) {
+    .onboarding-steps {
+        gap: 12px;
+    }
 }
