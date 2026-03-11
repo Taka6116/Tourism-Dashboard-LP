@@ -67,7 +67,7 @@
 /* 料金テーブルセクション */
 .pricing {
     padding: 80px 0;
-    background: #ffffff;
+    background: #f8fafc;
 }
 
 .pricing .section-subtitle {
@@ -77,22 +77,101 @@
     margin-top: 12px;
 }
 
-.pricing-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.pricing-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
     margin-top: 48px;
-    margin-left: auto;
-    margin-right: auto;
+    align-items: start;
 }
 
+/* 左：比較エリア */
+.pricing-compare {
+    padding: 8px 0;
+}
+
+.pricing-compare-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.pricing-compare-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pricing-compare-item {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid #e2e8f0;
+}
+
+.compare-left,
+.compare-right {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compare-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 2px 8px;
+    width: fit-content;
+}
+
+.compare-label.old {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.compare-label.new {
+    background: #c6f6d5;
+    color: #276749;
+}
+
+.compare-service {
+    font-size: 0.85rem;
+    color: #4a5568;
+    font-weight: 600;
+}
+
+.compare-price {
+    font-size: 0.85rem;
+    color: #718096;
+}
+
+.compare-price.highlight {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1D85F0;
+}
+
+.compare-arrow {
+    font-size: 1.2rem;
+    color: #cbd5e0;
+    font-weight: 700;
+}
+
+/* 右：料金カード */
 .pricing-card-main {
-    width: 100%;
-    max-width: 500px;
-    background: linear-gradient(135deg, #1D85F0, #2FA4FF);
+    background: linear-gradient(150deg, #1a6bb8 0%, #1D85F0 50%, #2FA4FF 100%);
     border-radius: 16px;
-    padding: 40px 36px;
+    padding: 36px 32px;
     color: #ffffff;
+    box-shadow: 0 8px 32px rgba(29, 133, 240, 0.3);
 }
 
 .pricing-badge {
@@ -100,11 +179,21 @@
     background: rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 4px 16px;
-    font-size: 0.85rem;
-    margin-bottom: 24px;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
 }
 
-.pricing-price {
+.pricing-price-block {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.pricing-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
     margin-bottom: 8px;
 }
 
@@ -112,47 +201,92 @@
     font-size: 3rem;
     font-weight: 800;
     line-height: 1;
+    letter-spacing: -0.02em;
 }
 
 .price-unit {
-    font-size: 1rem;
-    opacity: 0.9;
+    font-size: 0.95rem;
+    opacity: 0.85;
 }
 
-.pricing-init {
+.pricing-init-row {
     font-size: 0.85rem;
     opacity: 0.8;
-    margin-bottom: 28px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pricing-init-note {
+    opacity: 0.65;
+    font-size: 0.78rem;
 }
 
 .pricing-features {
     list-style: none;
     padding: 0;
-    margin: 0 0 32px 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .pricing-features li {
-    padding: 8px 0;
-    font-size: 0.95rem;
+    padding: 10px 0;
+    font-size: 0.9rem;
     opacity: 0.95;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.pricing-cta {
+.pricing-features li::before {
+    content: "✓";
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.pricing-note-box {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 0.82rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.pricing-cta-btn {
     display: block;
     background: #ffffff;
     color: #1D85F0;
     text-align: center;
-    padding: 14px 0;
+    padding: 15px 0;
     border-radius: 8px;
-    font-weight: 700;
+    font-weight: 800;
     text-decoration: none;
-    font-size: 0.95rem;
+    font-size: 1rem;
     transition: opacity 0.2s ease;
 }
 
-.pricing-cta:hover {
-    opacity: 0.95;
+.pricing-cta-btn:hover {
+    opacity: 0.9;
+}
+
+/* 料金セクション レスポンシブ */
+@media (max-width: 1024px) {
+    .pricing-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-compare {
+        order: 2;
+    }
+
+    .pricing-card-main {
+        order: 1;
+    }
 }
