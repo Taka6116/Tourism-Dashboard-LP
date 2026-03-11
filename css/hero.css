@@ -145,6 +145,11 @@
     letter-spacing: -0.02em;
 }
 
+/* 1枚目：2行目「データで変える」を1行に保つ（大画面で「る」が単独行にならないように） */
+.hero-title-line2 {
+    white-space: nowrap;
+}
+
 /* 2枚目のスライド専用：タイトルの改行制御 */
 .hero-slide-2 .hero-title {
     white-space: normal;

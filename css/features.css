@@ -34,8 +34,30 @@
 }
 
 .feature-icon {
-    font-size: 2rem;
-    margin-bottom: 16px;
+    width: 44px;
+    height: 44px;
+    background: #eff6ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: #1D85F0;
+    flex-shrink: 0;
+}
+
+.feature-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #1D85F0;
+}
+
+.feature-card:hover .feature-icon {
+    background: #1D85F0;
+}
+
+.feature-card:hover .feature-icon svg {
+    stroke: #ffffff;
 }
 
 .feature-card h3 {
@@ -80,89 +102,88 @@
 .pricing-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 48px;
-    align-items: start;
+    gap: 48px;
+    margin-top: 40px;
+    align-items: center;
 }
 
 /* 左：比較エリア */
 .pricing-compare {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 8px 0;
+    height: 100%;
 }
 
 .pricing-compare-title {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #4a5568;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid #e2e8f0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #a0aec0;
+    letter-spacing: 0.08em;
+    text-transform: none;
+    margin-bottom: 28px;
 }
 
 .pricing-compare-list {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 0;
 }
 
 .pricing-compare-item {
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 12px;
+    grid-template-columns: 1fr 48px 1fr;
     align-items: center;
-    background: #ffffff;
-    border-radius: 10px;
-    padding: 16px;
-    border: 1px solid #e2e8f0;
+    gap: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #f0f4f8;
 }
 
-.compare-left,
-.compare-right {
+.pricing-compare-item:first-child {
+    border-top: 1px solid #f0f4f8;
+}
+
+.compare-before {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
+    padding-right: 12px;
 }
 
-.compare-label {
-    display: inline-block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    border-radius: 4px;
-    padding: 2px 8px;
-    width: fit-content;
-}
-
-.compare-label.old {
-    background: #fed7d7;
-    color: #c53030;
-}
-
-.compare-label.new {
-    background: #c6f6d5;
-    color: #276749;
-}
-
-.compare-service {
-    font-size: 0.85rem;
-    color: #4a5568;
+.compare-category {
+    font-size: 0.9rem;
     font-weight: 600;
+    color: #4a5568;
+    line-height: 1.3;
 }
 
-.compare-price {
-    font-size: 0.85rem;
-    color: #718096;
+.compare-before-value {
+    font-size: 0.8rem;
+    color: #a0aec0;
 }
 
-.compare-price.highlight {
+.compare-divider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+}
+
+.compare-divider svg {
+    width: 36px;
+    height: 14px;
+}
+
+.compare-after {
+    padding-left: 12px;
+}
+
+.compare-after-value {
     font-size: 1rem;
-    font-weight: 800;
-    color: #1D85F0;
-}
-
-.compare-arrow {
-    font-size: 1.2rem;
-    color: #cbd5e0;
     font-weight: 700;
+    color: #1D85F0;
+    line-height: 1.3;
 }
 
 /* 右：料金カード */
@@ -210,17 +231,10 @@
 }
 
 .pricing-init-row {
-    font-size: 0.85rem;
-    opacity: 0.8;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.pricing-init-note {
-    opacity: 0.65;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 4px;
+    margin-bottom: 0;
 }
 
 .pricing-features {
