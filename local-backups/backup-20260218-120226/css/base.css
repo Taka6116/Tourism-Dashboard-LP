@@ -1,0 +1,58 @@
+/* リセットとベーススタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ========== デザイントークン（CSS変数） ========== */
+:root {
+    /* 主要色 */
+    --color-primary: #0066FF;
+    --color-primary-dark: #0052CC;
+    --color-primary-rgb: 0, 102, 255;
+    --color-accent: #4A90E2;
+    --color-accent-dark: #357ABD;
+    --color-cta-bg: #1E88E5;
+    --color-cta-hover: #1976D2;
+    --color-text: #333;
+    --color-text-secondary: #555;
+    --color-text-muted: #666;
+    --color-bg: #fff;
+    --color-bg-subtle: #f5f7f8;
+    --color-border: #e0e0e0;
+    --color-border-alt: #e5e7eb;
+    --color-border-dark: #d0d0d0;
+    /* コンテナ幅 */
+    --container-max: 1600px;
+    --container-content: 1400px;
+    --nav-max: 1920px;
+    /* 余白（共通） */
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 20px;
+    --space-xl: 24px;
+    --space-2xl: 80px;
+    --space-section: 120px;
+    /* フォントサイズ（共通） */
+    --text-xs: 12px;
+    --text-sm: 14px;
+    --text-base: 16px;
+    --text-lg: 18px;
+    --text-xl: 24px;
+    --text-2xl: 36px;
+}
+
+body {
+    font-family: "Yu Gothic", "YuGothic", "Meiryo", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 10px;
+}

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DMO・自治体向け観光データ分析プラットフォーム | Hospitalia by Amazon Alexa</title>
+    <meta name="description" content="Amazon Alexa活用で観光客の本音を可視化。従来調査の限界を超え、DMO・自治体の施策立案をAIが支援。最短1営業日で導入可能な観光DX推進プラットフォーム。">
+    
+    <!-- OGP設定 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="観光客の本音を施策に変える | Hospitalia">
+    <meta property="og:description" content="Amazon公式技術で実現する、自治体向け観光データ分析プラットフォーム">
+    <meta property="og:image" content="https://taka6116.github.io/Tourism-Dashboard-LP/assets/ogp-image.png">
+    <meta property="og:url" content="https://taka6116.github.io/Tourism-Dashboard-LP/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://taka6116.github.io/Tourism-Dashboard-LP/">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー/ナビゲーションバー -->
+    <header class="header">
+        <nav class="nav">
+            <button class="hamburger-menu" aria-label="メニューを開く">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="#" class="nav-link nav-link-left">
+                <img src="assets/logo-icon.png" alt="Logo" class="nav-logo-icon">
+                <span class="nav-link-text">観光レポートダッシュボード</span>
+            </a>
+            <div class="nav-links-right">
+                <a href="#hospitalia" class="nav-link">Hospitaliaとは</a>
+                <a href="#challenges" class="nav-link">課題</a>
+                <a href="#services" class="nav-link">提供内容</a>
+                <a href="#appeal" class="nav-link">システム概要</a>
+                <a href="#onboarding" class="nav-link">導入の流れ</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-cta-button mobile-cta">お問い合わせ <span>→</span></a>
+            </div>
+            <div class="nav-cta-group">
+                <a href="demo.html" class="nav-demo-button">デモを見る</a>
+                <a href="#contact" class="nav-cta-button">お問い合わせ <span>→</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ヒーローセクション -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">観光客の本音を施策へ</h1>
+                    <p class="hero-description">
+                        従来の観光調査では見えなかった<br>
+                        「観光客が本当に困っていること」を、AIが可視化<br><br>
+                        Amazon Alexa×宿泊者発話データで<br>
+                        DMO・自治体、観光協会の施策立案を<br class="hero-desc-br-mobile">最短1日でスタート
+                    </p>
+                </div>
+                <div class="hero-image">
+                    <div class="pc-frame">
+                        <div class="pc-screen">
+                            <img src="assets/dashboard-hero.png" class="dashboard-image" alt="観光データ分析ダッシュボード">
+                            <img src="assets/iPad-display.png" class="ipad-overlay" alt="iPad表示">
+                        </div>
+                        <div class="pc-base"></div>
+                    </div>
+                    <img src="assets/macbook-display.png" class="macbook-overlay" alt="MacBook表示">
+                </div>
+                <div class="hero-cta-group">
+                    <a href="#contact" class="hero-cta">
+                        <span class="hero-cta-text-pc">お問い合わせ</span><span class="hero-cta-text-mobile">申し込み</span> <span>→</span>
+                    </a>
+                    <div class="hero-demo-wrap">
+                        <span class="cta-badge">＼ 今すぐデモを体験する ／</span>
+                        <a href="demo.html" class="hero-demo-button">
+                            デモを見る <span>→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hospitaliaセクション -->
+    <section id="hospitalia" class="hospitalia-section">
+        <div class="container">
+            <h2 class="section-title">Amazon × TradFit<br>世界で唯一の観光データ収集基盤</h2>
+            <div class="hospitalia-content">
+                <div class="hospitalia-text">
+                    <p class="hospitalia-description">
+                        本プラットフォームは、宿泊施設に設置されたAI音声アシスタント「Hospitalia（ホスピタリア）」の収集データを活用しています。
+                    </p>
+                    <p class="hospitalia-description">
+                        Hospitaliaは、客室のAlexaデバイスを通じて、宿泊客が「タオルが欲しい」「近くの観光地を教えて」といったリクエストを音声やタッチ操作で行えるサービスです。
+                    </p>
+                    <p class="hospitalia-description">
+                        このAmazon公式基盤から得られる観光客の「生の声」を、自治体の施策に変換するのが本ダッシュボードです。
+                    </p>
+                    <p class="hospitalia-description">
+                        Hospitaliaを提供するTradFit株式会社は、Alexa Smart Properties for Hospitality選定・連携パートナーとしてAmazonに認定されています。
+                    </p>
+                    <div class="amazon-proof-wrap">
+                        <div class="amazon-proof-label">公式掲載</div>
+                        <div class="amazon-proof">
+                            <p class="amazon-proof-title">Amazon公式ブログ掲載</p>
+                            <p class="amazon-proof-subtitle">Alexa Smart Properties × TradFit</p>
+                            <a href="https://developer.amazon.com/ja-JP/blogs/alexa/alexa-smart-properties/tradfit" target="_blank" rel="noopener noreferrer" class="amazon-proof-link">▶ 詳細を見る</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hospitalia-visual">
+                    <div class="hospitalia-image-wrapper">
+                        <img src="assets/hospitalia-device.png" alt="Hospitaliaデバイス" class="hospitalia-device-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 課題セクション -->
+    <section id="challenges" class="challenges">
+        <div class="container">
+            <h2 class="section-title">施策に繋がらないデータを購入、見たりしていませんか？</h2>
+            <div class="challenges-grid">
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">01</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                    </div>
+                    <h3 class="challenge-title">満足度調査だけでは、<span class="challenge-title-line2">観光客の本音が見えない</span></h3>
+                    <p class="challenge-description">旅ナカ、観光中のユーザーの「生の声」というものが集められていない。定型的なアンケート調査や満足度調査、観光庁のデータのみを参考にしたりしてしまい現場で何が起こって何が必要とされているのかが分からない。</p>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">02</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><path d="M0 0h24v24H0z" fill="none"/><path d="M21 6h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1zm-4 6V3c0-.55-.45-1-1-1H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1z"/></svg>
+                    </div>
+                    <h3 class="challenge-title">リアルな声を集められない</h3>
+                    <p class="challenge-description">旅ナカ、観光中のユーザーの「生の声」というものが集められず、定型的なアンケート調査や観光庁のデータのみを参考にしてしまい現場で何が起こって何が必要とされているのかが分からない</p>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">03</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><path d="M0 0h24v24H0z" fill="none"/><path d="M0 0h24v24H0V0z" fill="none"/><path d="M18 13v7H4V6h5.02c.05-.71.22-1.38.48-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-5l-2-2zm-1.5 5h-11l2.75-3.53 1.96 2.36 2.75-3.54zm2.8-9.11c.44-.7.7-1.51.7-2.39C20 4.01 17.99 2 15.5 2S11 4.01 11 6.5s2.01 4.5 4.49 4.5c.88 0 1.7-.26 2.39-.7L21 13.42 22.42 12 19.3 8.89zM15.5 9C14.12 9 13 7.88 13 6.5S14.12 4 15.5 4 18 5.12 18 6.5 16.88 9 15.5 9z"/></svg>
+                    </div>
+                    <h3 class="challenge-title">外部データや生の声を<span class="challenge-title-line2">束ねて分析ができない</span></h3>
+                    <p class="challenge-description">いくつかのデータが手元にはあるものの、それら単体での分析等行ってしまい施策に繋がるようなインサイトというものが導き出されずに、「何とかしないと」とは思うが、手元にあるデータを完全に活かしきれていない状態が続いてしまっている。</p>
+                </div>
+                <div class="challenge-box">
+                    <div class="challenge-number-step">
+                        <div class="number-tag">04</div>
+                    </div>
+                    <div class="challenge-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="60" viewBox="0 0 24 24" width="60" fill="#4A90E2"><g><rect fill="none" height="24" width="24"/></g><g><g><g><path d="M9,21c0,0.55,0.45,1,1,1h4c0.55,0,1-0.45,1-1v-1H9V21z M12,2C8.14,2,5,5.14,5,9c0,2.38,1.19,4.47,3,5.74V17 c0,0.55,0.45,1,1,1h6c0.55,0,1-0.45,1-1v-2.26c1.81-1.27,3-3.36,3-5.74C19,5.14,15.86,2,12,2z M14,13.7V16h-4v-2.3 C8.48,12.63,7,11.53,7,9c0-2.76,2.24-5,5-5s5,2.24,5,5C17,11.49,15.49,12.65,14,13.7z"/></g></g></g></svg>
+                    </div>
+                    <h3 class="challenge-title">結果として具体的な<span class="challenge-title-line2">施策案が出ない</span></h3>
+                    <p class="challenge-description">これらが要因として、結果として有効な施策案が思い浮かばない。思い浮かんだとしてもよくあるような、毎年実施されているような似通った施策を毎年続けてしまっているがどうすればいいか分からない。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ソリューション概要セクション -->
+    <section id="services" class="solution-overview">
+        <div class="container">
+            <h2 class="section-title">観光客の本音から、施策までカバー</h2>
+            
+            <!-- ブロック1: 定量データ（右にビジュアル、左にテキスト） -->
+            <div class="solution-block solution-block-1">
+                <div class="solution-text">
+                    <span class="solution-category">QUANTITATIVE DATA</span>
+                    <h3 class="solution-heading">数値で見える現状</h3>
+                    <p class="solution-description">発話データ数、デバイス操作数を言語別で可視化。推移や傾向も一目で把握が可能です。</p>
+                </div>
+                <div class="solution-visual">
+                    <div class="visual-background-shape shape-right"></div>
+                    <div class="dashboard-mockup">
+                        <img src="assets/dashboard-hero.png" alt="定量データダッシュボード" class="dashboard-preview-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ブロック2: 定性データ（左にビジュアル、右にテキスト） -->
+            <div class="solution-block solution-block-2">
+                <div class="solution-visual">
+                    <div class="visual-background-shape shape-left"></div>
+                    <div class="dashboard-mockup">
+                        <img src="assets/qualitative-data-dashboard.png" alt="定性データダッシュボード" class="dashboard-preview-image">
+                    </div>
+                </div>
+                <div class="solution-text">
+                    <span class="solution-category">QUALITATIVE DATA</span>
+                    <h3 class="solution-heading">声から見える本音</h3>
+                    <p class="solution-description">観光中のユーザーの生の声を収集・分析。言語別のニーズや課題を可視化し、データだけでは見えない本当の要望が分かります。</p>
+                </div>
+            </div>
+
+            <!-- ブロック3: インサイト（右にビジュアル、左にテキスト） -->
+            <div class="solution-block solution-block-3">
+                <div class="solution-text">
+                    <span class="solution-category">INSIGHTS</span>
+                    <h3 class="solution-heading">束ねて分析をしインサイトを</h3>
+                    <p class="solution-description">定量データと定性データを統合分析し、パターンやトレンドを発見。外部ニュースや環境変化も考慮した、実践的なインサイトが得られます。</p>
+                </div>
+                <div class="solution-visual">
+                    <div class="visual-background-shape shape-right"></div>
+                    <div class="dashboard-mockup">
+                        <img src="assets/insights-dashboard.png" alt="インサイトダッシュボード" class="dashboard-preview-image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ブロック4: 施策（左にビジュアル、右にテキスト） -->
+            <div class="solution-block solution-block-4">
+                <div class="solution-visual">
+                    <div class="visual-background-shape shape-left"></div>
+                    <div class="dashboard-mockup">
+                        <img src="assets/policies-dashboard.png" alt="施策ダッシュボード" class="dashboard-preview-image">
+                    </div>
+                </div>
+                <div class="solution-text">
+                    <span class="solution-category">ACTIONS</span>
+                    <h3 class="solution-heading">実行可能な施策まで</h3>
+                    <p class="solution-description">定量・定性データ、インサイト、外部ニュースを基に分析をし、具体的な施策案を提示します。成功事例や外部ニュースを参照し、施策プランも提示されます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 訴求セクション -->
+    <section id="appeal" class="appeal-section">
+        <div class="container">
+            <h2 class="section-title">現場の声が施策になるまで</h2>
+            <div class="appeal-steps">
+                <div class="appeal-step">
+                    <div class="appeal-step-image">
+                        <img src="assets/speak.png" alt="Hospitaliaで声を収集" class="appeal-device-image">
+                    </div>
+                    <h3 class="appeal-step-title">Hospitaliaで声を収集</h3>
+                    <p class="appeal-step-description">宿泊施設でユーザーが発した声をHospitaliaが収集、観光客の質問、不満、欲求を収集します。</p>
+                </div>
+                <div class="appeal-arrow">
+                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="#4A90E2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="appeal-step">
+                    <div class="appeal-step-image">
+                        <img src="assets/cloud-icon.png" alt="データ蓄積" class="appeal-device-image">
+                    </div>
+                    <h3 class="appeal-step-title">データ蓄積</h3>
+                    <p class="appeal-step-description">収集された声をクラウド上に蓄積を行います。<br>　クラウド上には外部の観光記事、ニュースデータも抽出し蓄積をしています。</p>
+                </div>
+                <div class="appeal-arrow">
+                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="#4A90E2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="appeal-step appeal-step-analyze">
+                    <div class="appeal-step-image">
+                        <img src="assets/search.png" alt="AIで複数データを分析" class="appeal-device-image">
+                    </div>
+                    <h3 class="appeal-step-title">AIで複数データを分析</h3>
+                    <p class="appeal-step-description">蓄積したデータをAIが分析し、インサイトと施策案を出します。</p>
+                </div>
+                <div class="appeal-arrow">
+                    <svg width="60" height="20" viewBox="0 0 60 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 10 L50 10 M45 5 L50 10 L45 15" stroke="#4A90E2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="appeal-step appeal-step-last">
+                    <div class="appeal-step-image">
+                        <img src="assets/dashboard2.png" alt="ダッシュボードで施策を決定" class="appeal-device-image">
+                    </div>
+                    <h3 class="appeal-step-title">ダッシュボードで施策を決定</h3>
+                    <p class="appeal-step-description">分析結果をダッシュボードで確認し、データに基づいた具体的な施策を決定できます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 導入の流れセクション -->
+    <section id="onboarding" class="onboarding-flow">
+        <div class="container">
+            <h2 class="section-title">導入の流れ</h2>
+            <div class="flow-banner">
+                <p>お問い合わせから <span class="highlight-days">最短1日</span> でサービス開始が可能！</p>
+            </div>
+            <div class="onboarding-steps">
+                <div class="onboarding-step challenge-box-style">
+                    <div class="step-number">01</div>
+                    <h4>問い合わせ</h4>
+                    <p>お問合せフォームからご連絡を頂きます。</p>
+                </div>
+                <div class="onboarding-step challenge-box-style">
+                    <div class="step-number">02</div>
+                    <h4>打ち合わせ</h4>
+                    <p>実際のダッシュボードの見方等のご説明をいたします。</p>
+                </div>
+                <div class="onboarding-step challenge-box-style">
+                    <div class="step-number">03</div>
+                    <h4>開始日とプランの確定</h4>
+                    <p>開始日の確認を行い、プランを確定します。</p>
+                </div>
+                <div class="onboarding-step challenge-box-style">
+                    <div class="step-number">04</div>
+                    <h4>申し込み手続き</h4>
+                    <p>契約書類を締結し、ログインに必要なPWを送付いたします。</p>
+                </div>
+                <div class="onboarding-step challenge-box-style">
+                    <div class="step-number">05</div>
+                    <h4>ご利用開始</h4>
+                    <p>お渡ししたPWで初回ログイン後、ご自身で新たにPWをお決めいただき、再度ログインしてご利用いただけます。</p>
+                </div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item timeline-left">
+                    <span class="timeline-label">最短1営業日</span>
+                </div>
+                <div class="timeline-item timeline-right">
+                    <span class="timeline-label">最長5営業日</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある質問セクション -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>このダッシュボードは、どんな組織向けのサービスですか?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>主に観光自治体、DMO、観光協会、観光関連事業者の方を想定しています。日々のデータ収集やレポート作成ではなく、「次に何を考え、何を決めるべきか」を整理するための意思決定支援ツールです。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>導入にあたって、専門的なIT知識は必要ですか?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>全く必要ありません。ブラウザから専用のダッシュボードにログインするだけで、最新のニュース分析や戦略案を閲覧できます。ITの専門家がいなくても、<strong>「データに基づいた意思決定」</strong>をチーム全員で共有できる環境が整います。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>提案される戦略案は、どれくらい具体的ですか?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>「検討する」といった曖昧な表現を排除し、「明日から誰が、どこで、何をするか」という事務作業レベルのタスクをロードマップ形式で提示します。観光DXコンサルタントの思考プロセスを再現したプロンプトを使用しているため、そのまま会議資料や施策案として活用できる精度を実現しています。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>申し込んでから、いつから使い始められますか?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>最短3営業日でダッシュボードを開設します。面倒なシステム開発や、数ヶ月に及ぶデータ整備は不要です。アカウント発行後、すぐに最新のニュース分析や戦略案を閲覧いただけるスピード感が、多くの自治体・DMO様に選ばれている理由です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>データが少ない地域でも使えますか?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>むしろ、データが少ない地域こそ使うべきです。ビッグデータ分析は、「平均」を出すのは得意ですが、「違和感」を拾うのは苦手です。本ダッシュボードは、N=1の声から、施策の芽を見つけます。</p>
+                        <p>「たった1人の観光客の困りごと」が、来年の目玉施策になることもあります。</p>
+                        <p>データが少ないことは、弱みではありません。使い方次第です。</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>AIの分析、信用できますか？</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>最新のAIモデルを試用しています。しかし、AIを「信用する/しない」ではなく、「人間の判断を補助するツール」として使ってください。最終的な意思決定は、あなたです。AIは、そのための「叩き台」を作るだけ。「AIに任せる」のではなく、「AIと一緒に考える」が正解です。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- お問い合わせセクション -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ</h2>
+            <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="c60da01b-6916-477e-82f0-eece83c2d9c0">
+                <input type="hidden" name="to" value="goto_takashi@cellmuller.com">
+                <input type="hidden" name="subject" value="【観光データ分析プラットフォーム】お問い合わせ">
+                <div class="form-group">
+                    <label for="name">お名前 <span class="required">必須</span></label>
+                    <input type="text" id="name" name="name" placeholder="田中 太郎" required>
+                    <input type="hidden" name="from_name" id="from_name">
+                </div>
+                <div class="form-group">
+                    <label for="company">会社名 <span class="required">必須</span></label>
+                    <input type="text" id="company" name="company" placeholder="株式会社Sample" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">メールアドレス <span class="required">必須</span></label>
+                    <input type="email" id="email" name="email" placeholder="sample@abc.com" required>
+                </div>
+                <button type="submit" class="submit-btn">送信する <span>→</span></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-company">
+                    <p>TradFit株式会社(トラッドフィット)</p>
+                    <p>TradFit Co., Ltd.</p>
+                </div>
+                <div class="footer-info">
+                    <p>東京都千代田区丸の内一丁目6番5号</p>
+                    <p>丸の内北口ビルディング9階</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="scroll-to-top" aria-label="ページトップへ戻る"><img src="assets/scroll-to-top.png" alt=""></a>
+
+    <script src="script.js"></script>
+</body>
+</html>

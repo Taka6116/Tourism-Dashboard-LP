@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デモ - 観光データ分析レポート | Hospitalia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="demo-styles.css">
+</head>
+<body class="demo-page">
+    <!-- ヘッダー -->
+    <header class="demo-header">
+        <div class="demo-header-content">
+            <div class="demo-title-wrapper">
+                <a href="index.html" class="demo-logo-link">
+                    <img src="assets/logo-icon.png" alt="TradFit" class="demo-logo">
+                </a>
+                <a href="index.html" class="demo-title-link">
+                    <h1 class="demo-title">観光データ分析レポート</h1>
+                </a>
+            </div>
+            <div class="demo-header-controls">
+                <div class="demo-filter">
+                    <label>対象月:</label>
+                    <select class="demo-select">
+                        <option>2025年10月</option>
+                        <option>2025年8月</option>
+                        <option>2025年7月</option>
+                    </select>
+                </div>
+                <div class="demo-filter">
+                    <label>エリア:</label>
+                    <select class="demo-select">
+                        <option>福岡 博多</option>
+                    </select>
+                </div>
+                <button class="demo-export-btn">エクスポート</button>
+                <a href="index.html" class="demo-logout">ログアウト</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="demo-container">
+        <!-- 左サイドバー -->
+        <aside class="demo-sidebar">
+            <nav class="demo-sidebar-nav">
+                <a href="#summary" class="demo-nav-item" data-section="summary">サマリー</a>
+                <a href="#insights" class="demo-nav-item active" data-section="insights">インサイト</a>
+                <a href="#policies" class="demo-nav-item" data-section="policies">施策</a>
+            </nav>
+        </aside>
+
+        <!-- メインコンテンツ -->
+        <main class="demo-main">
+            <!-- コンテンツエリア -->
+            <div class="demo-content">
+                <!-- サマリーセクション -->
+                <section id="summary-section" class="demo-section" style="display: none;">
+                    <!-- タブ -->
+                    <div class="demo-tabs">
+                        <button class="demo-tab active" data-tab="overview">総合サマリー</button>
+                        <button class="demo-tab" data-tab="category">カテゴリー別発話データ件数</button>
+                        <button class="demo-tab" data-tab="language-trend">言語別発話数推移</button>
+                        <button class="demo-tab" data-tab="speaker">言語別話者データ</button>
+                    </div>
+
+                    <!-- 総合サマリータブのコンテンツ -->
+                    <div id="overview-content" class="demo-tab-content">
+                        <h2 class="demo-section-title">総合サマリー</h2>
+                    <div class="demo-cards">
+                        <div class="demo-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">発話データ数</span>
+                                <span class="demo-card-info">ℹ️</span>
+                            </div>
+                            <div class="demo-card-value">171</div>
+                            <div class="demo-card-change negative">-26.5%</div>
+                        </div>
+                        <div class="demo-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">総操作数</span>
+                                <span class="demo-card-info">ℹ️</span>
+                            </div>
+                            <div class="demo-card-value">71,710</div>
+                            <div class="demo-card-change negative">-26.5%</div>
+                        </div>
+                        <div class="demo-card">
+                            <div class="demo-card-header">
+                                <span class="demo-card-title">1. 地域観光・周辺グルメ</span>
+                                <span class="demo-card-info">ℹ️</span>
+                            </div>
+                            <div class="demo-card-value">0 件</div>
+                            <div class="demo-card-change neutral">前月比なし</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-language-share">
+                        <div class="demo-chart-container">
+                            <div class="demo-donut-chart">
+                                <div class="demo-donut-center">171<br>総件数</div>
+                            </div>
+                            <div class="demo-chart-details">
+                                <h3>発話数・言語詳細</h3>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot blue"></span>
+                                    <span>日本語</span>
+                                    <span class="demo-percent positive">+12.6%</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot green"></span>
+                                    <span>英語</span>
+                                    <span class="demo-percent negative">-65.1%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="demo-chart-container">
+                            <div class="demo-donut-chart">
+                                <div class="demo-donut-center">71,710<br>総件数</div>
+                            </div>
+                            <div class="demo-chart-details">
+                                <h3>総操作数・言語別詳細</h3>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot green"></span>
+                                    <span>英語</span>
+                                    <span class="demo-percent negative">-44.9%</span>
+                                    <span class="demo-count">21,310件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot purple"></span>
+                                    <span>台湾語</span>
+                                    <span class="demo-percent positive">+0.2%</span>
+                                    <span class="demo-count">20,040件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot blue"></span>
+                                    <span>日本語</span>
+                                    <span class="demo-percent positive">+45.4%</span>
+                                    <span class="demo-count">19,350件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot pink"></span>
+                                    <span>韓国語</span>
+                                    <span class="demo-percent negative">-11.8%</span>
+                                    <span class="demo-count">10,730件</span>
+                                </div>
+                                <div class="demo-detail-item">
+                                    <span class="demo-dot orange"></span>
+                                    <span>中国語</span>
+                                    <span class="demo-percent negative">-94.7%</span>
+                                    <span class="demo-count">280件</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <!-- カテゴリー別発話データ件数タブのコンテンツ -->
+                    <div id="category-content" class="demo-tab-content" style="display: none;">
+                        <h2 class="demo-section-title">カテゴリー別発話データ件数 (2025年7月)</h2>
+                        <div class="demo-category-cards">
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">1.</div>
+                                <div class="demo-category-name">地域観光・周辺グルメ</div>
+                                <div class="demo-category-value">5 件</div>
+                                <div class="demo-category-change neutral">前月比なし</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">2.</div>
+                                <div class="demo-category-name">交通案内・駐車場</div>
+                                <div class="demo-category-value">1 件</div>
+                                <div class="demo-category-change positive">+100%</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">3.</div>
+                                <div class="demo-category-name">フロント・荷物・チェックイン</div>
+                                <div class="demo-category-value">7 件</div>
+                                <div class="demo-category-change positive">+0.0%</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">4.</div>
+                                <div class="demo-category-name">朝食・館内食事</div>
+                                <div class="demo-category-value">10 件</div>
+                                <div class="demo-category-change positive">+66.7%</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">5.</div>
+                                <div class="demo-category-name">大浴場・館内施設</div>
+                                <div class="demo-category-value">15 件</div>
+                                <div class="demo-category-change positive">+275.0%</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">6.</div>
+                                <div class="demo-category-name">客室設備・WiFi・家電操作</div>
+                                <div class="demo-category-value">18 件</div>
+                                <div class="demo-category-change negative">-37.9%</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">7.</div>
+                                <div class="demo-category-name">アメニティ・備品・清掃</div>
+                                <div class="demo-category-value">3 件</div>
+                                <div class="demo-category-change positive">+100%</div>
+                            </div>
+                            <div class="demo-category-card">
+                                <div class="demo-category-number">8.</div>
+                                <div class="demo-category-name">雑談・挨拶・エンタメ</div>
+                                <div class="demo-category-value">117 件</div>
+                                <div class="demo-category-change negative">-53.8%</div>
+                            </div>
+                        </div>
+
+                        <div class="demo-trend-chart-section">
+                            <h3 class="demo-chart-title">カテゴリー別発話データ数推移</h3>
+                            <div class="demo-chart-wrapper">
+                                <div class="demo-chart-legend">
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot blue"></span>
+                                        <span>1.地域観光・周辺グルメ</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot green"></span>
+                                        <span>2.交通案内・駐車場</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot orange"></span>
+                                        <span>3.フロント・荷物・チェックイン</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot red"></span>
+                                        <span>4.朝食・館内食事</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot purple"></span>
+                                        <span>5.大浴場・館内施設</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot light-blue"></span>
+                                        <span>6.客室設備・WiFi・家電操作</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot pink"></span>
+                                        <span>7.アメニティ・備品・清掃</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot yellow"></span>
+                                        <span>8.雑談・挨拶・エンタメ</span>
+                                    </div>
+                                </div>
+                                <div class="demo-line-chart">
+                                    <svg class="demo-chart-svg category-trend-chart" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+                                        <!-- Y軸 -->
+                                        <line x1="50" y1="20" x2="50" y2="360" stroke="#ddd" stroke-width="2"/>
+                                        <!-- X軸 -->
+                                        <line x1="50" y1="360" x2="750" y2="360" stroke="#ddd" stroke-width="2"/>
+                                        
+                                        <!-- Y軸ラベル（0から120まで） -->
+                                        <text x="45" y="365" text-anchor="end" font-size="12" fill="#666">0</text>
+                                        <text x="45" y="325" text-anchor="end" font-size="12" fill="#666">30</text>
+                                        <text x="45" y="285" text-anchor="end" font-size="12" fill="#666">60</text>
+                                        <text x="45" y="245" text-anchor="end" font-size="12" fill="#666">90</text>
+                                        <text x="45" y="205" text-anchor="end" font-size="12" fill="#666">120</text>
+                                        
+                                        <!-- X軸ラベル（1月から7月） -->
+                                        <text x="150" y="380" text-anchor="middle" font-size="12" fill="#666">1月</text>
+                                        <text x="250" y="380" text-anchor="middle" font-size="12" fill="#666">2月</text>
+                                        <text x="350" y="380" text-anchor="middle" font-size="12" fill="#666">3月</text>
+                                        <text x="450" y="380" text-anchor="middle" font-size="12" fill="#666">4月</text>
+                                        <text x="550" y="380" text-anchor="middle" font-size="12" fill="#666">5月</text>
+                                        <text x="650" y="380" text-anchor="middle" font-size="12" fill="#666">6月</text>
+                                        <text x="750" y="380" text-anchor="middle" font-size="12" fill="#666">7月</text>
+                                        
+                                        <!-- グリッド線 -->
+                                        <line x1="50" y1="325" x2="750" y2="325" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="285" x2="750" y2="285" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="245" x2="750" y2="245" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="205" x2="750" y2="205" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        
+                                        <!-- 8.雑談・挨拶・エンタメ (黄色) - 7月:117件 -->
+                                        <!-- Y座標計算: y = 360 - (値/120) * 340 -->
+                                        <polyline id="category-8-line" points="150,200 250,190 350,180 450,160 550,150 650,130 750,28.5" 
+                                                  fill="none" stroke="#FFD700" stroke-width="3"/>
+                                        <circle cx="150" cy="200" r="4" fill="#FFD700"/>
+                                        <circle cx="250" cy="190" r="4" fill="#FFD700"/>
+                                        <circle cx="350" cy="180" r="4" fill="#FFD700"/>
+                                        <circle cx="450" cy="160" r="4" fill="#FFD700"/>
+                                        <circle cx="550" cy="150" r="4" fill="#FFD700"/>
+                                        <circle cx="650" cy="130" r="4" fill="#FFD700"/>
+                                        <circle cx="750" cy="28.5" r="4" fill="#FFD700"/>
+                                        
+                                        <!-- 6.客室設備・WiFi・家電操作 (ライトブルー) - 7月:18件 -->
+                                        <polyline id="category-6-line" points="150,320 250,315 350,310 450,305 550,300 650,320 750,309" 
+                                                  fill="none" stroke="#87CEEB" stroke-width="3"/>
+                                        <circle cx="150" cy="320" r="4" fill="#87CEEB"/>
+                                        <circle cx="250" cy="315" r="4" fill="#87CEEB"/>
+                                        <circle cx="350" cy="310" r="4" fill="#87CEEB"/>
+                                        <circle cx="450" cy="305" r="4" fill="#87CEEB"/>
+                                        <circle cx="550" cy="300" r="4" fill="#87CEEB"/>
+                                        <circle cx="650" cy="320" r="4" fill="#87CEEB"/>
+                                        <circle cx="750" cy="309" r="4" fill="#87CEEB"/>
+                                        
+                                        <!-- 5.大浴場・館内施設 (紫) - 7月:15件 -->
+                                        <polyline id="category-5-line" points="150,355 250,353 350,351 450,349 550,347 650,352 750,317.5" 
+                                                  fill="none" stroke="#9B59B6" stroke-width="2" opacity="0.7"/>
+                                        <circle cx="150" cy="355" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        <circle cx="250" cy="353" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        <circle cx="350" cy="351" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        <circle cx="450" cy="349" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        <circle cx="550" cy="347" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        <circle cx="650" cy="352" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        <circle cx="750" cy="317.5" r="3" fill="#9B59B6" opacity="0.7"/>
+                                        
+                                        <!-- 4.朝食・館内食事 (赤) - 7月:10件 -->
+                                        <polyline id="category-4-line" points="150,354 250,352 350,350 450,348 550,346 650,346 750,331.67" 
+                                                  fill="none" stroke="#FF6B6B" stroke-width="2" opacity="0.7"/>
+                                        <circle cx="150" cy="354" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        <circle cx="250" cy="352" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        <circle cx="350" cy="350" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        <circle cx="450" cy="348" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        <circle cx="550" cy="346" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        <circle cx="650" cy="346" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        <circle cx="750" cy="331.67" r="3" fill="#FF6B6B" opacity="0.7"/>
+                                        
+                                        <!-- 3.フロント・荷物・チェックイン (オレンジ) - 7月:7件 -->
+                                        <polyline id="category-3-line" points="150,352 250,350 350,348 450,346 550,346 650,346 750,340.17" 
+                                                  fill="none" stroke="#FF9800" stroke-width="2" opacity="0.7"/>
+                                        <circle cx="150" cy="352" r="3" fill="#FF9800" opacity="0.7"/>
+                                        <circle cx="250" cy="350" r="3" fill="#FF9800" opacity="0.7"/>
+                                        <circle cx="350" cy="348" r="3" fill="#FF9800" opacity="0.7"/>
+                                        <circle cx="450" cy="346" r="3" fill="#FF9800" opacity="0.7"/>
+                                        <circle cx="550" cy="346" r="3" fill="#FF9800" opacity="0.7"/>
+                                        <circle cx="650" cy="346" r="3" fill="#FF9800" opacity="0.7"/>
+                                        <circle cx="750" cy="340.17" r="3" fill="#FF9800" opacity="0.7"/>
+                                        
+                                        <!-- 2.交通案内・駐車場 (緑) - 7月:1件 -->
+                                        <polyline id="category-2-line" points="150,359 250,358 350,357 450,356 550,356 650,356 750,357.17" 
+                                                  fill="none" stroke="#50C878" stroke-width="2" opacity="0.7"/>
+                                        <circle cx="150" cy="359" r="3" fill="#50C878" opacity="0.7"/>
+                                        <circle cx="250" cy="358" r="3" fill="#50C878" opacity="0.7"/>
+                                        <circle cx="350" cy="357" r="3" fill="#50C878" opacity="0.7"/>
+                                        <circle cx="450" cy="356" r="3" fill="#50C878" opacity="0.7"/>
+                                        <circle cx="550" cy="356" r="3" fill="#50C878" opacity="0.7"/>
+                                        <circle cx="650" cy="356" r="3" fill="#50C878" opacity="0.7"/>
+                                        <circle cx="750" cy="357.17" r="3" fill="#50C878" opacity="0.7"/>
+                                        
+                                        <!-- 7.アメニティ・備品・清掃 (ピンク) - 7月:3件 -->
+                                        <polyline id="category-7-line" points="150,358 250,357 350,356 450,355 550,354 650,354 750,351.5" 
+                                                  fill="none" stroke="#E91E63" stroke-width="2" opacity="0.7"/>
+                                        <circle cx="150" cy="358" r="3" fill="#E91E63" opacity="0.7"/>
+                                        <circle cx="250" cy="357" r="3" fill="#E91E63" opacity="0.7"/>
+                                        <circle cx="350" cy="356" r="3" fill="#E91E63" opacity="0.7"/>
+                                        <circle cx="450" cy="355" r="3" fill="#E91E63" opacity="0.7"/>
+                                        <circle cx="550" cy="354" r="3" fill="#E91E63" opacity="0.7"/>
+                                        <circle cx="650" cy="354" r="3" fill="#E91E63" opacity="0.7"/>
+                                        <circle cx="750" cy="351.5" r="3" fill="#E91E63" opacity="0.7"/>
+                                        
+                                        <!-- 1.地域観光・周辺グルメ (青) - 7月:5件 -->
+                                        <polyline id="category-1-line" points="150,359 250,359 350,359 450,359 550,359 650,359 750,345.83" 
+                                                  fill="none" stroke="#4A90E2" stroke-width="2" opacity="0.7"/>
+                                        <circle cx="150" cy="359" r="3" fill="#4A90E2" opacity="0.7"/>
+                                        <circle cx="250" cy="359" r="3" fill="#4A90E2" opacity="0.7"/>
+                                        <circle cx="350" cy="359" r="3" fill="#4A90E2" opacity="0.7"/>
+                                        <circle cx="450" cy="359" r="3" fill="#4A90E2" opacity="0.7"/>
+                                        <circle cx="550" cy="359" r="3" fill="#4A90E2" opacity="0.7"/>
+                                        <circle cx="650" cy="359" r="3" fill="#4A90E2" opacity="0.7"/>
+                                        <circle cx="750" cy="345.83" r="3" fill="#4A90E2" opacity="0.7"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 言語別発話数推移タブのコンテンツ -->
+                    <div id="language-trend-content" class="demo-tab-content" style="display: none;">
+                        <h2 class="demo-section-title">言語別発話数推移</h2>
+                        <div class="demo-trend-chart-section">
+                            <div class="demo-chart-wrapper">
+                                <div class="demo-chart-legend">
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot blue"></span>
+                                        <span>日本語</span>
+                                    </div>
+                                    <div class="demo-legend-item">
+                                        <span class="demo-legend-dot green"></span>
+                                        <span>英語</span>
+                                    </div>
+                                </div>
+                                <div class="demo-line-chart">
+                                    <svg class="demo-chart-svg language-trend-chart" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+                                        <!-- Y軸 -->
+                                        <line x1="50" y1="20" x2="50" y2="360" stroke="#ddd" stroke-width="2"/>
+                                        <!-- X軸 -->
+                                        <line x1="50" y1="360" x2="750" y2="360" stroke="#ddd" stroke-width="2"/>
+                                        
+                                        <!-- Y軸ラベル（0から160まで10刻み） -->
+                                        <text x="45" y="365" text-anchor="end" font-size="12" fill="#666">0</text>
+                                        <text x="45" y="345" text-anchor="end" font-size="12" fill="#666">10</text>
+                                        <text x="45" y="325" text-anchor="end" font-size="12" fill="#666">20</text>
+                                        <text x="45" y="305" text-anchor="end" font-size="12" fill="#666">30</text>
+                                        <text x="45" y="285" text-anchor="end" font-size="12" fill="#666">40</text>
+                                        <text x="45" y="265" text-anchor="end" font-size="12" fill="#666">50</text>
+                                        <text x="45" y="245" text-anchor="end" font-size="12" fill="#666">60</text>
+                                        <text x="45" y="225" text-anchor="end" font-size="12" fill="#666">70</text>
+                                        <text x="45" y="205" text-anchor="end" font-size="12" fill="#666">80</text>
+                                        <text x="45" y="185" text-anchor="end" font-size="12" fill="#666">90</text>
+                                        <text x="45" y="165" text-anchor="end" font-size="12" fill="#666">100</text>
+                                        <text x="45" y="145" text-anchor="end" font-size="12" fill="#666">110</text>
+                                        <text x="45" y="125" text-anchor="end" font-size="12" fill="#666">120</text>
+                                        <text x="45" y="105" text-anchor="end" font-size="12" fill="#666">130</text>
+                                        <text x="45" y="85" text-anchor="end" font-size="12" fill="#666">140</text>
+                                        <text x="45" y="65" text-anchor="end" font-size="12" fill="#666">150</text>
+                                        <text x="45" y="45" text-anchor="end" font-size="12" fill="#666">160</text>
+                                        
+                                        <!-- X軸ラベル（7月から12月） -->
+                                        <text x="150" y="380" text-anchor="middle" font-size="12" fill="#666">7月</text>
+                                        <text x="250" y="380" text-anchor="middle" font-size="12" fill="#666">8月</text>
+                                        <text x="350" y="380" text-anchor="middle" font-size="12" fill="#666">9月</text>
+                                        <text x="450" y="380" text-anchor="middle" font-size="12" fill="#666">10月</text>
+                                        <text x="550" y="380" text-anchor="middle" font-size="12" fill="#666">11月</text>
+                                        <text x="650" y="380" text-anchor="middle" font-size="12" fill="#666">12月</text>
+                                        
+                                        <!-- グリッド線（10刻み） -->
+                                        <line x1="50" y1="345" x2="750" y2="345" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="325" x2="750" y2="325" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="305" x2="750" y2="305" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="285" x2="750" y2="285" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="265" x2="750" y2="265" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="245" x2="750" y2="245" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="225" x2="750" y2="225" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="205" x2="750" y2="205" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="185" x2="750" y2="185" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="165" x2="750" y2="165" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="145" x2="750" y2="145" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="125" x2="750" y2="125" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="105" x2="750" y2="105" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="85" x2="750" y2="85" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="65" x2="750" y2="65" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        <line x1="50" y1="45" x2="750" y2="45" stroke="#eee" stroke-width="1" stroke-dasharray="5,5"/>
+                                        
+                                        <!-- 日本語の折れ線（7月から12月のデータ） -->
+                                        <!-- 7月:100, 8月:160, 9月:90, 10月:48, 11月:46, 12月:72 -->
+                                        <!-- Y座標計算: y = 360 - (値/160) * 340 -->
+                                        <polyline id="japanese-line" points="150,147.5 250,20 350,168.75 450,258 550,262.25 650,206.75" 
+                                                  fill="none" stroke="#4A90E2" stroke-width="3"/>
+                                        
+                                        <!-- 日本語のデータポイント -->
+                                        <circle cx="150" cy="147.5" r="4" fill="#4A90E2"/>
+                                        <circle cx="250" cy="20" r="4" fill="#4A90E2"/>
+                                        <circle cx="350" cy="168.75" r="4" fill="#4A90E2"/>
+                                        <circle cx="450" cy="258" r="4" fill="#4A90E2"/>
+                                        <circle cx="550" cy="262.25" r="4" fill="#4A90E2"/>
+                                        <circle cx="650" cy="206.75" r="4" fill="#4A90E2"/>
+                                        
+                                        <!-- 英語の折れ線（7月から12月のデータ） -->
+                                        <!-- 7月:70, 8月:80, 9月:90, 10月:100, 11月:68, 12月:108 -->
+                                        <!-- Y座標計算: y = 360 - (値/160) * 340 -->
+                                        <polyline id="english-line" points="150,211.25 250,190 350,168.75 450,147.5 550,215.5 650,130.5" 
+                                                  fill="none" stroke="#50C878" stroke-width="3"/>
+                                        
+                                        <!-- 英語のデータポイント -->
+                                        <circle cx="150" cy="211.25" r="4" fill="#50C878"/>
+                                        <circle cx="250" cy="190" r="4" fill="#50C878"/>
+                                        <circle cx="350" cy="168.75" r="4" fill="#50C878"/>
+                                        <circle cx="450" cy="147.5" r="4" fill="#50C878"/>
+                                        <circle cx="550" cy="215.5" r="4" fill="#50C878"/>
+                                        <circle cx="650" cy="130.5" r="4" fill="#50C878"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 言語別話者データタブのコンテンツ -->
+                    <div id="speaker-content" class="demo-tab-content" style="display: none;">
+                        <h2 class="demo-section-title">言語別話者データ</h2>
+                        <p class="demo-speaker-text">本契約頂くと、取れているエリアの実際の発話データが言語別・カテゴリー別にご覧いただくことができます</p>
+                    </div>
+                </section>
+
+                <!-- インサイトセクション -->
+                <section id="insights-section" class="demo-section" style="display: none;">
+                    <div class="demo-insights-tabs">
+                        <button class="demo-insight-tab active" data-insight-tab="content">コンテンツ構成</button>
+                        <button class="demo-insight-tab" data-insight-tab="persona">ペルソナ</button>
+                        <button class="demo-insight-tab" data-insight-tab="trend">トレンド</button>
+                    </div>
+
+                    <!-- コンテンツ構成タブ -->
+                    <div id="insight-content-tab" class="demo-insight-tab-content">
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title">コンテンツ構成</h2>
+                            <div class="demo-insight-bars">
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">雑談・挨拶・エンタメ</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-green" style="width: 82%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">82%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">客室設備・WiFi</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-teal" style="width: 10%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">10%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">大浴場・館内施設</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-lightblue" style="width: 2.7%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">2.7%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">朝食・館内食事</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-purple" style="width: 2%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">2%</span>
+                                </div>
+                                <div class="demo-insight-bar-row">
+                                    <span class="demo-insight-bar-label">フロント関連</span>
+                                    <div class="demo-insight-bar-track">
+                                        <div class="demo-insight-bar-fill bar-orange" style="width: 2%;"></div>
+                                    </div>
+                                    <span class="demo-insight-bar-pct">2%</span>
+                                </div>
+                            </div>
+                            <h3 class="demo-insight-subtitle">前月比較の主な変化</h3>
+                            <p class="demo-insight-text">雑談カテゴリが全体の8割を超え、実務的な質問が減少</p>
+                            <h3 class="demo-insight-subtitle">示唆</h3>
+                            <p class="demo-insight-highlight">コミュニケーション主体の利用が増加、施設利用の基本的な理解が進んでいる可能性</p>
+                        </div>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title">推奨アクション</h2>
+                            <div class="demo-insight-action">
+                                <h3 class="demo-insight-subtitle">抽象例</h3>
+                                <p class="demo-insight-text">買い物観光とアメニティの充実を軸とした差別化が有効</p>
+                            </div>
+                            <div class="demo-insight-action">
+                                <h3 class="demo-insight-subtitle">具体例</h3>
+                                <p class="demo-insight-text">商業施設との連携シャトルバス運行</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ペルソナタブ -->
+                    <div id="insight-persona-tab" class="demo-insight-tab-content" style="display: none;">
+                        <div class="demo-persona-cards">
+                            <div class="demo-insight-card demo-persona-card">
+                                <h2 class="demo-insight-card-title demo-persona-heading">ペルソナ</h2>
+                                <dl class="demo-persona-dl">
+                                    <dt>タイプ</dt>
+                                    <dd>買い物目的インバウンド層</dd>
+                                    <dt>根拠</dt>
+                                    <dd>shopping outletsやcanal cityへの言及</dd>
+                                    <dt>検討段階</dt>
+                                    <dd>観光スポット探索段階</dd>
+                                    <dt>課題</dt>
+                                    <dd>商業施設へのアクセス情報不足</dd>
+                                    <dt>機会</dt>
+                                    <dd>商業施設との連携による観光ルート開発</dd>
+                                </dl>
+                            </div>
+                            <div class="demo-insight-card demo-persona-card">
+                                <h2 class="demo-insight-card-title demo-persona-heading">ペルソナ</h2>
+                                <dl class="demo-persona-dl">
+                                    <dt>タイプ</dt>
+                                    <dd>長期滞在インバウンド</dd>
+                                    <dt>根拠</dt>
+                                    <dd>laundry serviceやfitness centerへの言及</dd>
+                                    <dt>検討段階</dt>
+                                    <dd>滞在サービス利用検討</dd>
+                                    <dt>課題</dt>
+                                    <dd>長期滞在向けサービスの認知度不足</dd>
+                                    <dt>機会</dt>
+                                    <dd>長期滞在者向けサービスの拡充</dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title demo-persona-heading">実際の声</h2>
+                            <p class="demo-insight-text demo-voice-quote">where is canal city (9件), where are the shopping outlets (9件)</p>
+                        </div>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title demo-persona-heading">示唆</h2>
+                            <p class="demo-insight-text">観光客が主要商業施設へのアクセス方法に苦慮している実態が判明。特に、キャナルシティ博多等の主要商業施設への案内強化が急務。また、全体の質問数(1620件)に対して、地域観光に関する質問が18件と極めて少ないことは、事前の情報提供や案内の充実度に課題があることを示唆しています。</p>
+                        </div>
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title demo-persona-heading">詳細データ</h2>
+                            <div class="demo-persona-detail">
+                                <h3 class="demo-insight-subtitle">関連ニュース</h3>
+                                <p class="demo-insight-text">観光庁、新たな「先駆的DMO」7法人を選定、せとうち観光推進機構、箱根町観光協会など―デジタル技術を活用した観光地経営の高度化と、観光客の行動分析・需要予測の実施が成功のカギとなっている。・博多エリアでも、デジタル技術を活用した観光案内の効率化と観光客の動線分析が有効と考えられる。</p>
+                            </div>
+                            <div class="demo-persona-detail">
+                                <h3 class="demo-insight-subtitle">重要シグナル</h3>
+                                <p class="demo-insight-text">アウトレットモールへの関心が高く、買い物観光の需要が示唆される</p>
+                            </div>
+                            <div class="demo-persona-detail">
+                                <h3 class="demo-insight-subtitle">ニーズの変動</h3>
+                                <p class="demo-insight-text demo-persona-sublabel">継続して不足しているテーマ</p>
+                                <ul class="demo-insight-list">
+                                    <li>地域観光・周辺グルメ</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- トレンドタブ -->
+                    <div id="insight-trend-tab" class="demo-insight-tab-content" style="display: none;">
+                        <div class="demo-insight-card">
+                            <h2 class="demo-insight-card-title">トレンド</h2>
+                            <h3 class="demo-insight-subtitle">カテゴリ</h3>
+                            <p class="demo-trend-caption">割合の推移(前月→今月)</p>
+                            <div class="demo-trend-rows">
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">雑談・挨拶・エンタメ</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 67%;" title="前月 67%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-up" style="width: 81.4%;" title="今月 81.4%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-up">+14.4pt</span>
+                                </div>
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">フロント関連</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 5.5%;" title="前月 5.5%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 2%;" title="今月 2%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-down">-3.5pt</span>
+                                </div>
+                                <div class="demo-trend-row">
+                                    <span class="demo-trend-label">客室設備</span>
+                                    <div class="demo-trend-bars">
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-last" style="width: 13.4%;" title="前月 13.4%"></div>
+                                        </div>
+                                        <span class="demo-trend-arrow" aria-hidden="true">→</span>
+                                        <div class="demo-trend-bar-track">
+                                            <div class="demo-trend-bar demo-trend-bar-now demo-trend-down" style="width: 10%;" title="今月 10%"></div>
+                                        </div>
+                                    </div>
+                                    <span class="demo-trend-pt demo-trend-pt-down">-3.4pt</span>
+                                </div>
+                            </div>
+                            <div class="demo-trend-legend">
+                                <span class="demo-trend-legend-item"><span class="demo-trend-legend-swatch demo-trend-legend-last"></span>前月</span>
+                                <span class="demo-trend-legend-item"><span class="demo-trend-legend-swatch demo-trend-legend-up"></span>今月(増)</span>
+                                <span class="demo-trend-legend-item"><span class="demo-trend-legend-swatch demo-trend-legend-down"></span>今月(減)</span>
+                            </div>
+                        </div>
+                        <div class="demo-insight-card demo-trend-card-tint">
+                            <h2 class="demo-insight-card-title">言語別トレンド</h2>
+                            <p class="demo-insight-text">英語での質問が約69%を占め、特に買い物や施設利用に関する問い合わせが目立つ</p>
+                        </div>
+                        <div class="demo-insight-card demo-trend-card-tint">
+                            <h2 class="demo-insight-card-title">注目の声</h2>
+                            <p class="demo-insight-text">アウトレットモールへの関心が高く、買い物観光の需要が示唆される</p>
+                        </div>
+                        <div class="demo-insight-card demo-trend-card-tint">
+                            <h2 class="demo-insight-card-title">示唆</h2>
+                            <p class="demo-insight-text">観光客が主要商業施設へのアクセス方法に苦慮している実態が判明。特に、キャナルシティ博多等の主要商業施設への案内強化が急務。また、全体の質問数(1620件)に対して、地域観光に関する質問が18件と極めて少ないことは、事前の情報提供や案内の充実度に課題があることを示唆しています。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 施策セクション -->
+                <section id="policies-section" class="demo-section" style="display: none;">
+                    <h2 class="demo-policy-title">福岡ミステリーナイトツアー「百物語巡り」プロジェクト</h2>
+                    <p class="demo-policy-subtitle">エリア: 福岡博多</p>
+
+                    <div class="demo-policies-tabs">
+                        <button class="demo-policy-tab active" data-policy-tab="basic">基本構成</button>
+                        <button class="demo-policy-tab" data-policy-tab="plan">実行計画</button>
+                        <button class="demo-policy-tab" data-policy-tab="news">関連ニュースと事例</button>
+                    </div>
+
+                    <!-- 基本構成タブ -->
+                    <div id="policy-basic-content" class="demo-policy-tab-content">
+                        <div class="demo-policy-grid">
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">推奨事項 (Recommendations)</h3>
+                                <ul class="demo-policy-box-list">
+                                    <li>夏季限定の「福岡ミステリーナイトツアー」の企画・実施(寺社仏閣での怪談会や夜間特別拝観とのコラボレーション)</li>
+                                    <li>外国人観光客向けの「温泉/銭湯マナーガイド」の多言語での作成・配布 (イラスト付きで分かりやすく)</li>
+                                    <li>観光スポット案内と連動したAIコンシェルジェサービスの導入(特に夜間の観光情報提供の強化)</li>
+                                </ul>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">現状 (Current Situation)</h3>
+                                <p class="demo-policy-box-text">夏季における怪談文化への関心の高まりと、寺社仏閣の夜間活用ニーズが合致。適切なコンテンツ開発により、新たな観光価値の創出が可能</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">背景 (Background)</h3>
+                                <p class="demo-policy-box-text">8月のN1シグナルで「幽霊」に関する複数の質問が確認され、夏季限定の新たな観光需要が顕在化。寺社仏閣という福岡の強みと組み合わせることで、他地域では実現困難な差別化されたナイトタイムエコノミーの創出が可能</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">目的 (Purpose)</h3>
+                                <p class="demo-policy-box-text">夏季特有の怪談観光ニーズを活用した新規顧客層の開拓</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">施策案の基となる発話データ (Utterance Data Forming the Basis of the Policy Proposal)</h3>
+                                <p class="demo-policy-box-text">「幽霊は何回に出る?」「どこで幽霊が出る?」など、怪談文化への関心を示す質問が日本人観光客から複数寄せられている (日本語話者)</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">なぜ今なのか (Why Now?)</h3>
+                                <p class="demo-policy-box-text">夏季の怪談需要期に合わせた即時展開により、閑散期の誘客と夜間の観光消費を促進できる。また6-7月の「スマート接客」基盤を活用し、効率的な運営が可能</p>
+                            </div>
+                            <div class="demo-policy-box">
+                                <h3 class="demo-policy-box-title">終了検討基準 (Criteria for Ending/Review)</h3>
+                                <ul class="demo-policy-box-list">
+                                    <li>本格運営開始2ヶ月後</li>
+                                    <li>参加者満足度70%未満、もしくは稼働率50%未満の場合は見直し</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 実行計画タブ -->
+                    <div id="policy-plan-content" class="demo-policy-tab-content" style="display: none;">
+                        <div class="demo-roadmap">
+                            <h3>ロードマップ</h3>
+                            <div class="demo-roadmap-months">
+                                <div class="demo-roadmap-month">
+                                    <h4>1ヶ月目: 立ち上げ・基盤構築期</h4>
+                                    <ul>
+                                        <li>福岡エリアの寺社仏閣との夜間特別拝観・怪談会の調整・企画</li>
+                                        <li>ミステリーナイトツアー「百物語巡り」コース設計とスタッフ研修</li>
+                                        <li>多言語対応の案内資料・音声ガイドの準備</li>
+                                    </ul>
+                                </div>
+                                <div class="demo-roadmap-month">
+                                    <h4>2ヶ月目: 実装・テスト期</h4>
+                                    <ul>
+                                        <li>夏季限定ツアーの本格運営開始</li>
+                                        <li>参加者フィードバック収集と満足度・稼働率のモニタリング</li>
+                                        <li>AIコンシェルジェとの連携による夜間観光情報提供の強化</li>
+                                    </ul>
+                                </div>
+                                <div class="demo-roadmap-month">
+                                    <h4>3ヶ月目: 検証・見直し期</h4>
+                                    <ul>
+                                        <li>終了検討基準に基づく継続・見直し判断</li>
+                                        <li>他エリア展開の可否検討</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 関連ニュースと事例タブ -->
+                    <div id="policy-news-content" class="demo-policy-tab-content" style="display: none;">
+                        <div class="demo-policy-box">
+                            <h3 class="demo-policy-box-title">関連ニュース・事例</h3>
+                            <p class="demo-policy-box-text">夏季の怪談・ナイトツアーに関する他地域の事例や、観光庁のナイトタイムエコノミー推進に関する情報を掲載します。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="demo-script.js"></script>
+</body>
+</html>

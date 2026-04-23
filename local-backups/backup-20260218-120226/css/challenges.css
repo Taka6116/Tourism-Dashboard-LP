@@ -1,0 +1,133 @@
+/* 課題セクション */
+.challenges {
+    background-color: var(--color-bg-subtle);
+    padding: 16px 0 70px 0;
+    min-height: 80vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+.challenges .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0;
+    max-width: var(--container-max);
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.challenges .section-title {
+    margin-top: 41px;
+}
+
+.section-title {
+    font-size: var(--text-2xl);
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--color-text);
+}
+
+.challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: var(--container-content);
+    margin: 0 auto;
+    padding-top: 22px;
+    align-items: stretch;
+}
+
+/* ボックス高さを統一（右下がりをやめてすべて同じ高さに） */
+.challenge-box:nth-child(1),
+.challenge-box:nth-child(2),
+.challenge-box:nth-child(3),
+.challenge-box:nth-child(4) {
+    margin-top: 0;
+}
+
+.challenge-box {
+    background-color: var(--color-bg);
+    padding: 50px 40px 60px 40px;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    position: relative;
+    height: 100%;
+    transition: box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.challenge-box:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.challenge-number-step {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: stretch;
+    z-index: 1;
+    height: 25px;
+    pointer-events: none;
+}
+
+.challenge-number-step .number-tag {
+    background: linear-gradient(90deg, #369EFF 0%, #00C3FF 100%);
+    color: var(--color-bg);
+    font-weight: bold;
+    font-size: var(--text-base);
+    padding: 0 20px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 0 100%);
+    min-width: 80px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    line-height: 25px;
+    position: relative;
+}
+
+.challenge-number-step .progress-line {
+    width: 100px;
+    height: 25px;
+    background: linear-gradient(90deg, #00C3FF 0%, rgba(54, 158, 255, 0.5) 40%, rgba(220, 220, 220, 0.4) 100%);
+    margin-left: -15px;
+    box-shadow: 0 0 5px rgba(0, 195, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.challenge-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0 30px 0;
+}
+
+.challenge-title {
+    font-size: var(--text-lg);
+    font-weight: bold;
+    color: var(--color-accent);
+    margin: 0 0 20px 0;
+    line-height: 1.4;
+    width: 100%;
+}
+
+.challenge-description {
+    font-size: 15px;
+    color: var(--color-text);
+    line-height: 1.8;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    flex-grow: 1;
+}
