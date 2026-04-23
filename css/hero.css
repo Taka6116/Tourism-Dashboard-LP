@@ -126,13 +126,22 @@
 
 .hero-content {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 60px;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    grid-template-areas:
+        "text  image"
+        "stats image"
+        "cta   image";
+    grid-template-rows: auto auto auto;
+    column-gap: clamp(32px, 4vw, 72px);
+    row-gap: clamp(16px, 1.8vw, 28px);
+    align-items: start;
+    align-content: start;
 }
 
 .hero-text {
-    margin-top: clamp(-20px, -3vw, -76px);
+    grid-area: text;
+    margin-top: 0;
+    align-self: start;
 }
 
 .hero-title {
@@ -143,6 +152,8 @@
     color: var(--color-bg);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     letter-spacing: -0.02em;
+    word-break: keep-all;
+    overflow-wrap: normal;
 }
 
 /* 1枚目：2行目「データで変える」を1行に保つ（大画面で「る」が単独行にならないように） */
@@ -216,7 +227,6 @@
     box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);
     width: fit-content;
     max-width: 307px;
-    grid-column: 1;
     justify-self: start;
 }
 
@@ -236,10 +246,10 @@
     display: flex;
     align-items: flex-end;
     gap: 20px;
-    grid-column: 1;
+    grid-area: cta;
     justify-self: start;
     flex-wrap: wrap;
-    margin-top: -1cm;
+    margin-top: 0;
 }
 
 .hero-demo-wrap {
@@ -298,8 +308,10 @@
     justify-content: flex-end;
     align-items: center;
     padding-left: 0;
-    margin-top: -120px;
+    margin-top: 0;
     position: relative;
+    grid-area: image;
+    align-self: center;
 }
 
 /* カルーセルナビゲーション矢印 */
@@ -411,35 +423,75 @@
     transform: translate(3.55cm, 4.5cm) scale(0.81);
 }
 
-/* 2枚目のスライド専用：macbook-display-graphの最適化 */
+/* 2枚目のスライド専用：MacBook + iPad の Apple 製品ファミリー風レイアウト
+   MacBook を主役として大きく中央配置、iPad を右下に少し傾けて手前に浮かせる */
 .hero-slide-2 .hero-image {
+    position: relative;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 0;
+    min-height: clamp(360px, 34vw, 540px);
+    padding-right: clamp(24px, 3vw, 60px);
+    padding-bottom: clamp(24px, 3vw, 56px);
+    overflow: visible;
 }
 
 .hero-slide-2 .macbook-overlay {
     position: relative;
     bottom: auto;
     right: auto;
-    max-width: 90%;
-    width: auto;
+    top: auto;
+    left: auto;
+    max-width: 100%;
+    width: 100%;
     height: auto;
-    transform: scale(1.38);
+    transform: none;
     object-fit: contain;
     margin: 0 auto;
+    z-index: 1;
+    filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.28));
 }
 
-/* 3枚目のスライド専用：お問い合わせフォーム */
+.hero-slide-2 .ipad-overlay {
+    position: absolute;
+    right: -2%;
+    bottom: -6%;
+    left: auto;
+    top: auto;
+    max-width: 32%;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    object-fit: contain;
+    pointer-events: none;
+    transform: rotate(-4deg);
+    transform-origin: bottom right;
+    filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.38));
+}
+
+/* 3枚目のスライド専用：お問い合わせフォーム
+   共通の grid-template-areas をリセットし、2カラム中央揃えに戻す */
 .hero-slide-3 .hero-content {
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-areas: none;
+    grid-template-rows: auto;
+    column-gap: 60px;
+    row-gap: 0;
     align-items: center;
+    align-content: center;
 }
 
 /* 3枚目：フォームと縦方向で中央揃え */
 .hero-slide-3 .hero-text {
+    grid-area: auto;
     margin-top: 0;
+    align-self: center;
+}
+
+.hero-slide-3 .hero-contact-form {
+    grid-area: auto;
+    align-self: center;
 }
 
 /* ② 3枚目フォーム背面にソフトな光（楕円ぼかし・主役を静かに持ち上げる） */
@@ -663,7 +715,7 @@
     gap: 28px;
     margin-bottom: clamp(12px, 1.5vw, 28px);
     flex-wrap: wrap;
-    grid-column: 1;
+    grid-area: stats;
 }
 .hero-stat {
     display: flex;
@@ -691,10 +743,10 @@
         font-size: clamp(48px, 5vw, 72px);
     }
     .hero-content {
-        gap: 40px;
+        column-gap: clamp(28px, 3vw, 48px);
     }
     .hero-image {
-        margin-top: -60px;
+        margin-top: 0;
     }
 }
 
@@ -706,10 +758,10 @@
         padding-bottom: 60px;
     }
     .hero-content {
-        gap: 32px;
+        column-gap: clamp(24px, 2.5vw, 40px);
     }
     .hero-text {
-        margin-top: -20px;
+        margin-top: 0;
     }
     .hero-stats {
         gap: 16px;
@@ -732,5 +784,69 @@
 @media (max-width: 768px) {
     .hero-stats {
         display: none;
+    }
+}
+
+/* ============================================================
+   スライド1（動画）専用スタイル
+   共通レイアウト（.hero-content の grid-template-areas）に乗せ、
+   動画は aspect-ratio 固定 + object-fit: cover で
+   画像スライドとビジュアルウェイトを揃える
+   ============================================================ */
+.hero-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    aspect-ratio: 50 / 33;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0b1b3a;
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.hero-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border: none;
+    background: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ノートPC～中画面：動画の最大幅だけ段階的に縮小（横1.25倍・縦1.1倍の新比率を維持） */
+@media (max-width: 1440px) {
+    .hero-video-wrapper {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .hero-video-wrapper {
+        max-width: 625px;
+    }
+}
+
+/* タブレット以下：1カラム化時はワイドに戻す */
+@media (max-width: 768px) {
+    .hero-video-wrapper {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+        border-radius: 12px;
+    }
+}
+
+/* モーション低減ユーザーへの配慮 */
+@media (prefers-reduced-motion: reduce) {
+    .hero-video {
+        display: none;
+    }
+    .hero-video-wrapper {
+        background: #0b1b3a url("../assets/dashboard-hero.png") center / cover no-repeat;
     }
 }

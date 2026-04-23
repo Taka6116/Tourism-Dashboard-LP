@@ -690,16 +690,34 @@
     .hero-slide-2 .hero-text {
         margin-bottom: 8px;
     }
-    .hero-slide-2 .macbook-overlay {
-        left: 50%;
-        max-width: 76%;
-        transform: translateX(-50%) scale(1.18);
-    }
-    /* 2枚目のみ：画像を左右中央揃え・0.5mm下にずらす（スマホ） */
+    /* MacBook + iPad 2枚重ね（モバイル）：MacBook 中央大、iPad 右下に少し傾けて配置 */
     .hero-slide-2 .hero-image {
-        transform: translateY(0.5mm);
+        position: relative;
+        min-height: clamp(240px, 58vw, 380px);
         justify-content: center;
         align-items: center;
+        padding-right: 12px;
+        padding-bottom: 20px;
+    }
+    .hero-slide-2 .macbook-overlay {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: auto;
+        max-width: 92%;
+        transform: none;
+        margin: 0 auto;
+    }
+    .hero-slide-2 .ipad-overlay {
+        position: absolute;
+        right: -1%;
+        bottom: -3%;
+        left: auto;
+        top: auto;
+        max-width: 30%;
+        transform: rotate(-4deg);
+        transform-origin: bottom right;
     }
     .hero-slide-2 .hero-cta-group {
         transform: translateY(0.5mm);
@@ -1365,9 +1383,22 @@
 
     /* 480px以下：2枚目画像サイズ・3枚目フォーム余白・左右中央揃え */
     .hero-slide-2 .macbook-overlay {
-        left: 50%;
-        max-width: 74%;
-        transform: translateX(-50%) scale(1.12);
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        top: auto;
+        max-width: 90%;
+        transform: none;
+        margin: 0 auto;
+    }
+    .hero-slide-2 .ipad-overlay {
+        right: 0%;
+        left: auto;
+        bottom: -2%;
+        max-width: 28%;
+        transform: rotate(-4deg);
+        transform-origin: bottom right;
     }
     .hero-slide-3 .hero-contact-form {
         padding: 14px;

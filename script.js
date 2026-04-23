@@ -504,12 +504,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = carousel.querySelectorAll('.hero-dot');
     
     let currentSlide = 0;
-    let autoplayInterval = null;
-    const autoplayDelay = 6000; // 6秒で自動切り替え（1枚目→2枚目→3枚目→1枚目）
 
-    // スマホ版はカルーセル2枚まで（3枚目は表示しない）
+    // スマホ版は最後のスライド（お問い合わせフォーム）を表示しない
     function getMaxSlideIndex() {
-        return window.matchMedia('(max-width: 768px)').matches ? 1 : slides.length - 1;
+        return window.matchMedia('(max-width: 768px)').matches ? slides.length - 2 : slides.length - 1;
     }
 
     // スライドを表示する関数
@@ -551,34 +549,16 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide - 1);
     }
 
-    // 自動再生を開始（既存のタイマーは必ず1本だけになるよう先に停止）
-    function startAutoplay() {
-        stopAutoplay();
-        autoplayInterval = setInterval(nextSlide, autoplayDelay);
-    }
-
-    // 自動再生を停止
-    function stopAutoplay() {
-        if (autoplayInterval) {
-            clearInterval(autoplayInterval);
-            autoplayInterval = null;
-        }
-    }
-
     // イベントリスナー
     if (nextButton) {
         nextButton.addEventListener('click', () => {
             nextSlide();
-            stopAutoplay();
-            startAutoplay();
         });
     }
 
     if (prevButton) {
         prevButton.addEventListener('click', () => {
             prevSlide();
-            stopAutoplay();
-            startAutoplay();
         });
     }
 
@@ -586,14 +566,8 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             showSlide(index);
-            stopAutoplay();
-            startAutoplay();
         });
     });
-
-    // マウスホバーで自動再生を一時停止
-    carousel.addEventListener('mouseenter', stopAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
 
     // ディスプレイ画面版：ヒーローが画面内にあるときだけドットを表示（fixed表示用）
     const dotsContainer = carousel.querySelector('.hero-carousel-dots');
@@ -620,8 +594,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dotsContainer.classList.add('hero-dots-visible');
     }
 
-    // スマホ表示時は3枚目を表示しないため、現在が2なら1枚目へ
-    if (window.matchMedia('(max-width: 768px)').matches && currentSlide > 1) {
+    // スマホ表示時は最終スライド（フォーム）を表示しないため、範囲外なら1枚目へ
+    if (window.matchMedia('(max-width: 768px)').matches && currentSlide > getMaxSlideIndex()) {
         showSlide(0);
     }
 
@@ -650,11 +624,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 右にスワイプ（前のスライド）
                 prevSlide();
             }
-            stopAutoplay();
-            startAutoplay();
         }
     }
-
-    // 初期化：自動再生を開始
-    startAutoplay();
 });

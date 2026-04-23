@@ -121,8 +121,8 @@
     <!-- ヒーローセクション（カルーセル） -->
     <section class="hero">
         <div class="hero-carousel">
-            <!-- スライド1 -->
-            <div class="hero-slide active">
+            <!-- スライド1（動画） -->
+            <div class="hero-slide hero-slide-video active">
                 <div class="container">
                     <div class="hero-content">
                         <div class="hero-text">
@@ -132,14 +132,11 @@
                             </p>
                         </div>
                         <div class="hero-image">
-                            <div class="pc-frame">
-                                <div class="pc-screen">
-                                    <img src="assets/dashboard-hero.png" class="dashboard-image" alt="観光データ分析ダッシュボード">
-                                    <img src="assets/iPad-display.png" class="ipad-overlay" alt="iPad表示">
-                                </div>
-                                <div class="pc-base"></div>
+                            <div class="hero-video-wrapper">
+                                <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/dashboard-hero.png" aria-label="観光データダッシュボード紹介動画">
+                                    <source src="assets/dashboard-video.mp4" type="video/mp4">
+                                </video>
                             </div>
-                            <img src="assets/macbook-display.png" class="macbook-overlay" alt="MacBook表示">
                         </div>
                         <div class="hero-stats">
                             <div class="hero-stat">
@@ -176,40 +173,6 @@
             </div>
 
             <!-- スライド2 -->
-            <div class="hero-slide hero-slide-2">
-                <div class="container">
-                    <div class="hero-content">
-                        <div class="hero-text">
-                            <h1 class="hero-title">観光客の声が、<br>80件の施策になる。</h1>
-                            <p class="hero-description">
-                                発話データから不満・要望を自動抽出<br>
-                                課題・インサイト・施策まで一気通貫で可視化
-                            </p>
-                        </div>
-                        <div class="hero-image">
-                            <img src="assets/macbook-display-graph.png" class="macbook-overlay" alt="MacBook表示">
-                        </div>
-                        <div class="hero-cta-group">
-                            <a href="#contact" class="hero-cta">
-                                <div class="cta-button-content">
-                                    <span class="cta-badge">＼ ご相談だけでもOK！ ／</span>
-                                    <span class="hero-cta-text-pc">お問い合わせ</span><span class="hero-cta-text-mobile">お問い合わせ</span>
-                                </div>
-                                <span>→</span>
-                            </a>
-                            <a href="demo.html" class="hero-demo-button">
-                                <div class="demo-button-content">
-                                    <span class="cta-badge">＼ 今すぐデモを体験する ／</span>
-                                    <span class="demo-button-main">デモを見る</span>
-                                </div>
-                                <span>→</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- スライド3 -->
             <div class="hero-slide hero-slide-3">
                 <div class="container">
                     <div class="hero-content">
@@ -267,7 +230,6 @@
             <div class="hero-carousel-dots">
                 <button class="hero-dot active" aria-label="スライド1" data-slide="0"></button>
                 <button class="hero-dot" aria-label="スライド2" data-slide="1"></button>
-                <button class="hero-dot" aria-label="スライド3" data-slide="2"></button>
             </div>
         </div>
     </section>
