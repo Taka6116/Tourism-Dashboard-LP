@@ -95,6 +95,7 @@
     flex-wrap: nowrap; /* 折り返しを防ぐ */
     flex-shrink: 1; /* 必要に応じて縮小可能 */
     min-width: 0; /* flexboxの縮小を許可 */
+    margin-right: clamp(24px, 2.5vw, 56px); /* FAQ と CTA 群の間に最低余白を常時確保 */
 }
 
 .nav-link {
@@ -164,8 +165,8 @@
     align-items: center;
     gap: clamp(8px, 0.8vw, 12px);
     margin-left: auto; /* リンク群を左寄せ、CTA群を右端に押し出して隙間を確保 */
-    padding-left: clamp(16px, 2vw, 28px);
-    border-left: 1px solid rgba(30, 100, 180, 0.15);
+    padding-left: clamp(20px, 2vw, 32px);
+    border-left: 1px solid rgba(30, 100, 180, 0.25);
     flex-shrink: 0; /* 縮小を防ぐ */
 }
 
@@ -196,6 +197,16 @@
     box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.3);
 }
 
+/* 中間ノートPC帯（1281〜1440px）：FAQ-CTA 間に安全な余白を確保 */
+@media (max-width: 1440px) {
+    .nav-links-right {
+        margin-right: clamp(24px, 2.5vw, 48px);
+    }
+    .nav-cta-group {
+        padding-left: clamp(18px, 2vw, 28px);
+    }
+}
+
 /* ノートPC帯（1200〜1280px）：リンク群を詰めて CTA と衝突しないようにする */
 @media (max-width: 1280px) {
     .nav {
@@ -209,6 +220,7 @@
     }
     .nav-links-right {
         gap: clamp(6px, 0.8vw, 14px);
+        margin-right: clamp(18px, 2vw, 32px);
     }
     .nav-link {
         font-size: clamp(12px, 0.95vw, 14px);
@@ -217,7 +229,7 @@
     .nav-cta-group {
         margin-left: auto;
         gap: clamp(6px, 0.6vw, 10px);
-        padding-left: clamp(10px, 1.2vw, 18px);
+        padding-left: clamp(16px, 1.6vw, 22px);
     }
     .nav-demo-button,
     .nav-cta-button {
@@ -248,6 +260,7 @@
     }
     .nav-links-right {
         gap: 6px;
+        margin-right: 16px;
     }
     .nav-link {
         font-size: 12px;
@@ -255,7 +268,7 @@
     }
     .nav-cta-group {
         gap: 6px;
-        padding-left: 8px;
+        padding-left: 16px;
         margin-left: auto;
     }
     .nav-demo-button,
